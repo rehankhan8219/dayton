@@ -12,7 +12,7 @@
 
 - Change database settings in .env file
 
-- Set `FILESYSTEM_DISK=public`, `CACHE_DRIVER=array`, 
+- Set `FILESYSTEM_DISK=public`, `CACHE_DRIVER=array` in .env file, 
 
 - Migrate database tables: `php artisan migrate`
 

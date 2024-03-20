@@ -28,13 +28,12 @@
 
 ### Developed By:
 
->  `Company Name:` AZ IT Studio
+>  `Name:` Asifali Maknojiya
 >  
 >  `Services:` Web developement, REST APIs Developement, Deployment and Server Management etc
 >  
 >  `Experience:` 8+ years (2023)
 >  
 >  `Contact:`
-&ensp;&ensp;&ensp;&ensp; `Name:` Asifali Maknojiya
 &ensp;&ensp;&ensp;&ensp; `Skype:` [asifali_121](https://join.skype.com/invite/HNU2ETWPSUrC)
 &ensp;&ensp;&ensp;&ensp; `E-mail:` [work.asifali@gmail.com](mailto:work.asifali@gmail.com)

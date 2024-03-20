@@ -80,6 +80,14 @@
                         </a>
                     </li>
                 @endif
+                @if ($logged_in_user->hasAllAccess() || $logged_in_user->can('admin.access.growtree'))
+                    <li class="{{request()->routeIs('admin.growtree.*') ? 'mm-active' : ''}}">
+                        <a href="{{route('admin.growtree.index')}}" class="waves-effect">
+                            <i class="bx bx-git-merge"></i>
+                            <span key="t-roles">@lang('Grow Tree')</span>
+                        </a>
+                    </li>
+                @endif
 
                 {{-- @if ($logged_in_user->hasAllAccess())
                     <li class="menu-title" key='t-settings'>@lang('Settings')</li>

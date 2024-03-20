@@ -1,16 +1,8 @@
-## Laravel Starter (Current: Laravel 10.*)
-
-### Credits
-
-This project is highly inspired from [rappsoft/laravel-boilerplate](https://github.com/rappasoft/laravel-boilerplate/). The main reason was creating this one is to keep up with latest laravel version.
-
-### Introduction
-
-Laravel Starter provides you with a massive head start on any size web application. Out of the box it has features like a backend with Spatie/Permission authorization. Other features such as Two Factor Authentication, User/Role management, timezone support, and much more.
+## Dayton
 
 ### Configuration
 
-- Clone Repository: `git clone https://bitbucket.org/azitstudio/laravel-starter.git`
+- Clone Repository: `git clone https://github.com/rehankhan8219/dayton.git`
 
 - Install composer: `composer install`
 
@@ -19,6 +11,8 @@ Laravel Starter provides you with a massive head start on any size web applicati
 - Create database
 
 - Change database settings in .env file
+
+- Set `FILESYSTEM_DISK=public`, `CACHE_DRIVER=array`, 
 
 - Migrate database tables: `php artisan migrate`
 

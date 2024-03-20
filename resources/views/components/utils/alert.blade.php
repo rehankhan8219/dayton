@@ -1,0 +1,11 @@
+@props(['dismissable' => true, 'type' => 'success', 'ariaLabel' => __('Close')])
+
+<div {{ $attributes->merge(['class' => 'alert alert-dismissible alert-'.$type]) }} role="alert">
+    {{ $slot }}
+
+    @if ($dismissable)
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ $ariaLabel }}">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    @endif
+</div>

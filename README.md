@@ -22,6 +22,8 @@
 
 - Set the STMP details in .env file.
 
+- Generate application key - `php artisan key:generate`
+
 - (Optional) For localhost setup: Run `php artisan serve` and use url given by console in browser
 
   

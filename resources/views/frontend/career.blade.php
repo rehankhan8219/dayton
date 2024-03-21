@@ -30,7 +30,7 @@
              <div class="rectangle-div"></div>
              <!-- <div class="image-will-be">Image will be uploaded to here</div> -->
              <div class="image-will-be">
-               <img src="https://picsum.photos/seed/picsum/700" height="500" width="650">
+               <img class="img-fluid" src="https://picsum.photos/seed/picsum/700" height="500" width="650">
              </div>
            </div>
          </div>

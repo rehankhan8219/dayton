@@ -6,6 +6,8 @@ use Exception;
 use App\Models\User;
 use App\Services\BaseService;
 use Illuminate\Support\Facades\DB;
+use App\Events\Member\MemberCreated;
+use App\Events\Member\MemberUpdated;
 use App\Exceptions\GeneralException;
 use Illuminate\Support\Facades\Hash;
 
@@ -134,7 +136,9 @@ class UserService extends BaseService
             throw new GeneralException(__('There was a problem creating this user. Please try again.'));
         }
 
-        // event(new UserCreated($user));
+        if($user->isUser()) {
+            event(new MemberCreated($user));
+        }
 
         DB::commit();
 
@@ -180,11 +184,13 @@ class UserService extends BaseService
             }
         } catch (Exception $e) {
             DB::rollBack();
-            dd($e);
+            
             throw new GeneralException(__('There was a problem updating this user. Please try again.'));
         }
 
-        // event(new UserUpdated($user));
+        if($user->isUser()) {
+            event(new MemberUpdated($user));
+        }
 
         DB::commit();
 

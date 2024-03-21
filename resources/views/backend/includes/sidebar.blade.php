@@ -88,6 +88,14 @@
                         </a>
                     </li>
                 @endif
+                @if ($logged_in_user->hasAllAccess() || $logged_in_user->isAdmin())
+                    <li class="{{request()->routeIs('admin.payaccount.*') ? 'mm-active' : ''}}">
+                        <a href="{{route('admin.payaccount.index')}}" class="waves-effect">
+                            <i class="bx bx-transfer-alt"></i>
+                            <span key="t-roles">@lang('Pay Now Account')</span>
+                        </a>
+                    </li>
+                @endif
 
                 {{-- @if ($logged_in_user->hasAllAccess())
                     <li class="menu-title" key='t-settings'>@lang('Settings')</li>

@@ -45,7 +45,7 @@
                             </div>
                             <div class="card-body pt-0">
                                 <div class="auth-logo">
-                                    <a href="{{route('frontend.index')}}" class="auth-logo-light">
+                                    <a href="{{route('frontend.page.home')}}" class="auth-logo-light">
                                         <div class="avatar-md profile-user-wid mb-4">
                                             <span class="avatar-title rounded-circle bg-light">
                                                 <img src="{{asset('assets/backend/images/logo-light.svg')}}" alt="" class="rounded-circle"

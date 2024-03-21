@@ -1,0 +1,951 @@
+.frame-child,
+.frame-item {
+  position: absolute;
+  top: 178.93px;
+  left: -40.7px;
+  border-radius: 50%;
+  background-color: rgba(38, 145, 181, 0.2);
+  filter: blur(100px);
+  width: 500px;
+  height: 500px;
+  transform: rotate(-55.88deg);
+  transform-origin: 0 0;
+}
+.frame-item {
+  top: 311.97px;
+  left: -445px;
+  background-color: rgba(181, 38, 175, 0.2);
+  width: 494px;
+  height: 741px;
+  z-index: 1;
+}
+.ellipse-parent {
+  height: 727.6px;
+  width: 653.7px;
+  position: absolute;
+  margin: 0 !important;
+  bottom: -647.6px;
+  left: 0;
+}
+.frame-inner {
+  height: 80px;
+  width: 1440px;
+  position: relative;
+  background-color: var(--color-white);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  display: none;
+  mix-blend-mode: normal;
+  max-width: 100%;
+}
+.group-icon,
+.group-icon1 {
+  height: 30.2px;
+  width: 27.9px;
+  position: relative;
+  z-index: 3;
+}
+.group-icon1 {
+  height: 26.2px;
+  width: 84.4px;
+  cursor: pointer;
+}
+.frame-group {
+  height: 30.3px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 9.699999999999818px;
+}
+.about-us1,
+.career,
+.member-area,
+.product {
+  position: relative;
+  display: inline-block;
+  z-index: 3;
+}
+.about-us1 {
+  min-width: 78px;
+  white-space: nowrap;
+}
+.career,
+.member-area,
+.product {
+  min-width: 71px;
+  cursor: pointer;
+}
+.career,
+.member-area {
+  min-width: 63px;
+}
+.member-area {
+  min-width: 123px;
+  white-space: nowrap;
+}
+.you-tube-player-instance {
+  margin: 0;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 20.333333333333332px;
+  text-align: left;
+  font-size: var(--font-size-xl);
+  color: var(--color-black);
+  font-family: var(--font-outfit);
+}
+.frame-parent,
+.rectangle-parent,
+.you-tube-player-instance {
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+}
+.rectangle-parent {
+  flex: 1;
+  background-color: var(--color-white);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  align-items: flex-end;
+  justify-content: center;
+  padding: 32.69999999999999px var(--padding-xl) 17px 71px;
+  box-sizing: border-box;
+  gap: 415px;
+  z-index: 2;
+}
+.frame-parent {
+  align-self: stretch;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+}
+.image-icon {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.bottom,
+.top {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  transform: rotate(180deg);
+}
+.top {
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.25));
+}
+.bottom {
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.5));
+}
+.play-button-icon,
+.shadows {
+  width: 68px;
+  height: 48px;
+  position: absolute;
+  margin: 0 !important;
+  right: 208px;
+  bottom: 149px;
+  z-index: 2;
+}
+.shadows {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 155px;
+  max-width: 100%;
+  z-index: 1;
+}
+.made-at-theorem {
+  height: 27px;
+  flex: 1;
+  position: relative;
+  line-height: 0%;
+  display: flex;
+  align-items: center;
+  max-width: calc(100% - 36px);
+  z-index: 2;
+}
+.ico-info-icon {
+  height: 20px;
+  width: 20px;
+  position: relative;
+  z-index: 2;
+}
+.made-at-theorem-with-love-parent,
+.youtube-player-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.made-at-theorem-with-love-parent {
+  flex: 1;
+  justify-content: flex-start;
+  gap: 16px;
+}
+.youtube-player-inner {
+  align-self: stretch;
+  justify-content: flex-end;
+  padding: 0 var(--padding-9xs) 0 var(--padding-xs);
+  box-sizing: border-box;
+}
+.full,
+.loaded,
+.played {
+  position: absolute;
+  bottom: 0;
+}
+.full {
+  width: 100%;
+  right: 0;
+  left: 7.5px;
+  background-color: rgba(234, 234, 234, 0.2);
+  height: 100%;
+}
+.loaded,
+.played {
+  left: 0;
+  height: 3px;
+}
+.loaded {
+  width: 50.8%;
+  right: 49.2%;
+  background-color: rgba(234, 234, 234, 0.5);
+  z-index: 1;
+}
+.played {
+  width: 33.96%;
+  right: 66.04%;
+  background-color: #fc0d1c;
+  z-index: 2;
+}
+.timeline {
+  align-self: stretch;
+  height: 3px;
+  position: relative;
+}
+.ico-play-icon {
+  width: 13px;
+  height: 16px;
+  position: relative;
+}
+.ico-play-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 8.299999999999955px 0 0;
+}
+.ico-next-icon {
+  width: 12px;
+  height: 12px;
+  position: relative;
+}
+.ico-next-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-11xs) 0 0;
+}
+.ico-sound-icon {
+  height: 16px;
+  width: 13.3px;
+  position: relative;
+}
+.time {
+  position: relative;
+  letter-spacing: 0.01em;
+  line-height: 0%;
+  display: inline-block;
+  text-shadow: 1px 0 0 rgba(0, 0, 0, 0.1), 0 1px 0 rgba(0, 0, 0, 0.1),
+    -1px 0 0 rgba(0, 0, 0, 0.1), 0-1px 0 rgba(0, 0, 0, 0.1);
+  min-width: 71px;
+  white-space: nowrap;
+}
+.frame-parent1 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 19.700000000000045px;
+}
+.ico-titles-icon {
+  width: 18px;
+  height: 14px;
+  position: relative;
+}
+.ico-titles-wrapper {
+  width: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-11xs) 7px 0 0;
+  box-sizing: border-box;
+}
+.ico-hd-icon {
+  width: 20px;
+  height: 16px;
+  position: relative;
+  object-fit: cover;
+}
+.ico-hd-wrapper {
+  width: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-12xs) 0 0;
+  box-sizing: border-box;
+}
+.frame-input {
+  margin: 0;
+  height: 16px;
+  width: 20px;
+}
+.ico-tv-icon {
+  width: 22px;
+  height: 18px;
+  position: relative;
+  border-radius: 1px;
+}
+.ico-tv-wrapper {
+  width: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-9xs) 0 0;
+  box-sizing: border-box;
+}
+.ico-fullscreen-icon {
+  width: 16px;
+  height: 16px;
+  position: relative;
+}
+.frame-parent2,
+.ico-fullscreen-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-12xs) 0 0;
+}
+.frame-parent2 {
+  flex-direction: row;
+  padding: 0 var(--padding-11xs) 0 0;
+  gap: 13px;
+}
+.bottom-controls-inner,
+.frame-div {
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+}
+.frame-div {
+  flex: 1;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.bottom-controls-inner {
+  width: 454px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+.bottom-controls,
+.youtube-player {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  max-width: 100%;
+  z-index: 2;
+}
+.bottom-controls {
+  align-self: stretch;
+  gap: 9px;
+  font-size: 13px;
+  color: #eaeaea;
+}
+.youtube-player {
+  flex: 0.966;
+  padding: 14px var(--padding-xs) 9px 4.5px;
+  box-sizing: border-box;
+  position: relative;
+  gap: 267px;
+  min-width: 315px;
+}
+.what-is-dayton {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+  display: inline-block;
+  max-width: 100%;
+}
+.dayton-fintech-is {
+  margin: 0;
+}
+.dayton-fintech-is-container {
+  align-self: stretch;
+  position: relative;
+  font-size: var(--font-size-sm);
+  text-align: justify;
+  z-index: 3;
+}
+.what-is-dayton-fintech-parent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16.900000000000006px;
+  max-width: 100%;
+}
+.rectangle-div {
+  height: 45px;
+  width: 171px;
+  position: relative;
+  border-radius: var(--br-xl);
+  background-color: var(--color-steelblue-100);
+  display: none;
+}
+.learn-more {
+  width: 78px;
+  position: relative;
+  font-size: var(--font-size-mini);
+  font-family: var(--font-outfit);
+  color: var(--color-snow-100);
+  text-align: center;
+  display: inline-block;
+  min-width: 78px;
+  z-index: 5;
+}
+.rectangle-group {
+  cursor: pointer;
+  border: 0;
+  /*padding: var(--padding-2xs) var(--padding-27xl) var(--padding-mini)
+    var(--padding-28xl);*/
+  padding: var(--padding-smi) 46px var(--padding-smi) 47px;
+  background-color: var(--color-steelblue-100);
+  border-radius: var(--br-xl);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  white-space: nowrap;
+  z-index: 4;
+}
+.rectangle-container:hover,
+.rectangle-group:hover {
+  background-color: var(--color-skyblue);
+}
+.frame-parent3 {
+  align-self: stretch;
+  flex-direction: column;
+  gap: 21px;
+}
+.frame-parent3,
+.frame-wrapper,
+.youtube-player-parent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.frame-wrapper {
+  flex: 1;
+  flex-direction: column;
+  padding: 41px 0 0;
+  box-sizing: border-box;
+  min-width: 310px;
+  font-size: var(--font-size-13xl);
+  color: var(--color-black);
+  font-family: var(--font-outfit);
+}
+.youtube-player-parent {
+  align-self: stretch;
+  flex-direction: row;
+  gap: 55px;
+}
+.dayton-fintech-monthly {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+  display: inline-block;
+  max-width: 100%;
+  z-index: 2;
+}
+.dayton-fintech-is1 {
+  margin: 0;
+}
+.dayton-fintech-is-container1 {
+  align-self: stretch;
+  height: 157px;
+  position: relative;
+  font-size: var(--font-size-sm);
+  text-align: justify;
+  display: inline-block;
+  flex-shrink: 0;
+  z-index: 2;
+}
+.dayton-fintech-monthly-report-parent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 24px;
+  max-width: 100%;
+}
+.frame-child1 {
+  height: 45px;
+  width: 171px;
+  position: relative;
+  border-radius: var(--br-xl);
+  background-color: var(--color-steelblue-100);
+  display: none;
+}
+.learn-more1 {
+  width: 78px;
+  position: relative;
+  font-size: var(--font-size-mini);
+  font-family: var(--font-outfit);
+  color: var(--color-snow-100);
+  text-align: center;
+  display: inline-block;
+  min-width: 78px;
+  z-index: 4;
+}
+.rectangle-container {
+  cursor: pointer;
+  border: 0;
+ /* padding: var(--padding-2xs) var(--padding-27xl) var(--padding-mini)
+    var(--padding-28xl);*/
+  padding: var(--padding-smi) 46px var(--padding-smi) 47px;
+  background-color: var(--color-steelblue-100);
+  border-radius: var(--br-xl);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  white-space: nowrap;
+  z-index: 3;
+  margin-top: -45px;
+}
+.frame-parent4 {
+  width: 477px;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: var(--font-size-13xl);
+  color: var(--color-black);
+  font-family: var(--font-outfit);
+}
+.about-us-inner,
+.frame-container,
+.frame-parent4 {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.frame-container {
+  width: 1017px;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 83px;
+}
+.about-us-inner {
+/*  width: 1295px;*/
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 var(--padding-xl) 81px;
+  box-sizing: border-box;
+  text-align: left;
+  font-size: 18px;
+  color: var(--color-white);
+  font-family: var(--font-helvetica);
+  padding-left: 10%;
+}
+.dayton-fintech-logo {
+  position: absolute;
+  top: 43px;
+  left: 13px;
+  border-radius: 50%;
+  background-color: rgba(118, 38, 181, 0.3);
+  filter: blur(100px);
+  width: 1936px;
+  height: 829px;
+}
+.other-01-18 {
+  position: absolute;
+  top: 109px;
+  left: 0;
+  width: 241px;
+  height: 235px;
+  object-fit: cover;
+  z-index: 1;
+}
+.marni-2-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 572px;
+  height: 659px;
+  object-fit: contain;
+}
+.other-01-3,
+.untitled-icon,
+.untitled2-icon {
+  position: absolute;
+  top: 277px;
+  left: 39px;
+  width: 134px;
+  height: 134px;
+  object-fit: cover;
+  z-index: 3;
+}
+.other-01-3,
+.untitled2-icon {
+  top: 122px;
+  left: 426px;
+  width: 59px;
+  height: 59px;
+}
+.other-01-3 {
+  top: 187px;
+  left: 301px;
+  width: 249px;
+  height: 286px;
+}
+.marni-2-parent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 572px;
+  height: 659px;
+}
+.dayton-fintech-logo-parent {
+  height: 724px;
+  width: 577px;
+  position: absolute;
+  margin: 0 !important;
+  top: -560px;
+  right: 0;
+}
+.frame-child2 {
+  height: 164px;
+  width: 1440px;
+  position: relative;
+  background-color: var(--color-darkslategray);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  display: none;
+  max-width: 100%;
+}
+.help {
+  position: relative;
+  font-weight: 600;
+  display: inline-block;
+  min-width: 42px;
+  z-index: 4;
+}
+.faq,
+.help-center {
+  margin-block-start: 0;
+  margin-block-end: 5px;
+}
+.maintenance-fee {
+  margin: 0;
+}
+.faq-help-center-container {
+  position: relative;
+  font-size: var(--font-size-sm);
+  color: var(--color-silver);
+  z-index: 4;
+}
+.help-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 12px;
+}
+.disclaimer {
+  color: #e9e6e6;
+}
+.consider-your-investment,
+.dayton-does-not,
+.disclaimer,
+.trading-forex-carries {
+  margin-block-start: 0;
+  margin-block-end: 5px;
+}
+.all-decisions-with {
+  margin: 0;
+}
+.disclaimer-trading-forex-container {
+  align-self: stretch;
+  position: relative;
+  z-index: 4;
+}
+.disclaimer-trading-forex-carri-wrapper,
+.rectangle-parent1 {
+  display: flex;
+  align-items: flex-start;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.disclaimer-trading-forex-carri-wrapper {
+  width: 432px;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 5px 0 0;
+  text-align: right;
+  font-size: 10px;
+  color: var(--color-silver);
+}
+.rectangle-parent1 {
+  flex: 1;
+  background-color: var(--color-darkslategray);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  flex-direction: row;
+  justify-content: space-between;
+  padding: var(--padding-xl) 185px 43px 284px;
+  gap: var(--gap-xl);
+  z-index: 3;
+}
+.about-us,
+.frame-footer {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+}
+.frame-footer {
+  align-self: stretch;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--font-size-xl);
+  color: #fffbfb;
+  font-family: var(--font-outfit);
+}
+.about-us {
+  width: 100%;
+  background-color: var(--color-white);
+  overflow: hidden;
+  flex-direction: column;
+  align-items: flex-end;
+/*  gap: 66px;*/
+  gap: 25px;
+  letter-spacing: normal;
+}
+@media screen and (max-width: 1025px) {
+  .rectangle-parent {
+    gap: 415px 207px;
+    padding-left: 35px;
+    box-sizing: border-box;
+  }
+  .frame-container {
+    gap: 41px 83px;
+  }
+  .rectangle-parent1 {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 975px) {
+  .made-at-theorem-with-love-parent,
+  .youtube-player {
+    flex: 1;
+  }
+  .what-is-dayton {
+    font-size: var(--font-size-7xl);
+  }
+  .frame-wrapper {
+    flex: 1;
+  }
+  .youtube-player-parent {
+    flex-wrap: wrap;
+  }
+  .dayton-fintech-monthly {
+    font-size: var(--font-size-7xl);
+  }
+  .about-us-inner {
+    padding-bottom: 53px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 725px) {
+  .you-tube-player-instance {
+    display: none;
+  }
+  .rectangle-parent {
+    gap: 415px 104px;
+  }
+  .shadows {
+    gap: 77px 155px;
+  }
+  .youtube-player {
+    gap: 133px 267px;
+  }
+  .youtube-player-parent {
+    gap: 55px 27px;
+  }
+  .frame-container {
+    gap: 21px 83px;
+  }
+  .rectangle-parent1 {
+    padding-left: 142px;
+    padding-right: 92px;
+    box-sizing: border-box;
+  }
+  .about-us {
+    gap: 33px 66px;
+  }
+
+  .marni-2-icon{
+    height: 260px;
+  }
+
+  .untitled-icon, .untitled2-icon {
+      top: 107px;
+      left: 145px;
+      width: 120px;
+      height: 91px;
+  }
+
+  .other-01-18 {
+      top: 16px;
+      left: 144px;
+      width: 130px;
+      height: 119px;
+  }
+
+  .other-01-3 {
+      top: 64px;
+      left: 313px;
+      width: 150px;
+      height: 150px;
+  }
+
+  .untitled2-icon {
+      top: 20px;
+      left: 426px;
+      width: 59px;
+      height: 59px;
+  }
+
+  .frame-footer-section{
+    height: 230px;
+  }
+
+  .dayton-fintech-logo-parent {
+    height: 724px;
+    width: 520px;
+    position: absolute;
+    margin: 0 !important;
+    top: -50px;
+    right: 0;
+  }
+
+  .rectangle-container{
+    margin-top: 0px;
+  }
+  
+}
+@media screen and (max-width: 450px) {
+  .rectangle-parent {
+    gap: 415px 52px;
+  }
+  .frame-div {
+    flex-wrap: wrap;
+  }
+  .dayton-fintech-monthly,
+  .what-is-dayton {
+    font-size: var(--font-size-lgi);
+  }
+  .help {
+    font-size: 16px;
+  }
+  .rectangle-parent1 {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .about-us {
+    gap: 16px 66px;
+  }
+
+  .marni-2-icon{
+    height: 260px;
+  }
+
+  .untitled-icon, .untitled2-icon {
+      top: 107px;
+      left: 145px;
+      width: 120px;
+      height: 91px;
+  }
+
+  .other-01-18 {
+      top: 16px;
+      left: 144px;
+      width: 130px;
+      height: 119px;
+  }
+
+  .other-01-3 {
+      top: 64px;
+      left: 313px;
+      width: 150px;
+      height: 150px;
+  }
+
+  .untitled2-icon {
+      top: 20px;
+      left: 426px;
+      width: 59px;
+      height: 59px;
+  }
+
+  .frame-footer-section{
+    height: 230px;
+  }
+
+  .dayton-fintech-logo-parent {
+    height: 724px;
+    width: 520px;
+    position: absolute;
+    margin: 0 !important;
+    top: -50px;
+    right: 0;
+  }
+
+  .rectangle-container{
+    margin-top: 0px;
+  }
+}
+
+

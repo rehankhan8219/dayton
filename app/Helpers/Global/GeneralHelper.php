@@ -51,6 +51,6 @@ if (! function_exists('homeRoute')) {
             return 'admin.auth.login';
         }
         
-        return 'frontend.index';
+        return 'frontend.page.home';
     }
 }

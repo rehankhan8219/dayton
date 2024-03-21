@@ -16,7 +16,7 @@
             </div>
         </div>
         @foreach ($blogs as $blog)
-            <x-forms.patch :action="route('admin.blog.update', $blog)" enctype="multipart/form-data">
+            <x-forms.patch :action="route('admin.blog.update', $blog)" id="blog-form" enctype="multipart/form-data">
                 @php
                     html()->model($blog);
                 @endphp
@@ -27,10 +27,10 @@
                         <div class="row mb-3">
                             <div class="col-sm-12 col-md-6">
                                 {{ html()->label(__('Subtitle').'<span class="text-danger">*</span>')->for('subtitle') }}
-                                {{ html()->text('subtitle')
+                                {{ html()->textarea('subtitle')
                                     ->class('form-control')
                                     ->placeholder(__('Subtitle'))
-                                    ->maxlength(100)
+                                    ->rows(4)
                                     ->required() }}
                             </div>
                         </div><!--form-group-->
@@ -59,12 +59,18 @@
                             </div>
                         </div><!--form-group-->
                         @endif
+
+                        @php $is_editor = ''; @endphp
+
+                        @if ($blog->name == 'Home 2')
+                            @php $is_editor = 'my-editor'; @endphp
+                        @endif
                         <div class="row mb-3">
                             <div class="col-sm-12 col-md-6">
                                 {{ html()->label(__('Script').'<span class="text-danger">*</span>')->for('script') }}
                                 {{ html()->textarea('script')
-                                    ->class('form-control')
-                                    ->placeholder(__('Subtitle'))
+                                    ->class('form-control '.$is_editor)
+                                    ->placeholder(__('script'))
                                     ->rows(8)
                                     ->required() }}
                             </div>

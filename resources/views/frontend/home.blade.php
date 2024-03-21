@@ -19,17 +19,11 @@
           <div class="frame-container">
             <div class="join-our-community-and-get-yo-parent">
               <h1 class="join-our-community-container">
-                <p class="join-our-community">Join our Community!</p>
-                <p class="and-get-your">And Get your Auto-Trade</p>
-                <p class="expert-advisor">Expert Advisor!</p>
+                <p class="join-our-community"> {!! nl2br($home_secton_1->subtitle) !!}</p>
               </h1>
               <div class="be-a-part-container">
                 <p class="be-a-part">
-                  Be a part of Dayton Fintech and take advantage of ongoing
-                  events
-                </p>
-                <p class="by-clicking-the">
-                  by clicking the button below to register.
+                  {!! nl2br($home_secton_1->script) !!}
                 </p>
               </div>
             </div>
@@ -56,36 +50,18 @@
       <div class="home-second-section row w-100">
         <div class="col-sm-8">
           <div class="youtube-player">
-          <iframe width="100%" height="313" src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=0&mute=0"></iframe>
+          <iframe width="100%" height="313" src="{{ $home_secton_2->video }}"></iframe>
           </div>
         </div>
         <div class="col-sm-4">
           <div class="bottom-controls-container-inner">
             <div class="learn-how-to-start-in-dayton-f-parent">
               <h2 class="learn-how-to-container">
-                <p class="learn-how-to">Learn how to start in</p>
-                <p class="dayton-fintech-easier">Dayton Fintech easier</p>
+                <p class="learn-how-to">{!! nl2br($home_secton_2->subtitle) !!}</p>
               </h2>
               <div class="frame-parent1">
                 <div class="forex-broker-parent">
-                  <div class="forex-broker">Forex Broker</div>
-                  <div class="tricks-and-tips">
-                    Tricks and tips to choose your broker
-                  </div>
-                </div>
-                <div class="meta-trader-info">
-                  <div class="meta-trader-4">Meta Trader 4</div>
-                  <div class="instant-trade-with">
-                    Instant trade with Meta Trader 4
-                  </div>
-                </div>
-                <div class="dayton-expert-advisor-parent">
-                  <div class="dayton-expert-advisor">
-                    Dayton Expert Advisor
-                  </div>
-                  <div class="choose-your-pairs">
-                    Choose your pairs and start to auto - trade with Dayton
-                  </div>
+                  {!! $home_secton_2->script !!}
                 </div>
               </div>
               <button class="rectangle-container">
@@ -96,8 +72,6 @@
           </div>
         </div>
       </div>
-
-
     </div>
   </div>
 </section>

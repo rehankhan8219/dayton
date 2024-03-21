@@ -20,22 +20,17 @@
      <div class="row">
         <div class="col-sm-6 col-md-6">
            <div class="youtube-player">
-              <iframe width="100%" height="313" src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=0&mute=0"></iframe>
+              <iframe width="100%" height="313" src="{{ $about_us_secton_1->video }}"></iframe>
            </div>
         </div>
         <div class="col-sm-6 col-md-6">
            <div class="frame-wrapper">
               <div class="frame-parent3">
                  <div class="what-is-dayton-fintech-parent">
-                    <h2 class="what-is-dayton">What is Dayton Fintech?</h2>
+                    <h2 class="what-is-dayton">{!! $about_us_secton_1->subtitle !!}</h2>
                     <div class="dayton-fintech-is-container">
                        <p class="dayton-fintech-is">
-                          Dayton Fintech is a piece of Expert Advisor software
-                          written specifically for the MetaTrader platform, which is
-                          widely used for trading Forex, stocks, and other financial
-                          instruments. Expert Advisors are essentially automated
-                          trading systems that can execute trades on behalf of
-                          traders based on pre-defined rules or algorithms.
+                          {!! $about_us_secton_1->script !!}
                        </p>
                     </div>
                  </div>
@@ -50,16 +45,11 @@
      <div class="frame-parent4">
         <div class="dayton-fintech-monthly-report-parent">
            <h2 class="dayton-fintech-monthly">
-              Dayton Fintech Monthly Report
+              {!! $about_us_secton_2->subtitle !!}
            </h2>
            <div class="dayton-fintech-is-container1">
               <p class="dayton-fintech-is1">
-                 Dayton Fintech is a piece of Expert Advisor software written
-                 specifically for the MetaTrader platform, which is widely used
-                 for trading Forex, stocks, and other financial instruments.
-                 Expert Advisors are essentially automated trading systems that
-                 can execute trades on behalf of traders based on pre-defined
-                 rules or algorithms.
+                {!! $about_us_secton_2->script !!}
               </p>
            </div>
         </div>

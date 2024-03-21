@@ -79,7 +79,7 @@
                         {{ html()->label('')->class('col-md-1 col-form-label') }}
                         <button class="col-md-2 btn btn-sm btn-primary float-right" type="submit">@lang('Update Grow Tree')</button>
                     </div>
-                </x-forms.post>
+                </x-forms.patch>
             </div>
         </x-slot>
     </x-backend.card>

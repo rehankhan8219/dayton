@@ -96,16 +96,24 @@
                         </a>
                     </li>
                 @endif
+                @if ($logged_in_user->hasAllAccess() || $logged_in_user->isAdmin())
+                    <li class="{{request()->routeIs('admin.helpcenter.*') ? 'mm-active' : ''}}">
+                        <a href="{{route('admin.helpcenter.index')}}" class="waves-effect">
+                            <i class="bx bx-question-mark"></i>
+                            <span key="t-roles">@lang('Help Center')</span>
+                        </a>
+                    </li>
+                @endif
 
-                {{-- @if ($logged_in_user->hasAllAccess())
-                    <li class="menu-title" key='t-settings'>@lang('Settings')</li>
+                @if ($logged_in_user->hasAllAccess())
+                    {{-- <li class="menu-title" key='t-settings'>@lang('Settings')</li> --}}
                     <li class="{{request()->routeIs('admin.settings.*') ? 'mm-active' : ''}}">
                         <a href="{{route('admin.settings.index')}}" class="waves-effect">
                             <i class="fa fa-cog"></i>
                             <span key="t-roles">@lang('Settings')</span>
                         </a>
                     </li>
-                @endif --}}
+                @endif
             </ul>
         </div>
         <!-- Sidebar -->

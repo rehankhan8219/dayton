@@ -6,7 +6,7 @@ use App\Models\User;
 use App\Models\Level;
 
 /**
- * Class Grow TreeRelationship.
+ * Class GrowTreeRelationship.
  */
 trait GrowTreeRelationship
 {

@@ -17,6 +17,7 @@
         "livewire/livewire": "^2.12",
         "qcod/laravel-app-settings": "^1.6",
         "rappasoft/laravel-livewire-tables": "^2.15",
+        "spatie/laravel-activitylog": "^4.8",
         "spatie/laravel-html": "^3.2",
         "spatie/laravel-permission": "^5.10",
         "tabuna/breadcrumbs": "^4.0"

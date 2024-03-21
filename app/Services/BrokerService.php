@@ -2,6 +2,9 @@
 
 namespace App\Services;
 
+use App\Events\Broker\BrokerCreated;
+use App\Events\Broker\BrokerDeleted;
+use App\Events\Broker\BrokerUpdated;
 use Exception;
 use App\Models\Broker;
 use App\Services\BaseService;
@@ -53,6 +56,8 @@ class BrokerService extends BaseService
 
         DB::commit();
 
+        event(new BrokerCreated($broker));
+
         return $broker;
     }
 
@@ -87,6 +92,8 @@ class BrokerService extends BaseService
 
         DB::commit();
 
+        event(new BrokerUpdated($broker));
+
         return $broker;
     }
 
@@ -99,6 +106,7 @@ class BrokerService extends BaseService
     public function destroy(Broker $broker): bool
     {
         if ($this->deleteById($broker->id)) {
+            event(new BrokerDeleted($broker));
             return true;
         }
 

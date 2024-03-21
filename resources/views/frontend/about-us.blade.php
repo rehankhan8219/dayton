@@ -15,7 +15,7 @@
      <div class="frame-item"></div>
   </div>
 </div>
-<section class="about-us-inner">
+<section class="about-us-inner min_height_for_footer">
   <div class="frame-container">
      <div class="row">
         <div class="col-sm-6 col-md-6">

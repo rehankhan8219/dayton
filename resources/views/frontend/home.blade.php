@@ -11,7 +11,7 @@
 
 <section class="home-page-main-overlay"></section>
 
-<section class="home-child">
+<section class="home-child min_height_for_footer">
   <div class="frame-group">
     <div class="frame-wrapper">
       <div class="row">

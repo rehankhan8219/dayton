@@ -12,7 +12,7 @@
 <section class="product-child"></section>
    <div class="product-item"></div>
    
-   <section class="ellipse-parent">
+   <section class="ellipse-parent min_height_for_footer">
      <div class="frame-inner"></div>
      <div class="currency-pair-label-wrapper">
        <div class="currency-pair-label">

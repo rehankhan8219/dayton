@@ -62,6 +62,10 @@
   padding-left: 10px;
 }
 
+.header-about-us-parent-for-mobile a {
+  color: white;
+}
+
 .header-about-us {
   min-width: 78px;
   white-space: nowrap;

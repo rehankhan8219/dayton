@@ -1,8 +1,14 @@
 <nav class="header-about-us-parent-for-mobile">
   <span class="close-icon" onclick="toggleMobileMenu()">✖</span>
-  <div class="header-nav-text header-about-us" id="aboutUsText">About us</div>
-  <div class="header-nav-text header-product" id="productText">Product</div>
-  <div class="header-nav-text header-career" id="careerText">Career</div>
+  <div class="header-nav-text header-about-us" id="aboutUsText">
+    <a href="{{ route('frontend.page.about-us') }}">About us</a>
+  </div>
+  <div class="header-nav-text header-product" id="productText">
+    <a href="{{ route('frontend.page.product') }}">Product</a>
+  </div>
+  <div class="header-nav-text header-career" id="careerText">
+    <a href="{{ route('frontend.page.career') }}">Career</a>
+  </div>
   <div class="header-nav-text header-member-area" id="memberAreaText">Member Area</div>
 </nav>
 

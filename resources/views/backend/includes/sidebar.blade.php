@@ -80,16 +80,40 @@
                         </a>
                     </li>
                 @endif
+                @if ($logged_in_user->hasAllAccess() || $logged_in_user->can('admin.access.growtree'))
+                    <li class="{{request()->routeIs('admin.growtree.*') ? 'mm-active' : ''}}">
+                        <a href="{{route('admin.growtree.index')}}" class="waves-effect">
+                            <i class="bx bx-git-merge"></i>
+                            <span key="t-roles">@lang('Grow Tree')</span>
+                        </a>
+                    </li>
+                @endif
+                @if ($logged_in_user->hasAllAccess() || $logged_in_user->isAdmin())
+                    <li class="{{request()->routeIs('admin.payaccount.*') ? 'mm-active' : ''}}">
+                        <a href="{{route('admin.payaccount.index')}}" class="waves-effect">
+                            <i class="bx bx-transfer-alt"></i>
+                            <span key="t-roles">@lang('Pay Now Account')</span>
+                        </a>
+                    </li>
+                @endif
+                @if ($logged_in_user->hasAllAccess() || $logged_in_user->isAdmin())
+                    <li class="{{request()->routeIs('admin.helpcenter.*') ? 'mm-active' : ''}}">
+                        <a href="{{route('admin.helpcenter.index')}}" class="waves-effect">
+                            <i class="bx bx-question-mark"></i>
+                            <span key="t-roles">@lang('Help Center')</span>
+                        </a>
+                    </li>
+                @endif
 
-                {{-- @if ($logged_in_user->hasAllAccess())
-                    <li class="menu-title" key='t-settings'>@lang('Settings')</li>
+                @if ($logged_in_user->hasAllAccess())
+                    {{-- <li class="menu-title" key='t-settings'>@lang('Settings')</li> --}}
                     <li class="{{request()->routeIs('admin.settings.*') ? 'mm-active' : ''}}">
                         <a href="{{route('admin.settings.index')}}" class="waves-effect">
                             <i class="fa fa-cog"></i>
                             <span key="t-roles">@lang('Settings')</span>
                         </a>
                     </li>
-                @endif --}}
+                @endif
             </ul>
         </div>
         <!-- Sidebar -->

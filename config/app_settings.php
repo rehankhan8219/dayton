@@ -56,46 +56,61 @@ return [
         //         ]
         //     ]
         // ],
-        'social' => [
-            'title' => 'Social Settings',
-            'descriptions' => 'Social media links of the application.',
-            'icon' => 'fa fa-share',
+        // 'social' => [
+        //     'title' => 'Social Settings',
+        //     'descriptions' => 'Social media links of the application.',
+        //     'icon' => 'fa fa-share',
+
+        //     'inputs' => [
+        //         [
+        //             'name' => 'social_facebook_url',
+        //             'type' => 'text',
+        //             'label' => 'Facebook Url',
+        //             'placeholder' => 'Facebook page url',
+        //             'rules' => 'nullable|url|max:191',
+        //         ],
+        //         [
+        //             'name' => 'social_instagram_url',
+        //             'type' => 'text',
+        //             'label' => 'Instagram Url',
+        //             'placeholder' => 'Instagram page url',
+        //             'rules' => 'nullable|url|max:191',
+        //         ],
+        //         [
+        //             'name' => 'social_twitter_url',
+        //             'type' => 'text',
+        //             'label' => 'Twitter Url',
+        //             'placeholder' => 'Twitter page url',
+        //             'rules' => 'nullable|url|max:191',
+        //         ],
+        //         [
+        //             'name' => 'social_linkedin_url',
+        //             'type' => 'text',
+        //             'label' => 'Linkedin Url',
+        //             'placeholder' => 'Linkedin page url',
+        //             'rules' => 'nullable|url|max:191',
+        //         ],
+        //         [
+        //             'name' => 'social_pinterest_url',
+        //             'type' => 'text',
+        //             'label' => 'Pinterest Url',
+        //             'placeholder' => 'Pinterest page url',
+        //             'rules' => 'nullable|url|max:191',
+        //         ],
+        //     ]
+        // ],
+        'chat' => [
+            'title' => 'Live Chat Settings',
+            'descriptions' => 'Live chat settings to communicate with users.',
+            'icon' => 'fa fa-chat-o',
 
             'inputs' => [
                 [
-                    'name' => 'social_facebook_url',
+                    'name' => 'script',
                     'type' => 'text',
-                    'label' => 'Facebook Url',
-                    'placeholder' => 'Facebook page url',
-                    'rules' => 'nullable|url|max:191',
-                ],
-                [
-                    'name' => 'social_instagram_url',
-                    'type' => 'text',
-                    'label' => 'Instagram Url',
-                    'placeholder' => 'Instagram page url',
-                    'rules' => 'nullable|url|max:191',
-                ],
-                [
-                    'name' => 'social_twitter_url',
-                    'type' => 'text',
-                    'label' => 'Twitter Url',
-                    'placeholder' => 'Twitter page url',
-                    'rules' => 'nullable|url|max:191',
-                ],
-                [
-                    'name' => 'social_linkedin_url',
-                    'type' => 'text',
-                    'label' => 'Linkedin Url',
-                    'placeholder' => 'Linkedin page url',
-                    'rules' => 'nullable|url|max:191',
-                ],
-                [
-                    'name' => 'social_pinterest_url',
-                    'type' => 'text',
-                    'label' => 'Pinterest Url',
-                    'placeholder' => 'Pinterest page url',
-                    'rules' => 'nullable|url|max:191',
+                    'label' => 'Live Chat',
+                    'placeholder' => '',
+                    'rules' => 'nullable|max:191',
                 ],
             ]
         ]
@@ -105,7 +120,7 @@ return [
     'url' => '/admin/settings',
 
     // Any middleware you want to run on above route
-    'middleware' => ['is_super_admin'],
+    'middleware' => ['is_admin'],
 
     // Route Names
     'route_names' => [

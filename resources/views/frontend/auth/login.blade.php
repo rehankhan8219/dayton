@@ -42,8 +42,8 @@
                     ->required() }}
 
               <div class="vuesaxlineareye-wrapper">
-                <button class="btn btn-transparent p-0" type="button" id="login_field_password_visible_toggler"><i
-                    class="mdi mdi-eye-outline"></i></button>
+                <button class="btn btn-transparent p-0" type="button" style="display: contents;"><i
+                    class="mdi mdi-eye-outline" id="login_field_password_visible_toggler"></i></button>
               </div>
             </div>
           </div>
@@ -72,14 +72,27 @@
 @endsection
 @push('after-scripts')
 <script type="text/javascript">
+
+ 
   $(document).ready(function() {
       $("#login_field_password_visible_toggler").click(function() {
         var login_field_password = $("#login_field_password");
         if (login_field_password.attr("type") === "password") {
           login_field_password.attr("type", "text");
+
+          $(this).removeClass('mdi-eye-outline');
+          $(this).addClass('mdi-eye-off-outline');
+
         } else {
           login_field_password.attr("type", "password");
+          $(this).addClass('mdi-eye-outline');
+          $(this).removeClass('mdi-eye-off-outline');
         }
+      });
+
+      $(document).on("focus", "input", function() {
+        $(".frame-item").removeClass("active");
+        $(this).parent().find(".frame-item").addClass("active");
       });
     });
 </script>

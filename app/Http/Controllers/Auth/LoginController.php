@@ -41,7 +41,7 @@ class LoginController
     }
 
     public function register(){
-         return view('frontend.signup');
+         return view('frontend.auth.register');
     }
 
     /**

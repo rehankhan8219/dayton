@@ -172,6 +172,7 @@
   justify-content: flex-start;
   padding: 1px 0 0;
   box-sizing: border-box;
+  position: relative;
 }
 .field-parent,
 .field1,

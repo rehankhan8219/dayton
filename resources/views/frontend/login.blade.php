@@ -34,11 +34,12 @@
               <input
                 class="rnistudio99"
                 placeholder="Enter your password"
-                type="text"
+                type="password"
               />
 
               <div class="vuesaxlineareye-wrapper">
                 <img
+                  id="eyeIcon"
                   class="vuesaxlineareye-icon"
                   alt=""
                   src="{{ asset('assets/frontend/img/vuesaxlineareye.svg') }}"
@@ -68,4 +69,19 @@
   </section>
 @endsection
 @push('after-scripts')
+<script type="text/javascript">
+  $(document).ready(function() {
+      $("#eyeIcon").click(function() {
+        var passwordField = $("#passwordField");
+        var eyeIcon = $(this);
+        if (passwordField.attr("type") === "password") {
+          passwordField.attr("type", "text");
+          eyeIcon.attr("src", "{{ asset('assets/frontend/img/vuesaxlineareye.svg') }}"); // Change to hidden eye icon image
+        } else {
+          passwordField.attr("type", "password");
+          eyeIcon.attr("src", "{{ asset('assets/frontend/img/vuesaxlineareye.svg') }}"); // Change to visible eye icon image
+        }
+      });
+    });
+</script>
 @endpush

@@ -14,7 +14,7 @@
         <link href="{{asset('assets/backend/css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet" type="text/css" />
         <link href="{{asset('assets/frontend/css/style.css')}}" rel="stylesheet" type="text/css" />
 
-        @php
+        <!-- @php
             $front_main_page = ['home', 'about-us', 'product'];
         @endphp
 
@@ -29,7 +29,13 @@
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap"/>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus Jakarta Sans:wght@400;500;600;700&display=swap" />
 
-        @endif
+        @endif -->
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Helvetica:wght@400&display=swap" />
+        <link href="{{asset('assets/frontend/css/global.css')}}" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus Jakarta Sans:wght@400;500;600;700&display=swap" />
 
         @stack('page-styles')
 

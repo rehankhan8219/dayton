@@ -88,6 +88,14 @@
                         </a>
                     </li>
                 @endif
+                @if ($logged_in_user->hasAllAccess() || $logged_in_user->can('admin.access.inbox'))
+                    <li class="{{request()->routeIs('admin.inbox.*') ? 'mm-active' : ''}}">
+                        <a href="{{route('admin.inbox.index')}}" class="waves-effect">
+                            <i class="bx bx bxs-inbox"></i>
+                            <span key="t-roles">@lang('Inbox')</span>
+                        </a>
+                    </li>
+                @endif
                 @if ($logged_in_user->hasAllAccess() || $logged_in_user->isAdmin())
                     <li class="{{request()->routeIs('admin.payaccount.*') ? 'mm-active' : ''}}">
                         <a href="{{route('admin.payaccount.index')}}" class="waves-effect">

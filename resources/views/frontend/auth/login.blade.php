@@ -1,79 +1,86 @@
-@extends('backend.layouts.auth')
+@extends('frontend.layouts.app')
 
-@section('title', 'Login')
-@section('page-title', 'Welcome Back !')
-@section('page-description', 'Sign in to continue to '.appName())
+@section('title', __('Login'))
+@section('page_name', 'member-area-login')
+
+@push('after-styles')
+    <link href="{{asset('assets/frontend/css/login.css')}}" rel="stylesheet" type="text/css" />
+@endpush
+
 @section('content')
-    <x-forms.post :action="route('admin.auth.login')" class="form-horizontal">
-        <div class="mb-3">
-            {{ html()->label(__('Username'))->class('form-label')->for('username') }}
-            {{ html()->text('username')
-                ->class('form-control')
-                ->placeholder(__('User ID'))
+   <section class="long-c-t-a-wrapper">
+    <x-forms.post :action="route('admin.auth.login')" class="long-c-t-a">
+      <div class="welcome-back-parent">
+        <b class="welcome-back">Welcome Back!</b>
+        <div class="please-sign-in">Please sign in to your account</div>
+      </div>
+      <div class="frame-group">
+        <div class="field-parent">
+          <div class="field">
+            <div class="unit">Email</div>
+            <div class="rectangle-parent">
+              <div class="frame-item active"></div>
+              {{ html()->text('username')
+                ->class('input-unit')
+                ->placeholder('james@daytonfintech.com')
                 ->autofocus()
-                ->attribute('autocomplate', 'username')
+                ->attribute('autocomplate', uniqid())
                 ->maxlength(191)
                 ->required() }}
-        </div>
-        <div class="mb-3">
-            {{ html()->label(__('Password'))->class('form-label')->for('password') }}
-            <div class="input-group auth-pass-inputgroup">
-                {{ html()->password('password')
-                    ->class('form-control')
+            </div>
+          </div>
+          <div class="field1">
+            <div class="unit1">Password</div>
+            <div class="rectangle-group">
+              <div class="frame-item"></div>
+              {{ html()->password('password')
+                    ->class('field-password')
                     ->placeholder(__('Enter Password'))
-                    ->attribute('autocomplate', 'current-password')
+                    ->attribute('id', 'login_field_password')
+                    ->attribute('autocomplate', uniqid())
                     ->maxlength(191)
                     ->required() }}
-                <button class="btn btn-light " type="button" id="password-addon"><i
+
+              <div class="vuesaxlineareye-wrapper">
+                <button class="btn btn-transparent p-0" type="button" id="login_field_password_visible_toggler"><i
                     class="mdi mdi-eye-outline"></i></button>
+              </div>
             </div>
+          </div>
         </div>
-
-        <div class="form-check">
-            {{ html()->input('checkbox', 'remember')->id('remember-check')->class('form-check-input') }}
-            {{ html()->label(__('Remember me'))->class('form-check-label')->for('remember-check') }}
+        <div class="forget-password">
+            <x-utils.link :href="route($redirectBase.'.auth.password.request')" :text="__('Forgot Password?')" class="text-muted" icon="" />
         </div>
-
-        @if(config('boilerplate.access.captcha.login'))
-            <div class="row">
-                <div class="col">
-                    @captcha
-                    <input type="hidden" name="captcha_status" value="true" />
-                </div><!--col-->
-            </div><!--row-->
-        @endif
-
-        <div class="mt-3 d-grid">
-            <button class="btn btn-primary waves-effect waves-light" type="submit">@lang('Log In')</button>
+      </div>
+      <button class="long-cta-wrapper" type="submit">
+        <div class="long-cta">
+          <div class="save-wrapper">
+            <b class="save">Sign In</b>
+          </div>
         </div>
-
-        {{-- <div class="mt-4 text-center">
-            <h5 class="font-size-14 mb-3">Sign in with</h5>
-
-            <ul class="list-inline">
-                <li class="list-inline-item">
-                    <a href="javascript::void()" class="social-list-item bg-primary text-white border-primary">
-                        <i class="mdi mdi-facebook"></i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="javascript::void()" class="social-list-item bg-info text-white border-info">
-                        <i class="mdi mdi-twitter"></i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="javascript::void()" class="social-list-item bg-danger text-white border-danger">
-                        <i class="mdi mdi-google"></i>
-                    </a>
-                </li>
-            </ul>
-        </div> --}}
-
-        <div class="mt-4 text-center">
-            <x-utils.link :href="route($redirectBase.'.auth.password.request')" :text="__('Forgot Your Password?')" class="text-muted" icon="mdi mdi-lock me-1" />
+      </button>
+      <div class="dont-have-an-account-sign-up-wrapper">
+        <div class="dont-have-an-container" id="dontHaveAn">
+          <span class="dont-have-an-account">
+            <span class="dont-have-an">Don't have an account? <x-utils.link :href="route('frontend.auth.register')" :text="__('Sign Up')" class="sign-up sign-up1" /></span>
+            <span class="span"> </span>
+          </span>
         </div>
+      </div>
     </x-forms.post>
+  </section>
 @endsection
-@section('footer')
-    {{-- <p>Don't have an account ? <x-utils.link :href="route('frontend.auth.password.request')" :text="__('Sign up now')" class="fw-medium text-primary" /></p> --}}
-@endsection
+@push('after-scripts')
+<script type="text/javascript">
+  $(document).ready(function() {
+      $("#login_field_password_visible_toggler").click(function() {
+        var login_field_password = $("#login_field_password");
+        if (login_field_password.attr("type") === "password") {
+          login_field_password.attr("type", "text");
+        } else {
+          login_field_password.attr("type", "password");
+        }
+      });
+    });
+</script>
+@endpush

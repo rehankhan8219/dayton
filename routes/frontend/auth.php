@@ -7,7 +7,7 @@ use App\Http\Controllers\Auth\ConfirmPasswordController;
 
 
 Route::group(['as' => 'auth.'], function () {
-    Route::get('/login', [LoginController::class, 'login'])->name('login');
+    // Route::get('/login', [LoginController::class, 'login'])->name('login');
     Route::get('/register', [LoginController::class, 'register'])->name('register');
 });
 

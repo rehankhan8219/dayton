@@ -77,9 +77,12 @@
   bottom: 0;
   left: 0;
   border-radius: var(--br-3xs);
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid var(--color-steelblue);
+  background-color: rgba(120, 118, 118, 0.1);
   box-sizing: border-box;
+}
+.frame-item.active {
+  border: 1px solid var(--color-steelblue);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 .input-unit {
   width: 183px;
@@ -138,7 +141,7 @@
   border-radius: var(--br-3xs);
   background-color: rgba(120, 118, 118, 0.1);
 }
-.rnistudio99 {
+.field-password {
   width: 137px;
   border: 0;
   outline: 0;
@@ -194,7 +197,7 @@
   gap: var(--gap-base);
 }
 .forget-password {
-  width: 103px;
+  width: 120px;
   position: relative;
   font-size: var(--regular-regular-12-size);
   line-height: 160%;
@@ -202,7 +205,7 @@
   color: var(--color-gray-100);
   text-align: right;
   display: inline-block;
-  min-width: 103px;
+  min-width: 120px;
 }
 .frame-group {
   align-self: stretch;

@@ -32,7 +32,7 @@
             <div class="rectangle-group">
               <div class="frame-inner"></div>
               <input
-                class="rnistudio99"
+                class="field-password"
                 placeholder="Enter your password"
                 type="password"
               />

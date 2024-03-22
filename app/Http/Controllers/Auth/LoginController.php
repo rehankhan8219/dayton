@@ -36,6 +36,14 @@ class LoginController
         $this->redirectBase = $request->routeIs('admin.*') ? 'admin' : 'frontend';
     }
 
+    public function login(){
+        return view('frontend.login');
+    }
+
+    public function register(){
+         return view('frontend.signup');
+    }
+
     /**
      * Get the login username to be used by the controller.
      *

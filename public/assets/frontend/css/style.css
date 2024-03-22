@@ -111,7 +111,7 @@
 }
 
 .footer-disclaimer-trading-forex-carri-wrapper {
-  width: 432px;
+/*  width: 432px;*/
   flex-direction: column;
   justify-content: flex-start;
   padding: var(--padding-8xs) 0 0;
@@ -186,6 +186,10 @@
   margin: 0;
 }
 
+.min_height_for_footer{
+  min-height: 800px;
+}
+
 /* Media queries for mobile responsiveness */
 @media screen and (max-width: 725px) {
   .header-rectangle-parent {
@@ -244,4 +248,15 @@
     text-align: left !important;
   }
 
+  .min_height_for_footer{
+    min-height: 530px;
+  }
+
 }
+
+@media screen and (max-width: 450px) {
+  .min_height_for_footer{
+    min-height: 530px;
+  }
+}
+

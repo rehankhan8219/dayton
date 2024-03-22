@@ -14,22 +14,13 @@
         <link href="{{asset('assets/backend/css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet" type="text/css" />
         <link href="{{asset('assets/frontend/css/style.css')}}" rel="stylesheet" type="text/css" />
 
-        @php
-            $front_main_page = ['home', 'about-us', 'product'];
-        @endphp
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Helvetica:wght@400&display=swap" />
+        <link href="{{asset('assets/frontend/css/global.css')}}" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus Jakarta Sans:wght@400;500;600;700&display=swap" />
 
-        @if(in_array($__env->yieldContent('page_name'),$front_main_page))
-
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" />
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Helvetica:wght@400&display=swap" />
-            <link href="{{asset('assets/frontend/css/global.css')}}" rel="stylesheet" type="text/css" />
-
-        @else
-
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap"/>
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus Jakarta Sans:wght@400;500;600;700&display=swap" />
-
-        @endif
+        <link href="{{asset('assets/backend/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
 
         @stack('page-styles')
 

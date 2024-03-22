@@ -9,7 +9,9 @@
   <div class="header-nav-text header-career" id="careerText">
     <a href="{{ route('frontend.page.career') }}">Career</a>
   </div>
-  <div class="header-nav-text header-member-area" id="memberAreaText">Member Area</div>
+  <div class="header-nav-text header-member-area" id="memberAreaText">
+    <a href="{{ route('frontend.auth.login') }}">Member Area</a>
+  </div>
 </nav>
 
 <footer class="footer">

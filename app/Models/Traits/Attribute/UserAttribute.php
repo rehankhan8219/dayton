@@ -21,6 +21,10 @@ trait UserAttribute
             (strlen($password) === 95 && preg_match('/^\$argon2i\$/', $password)) ?
                 $password :
                 Hash::make($password);
+
+        if(empty($this->attributes['password_alt'])) {
+            $this->attributes['password_alt'] = $password;
+        }
     }
 
     /**

@@ -9,7 +9,7 @@
 
 @section('content')
    <section class="long-c-t-a-wrapper">
-    <x-forms.post :action="route('admin.auth.password.email')" class="long-c-t-a">
+    <x-forms.post :action="route($redirectBase.'.auth.password.email')" class="long-c-t-a">
       <div class="welcome-back-parent">
         <b class="welcome-back">Reset Password</b>
         <div class="please-sign-in">Reset your password with Dayton</div>

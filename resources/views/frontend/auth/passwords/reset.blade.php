@@ -1,44 +1,76 @@
-@extends('backend.layouts.auth')
+@extends('frontend.layouts.app')
 
 @section('title', __('Reset Password'))
 @section('page-title', __('Reset Password'))
-@section('page-description', 'Enter new password for '.appName().' & reset it.')
+@section('page-description', 'Enter new password for ' . appName() . ' & reset it.')
+@section('page_name', 'member-area-login')
+@push('after-styles')
+    <link href="{{ asset('assets/frontend/css/login.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/frontend/css/signup.css') }}" rel="stylesheet" type="text/css" />
+@endpush
 @section('content')
-    <x-forms.post :action="route($redirectBase.'.auth.password.update')" class="form-horizontal">
-        {{ html()->hidden('token', $token) }}
-        <div class="mb-3">
-            {{ html()->label(__('E-Mail Address'))->class('form-label')->for('email') }}
-            {{ html()->email('email', $email)->class('form-control')->placeholder(__('Enter E-Mail Address'))->autofocus()->attribute('autocomplate', 'email')->maxlength(191)->required() }}
-        </div>
-        <div class="mb-3">
-            {{ html()->label(__('Password'))->class('form-label')->for('password') }}
-            <div class="input-group auth-pass-inputgroup">
-                {{ html()->password('password')
-                    ->class('form-control')
-                    ->placeholder(__('Enter Password'))
-                    ->attribute('autocomplate', 'new-password')
-                    ->maxlength(191)
-                    ->required() }}
-                <button class="btn btn-light " type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
+    <section class="long-c-t-a-wrapper">
+        <x-forms.post :action="route($redirectBase . '.auth.password.update')" class="long-c-t-a">
+            {{ html()->hidden('token', $token) }}
+            <div class="welcome-back-parent">
+                <b class="welcome-back">Reset Password</b>
+                <div class="please-sign-in">Reset your password with Dayton</div>
             </div>
-        </div>
-        <div class="mb-3">
-            {{ html()->label(__('Confirm Password'))->class('form-label')->for('password_confirmation') }}
-            <div class="input-group auth-pass-inputgroup">
-                {{ html()->password('password_confirmation')
-                    ->class('form-control')
-                    ->placeholder(__('Re-Enter Password'))
-                    ->attribute('autocomplate', 'new-password')
-                    ->maxlength(191)
-                    ->required() }}
-                {{-- <button class="btn btn-light " type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button> --}}
+            <div class="phone-number-input-field1">
+                <div class="unit1">Email</div>
+                <div class="rectangle-parent">
+                    <div class="frame-inner frame-item"></div>
+                    {{ html()->email('email', $email)
+                        ->class('enter-your-email')
+                        ->placeholder(__('Enter your email'))
+                        ->maxlength(191)
+                        ->required()
+                        ->attribute('autocomplate', 'email') }}
+                </div>
             </div>
-        </div>
-        <div class="mt-3 d-grid">
-            <button class="btn btn-primary waves-effect waves-light" type="submit">@lang('Reset Password')</button>
-        </div>
-    </x-forms.post>
+            <div class="phone-number-input-field3">
+                <div class="unit3">Password</div>
+                <div class="group-div">
+                    <div class="frame-child2 frame-item"></div>
+                    {{ html()->password('password')
+                        ->class('enter-your-password')
+                        ->placeholder(__('Enter your password'))
+                        ->maxlength(191)
+                        ->required()
+                        ->attribute('autocomplate', 'new-password') }}
+                    <div class="vuesaxlineareye-wrapper">
+                        <button class="btn btn-transparent p-0" type="button" style="display: contents;"><i
+                                class="mdi mdi-eye-outline password_visible_toggler" data-id="password"
+                                id="register_field_password_visible_toggler"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phone-number-input-field4">
+                <div class="unit4">Confirm Password</div>
+                <div class="rectangle-parent1">
+                    <div class="frame-child3 frame-item"></div>
+                    {{ html()->password('password_confirmation')
+                        ->class('enter-your-password1')
+                        ->placeholder(__('Enter your password again'))
+                        ->maxlength(191)
+                        ->required()
+                        ->attribute('autocomplate', 'new-password') }}
+                    <div class="vuesaxlineareye-wrapper">
+                        <button class="btn btn-transparent p-0" type="button" style="display: contents;"><i
+                                class="mdi mdi-eye-outline password_visible_toggler" data-id="password-confirm"
+                                id="register_field_confirm_password_visible_toggler"></i></button>
+                    </div>
+                </div>
+            </div>
+            <button class="long-cta" type="submit">
+                <div class="save-wrapper">
+                    @lang('Reset Password')
+                </div>
+            </button>
+        </x-forms.post>
+    </section>
 @endsection
 @section('footer')
-    <p>Remember your password ? <x-utils.link :href="route('admin.auth.login')" :text="__('Login now')" class="fw-medium text-primary" /></p>
+    <p>Remember your password ? <x-utils.link :href="route($redirectBase . '.auth.login')" :text="__('Login now')" class="fw-medium text-primary" /></p>
 @endsection

@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use App\Services\UserService;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -29,16 +31,47 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    public function redirectPath()
+    {
+        return route(homeRoute());
+    }
 
+    protected $directory;
+    protected $redirectBase;
+
+    /**
+     * @var UserService
+     */
+    protected $userService;
+    
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Request $request, UserService $userService)
     {
         $this->middleware('guest');
+
+        // Admin has no register option
+        if($request->routeIs('admin.*')) {
+            return redirect()->route('frontend.auth.register', 301);
+        }
+
+        $this->directory = $request->routeIs('admin.*') ? 'backend' : 'frontend';
+        $this->redirectBase = $request->routeIs('admin.*') ? 'admin' : 'frontend';
+
+        $this->userService = $userService;
+    }
+
+    /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showRegistrationForm()
+    {
+        return view($this->directory.'.auth.register')->withRedirectBase($this->redirectBase);
     }
 
     /**
@@ -52,7 +85,10 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'phone' => ['required', 'numeric', 'digits_between:10,20', 'unique:users'],
+            'password_alt' => ['required', 'string', 'min:8', 'confirmed'],
+            'country' => ['required', 'string', 'max:191'],
+            'upline' => ['required', 'string', 'max:191'],
         ]);
     }
 
@@ -64,10 +100,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        abort_unless(config('boilerplate.access.user.registration'), 404);
+
+        return $this->userService->registerUser($data);
     }
 }

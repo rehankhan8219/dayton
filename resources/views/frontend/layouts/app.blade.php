@@ -29,7 +29,7 @@
     <body>
         <div class="@yield('page_name')">
             @include('frontend.includes.header')
-
+            @include('includes.partials.messages')
             @yield('content')
 
             @include('frontend.includes.footer')

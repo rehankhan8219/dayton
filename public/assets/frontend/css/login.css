@@ -321,9 +321,9 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-end;
   justify-content: flex-start;
-  gap: 168px;
+  gap: 30px;
   letter-spacing: normal;
 }
 

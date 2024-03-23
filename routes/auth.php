@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\TwoFactorAuthenticationController;
 
 Route::group(['as' => 'auth.', 'prefix' => 'auth'], function(){
@@ -29,6 +30,10 @@ Route::group(['as' => 'auth.', 'prefix' => 'auth'], function(){
         // Authentication
         Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
         Route::post('login', [LoginController::class, 'login']);
+
+        // Registration
+        Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+        Route::post('register', [RegisterController::class, 'register']);
 
         // Password Reset
         Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');

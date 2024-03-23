@@ -5,12 +5,6 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\Auth\ConfirmPasswordController;
 
-
-Route::group(['as' => 'auth.'], function () {
-    // Route::get('/login', [LoginController::class, 'login'])->name('login');
-    Route::get('/register', [LoginController::class, 'register'])->name('register');
-});
-
 /*
  * Frontend Access Controllers
  * All route names are prefixed with 'frontend.auth'.

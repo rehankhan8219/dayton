@@ -28,7 +28,7 @@
           <div class="we-are-processing">
             We are processing your request and you will receive your funds
             as soon as possible. Please bear in mind that transaction times
-            will be dierent depending on the payment system used.
+            will be dierent depending on the payment system used.
           </div>
         </div>
         <button class="long-cta">

@@ -7,30 +7,30 @@
     <link href="{{asset('assets/frontend/css/member_add_account.css')}}" rel="stylesheet" type="text/css" />
     <style type="text/css">
       .add_account_selectbox {
-        height: 50px;
-        width: 100%;
-        position: absolute;
-        margin: 0 !important;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        border-radius: var(--br-3xs);
-        background-color: var(--color-gray-200);
-        padding-left: 20px;
-        color: var(--bw-dark-gray);
-        font-size: var(--medium-medium-14-size);
-        font-weight: 500;
-        font-family: var(--medium-medium-14);
-    }
+          height: 50px;
+          width: 100%;
+          position: absolute;
+          margin: 0 !important;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          border-radius: var(--br-3xs);
+          background-color: var(--color-gray-200);
+          padding-left: 20px;
+          color: var(--bw-dark-gray);
+          font-size: var(--medium-medium-14-size);
+          font-weight: 500;
+          font-family: var(--medium-medium-14);
+      }
 
-    .custom-caret {
-      position: absolute;
-      top: 75%;
-      right: 37px;
-      transform: translateY(-50%);
-      pointer-events: none; 
-  }
+      .custom-caret {
+        position: absolute;
+        top: 75%;
+        right: 37px;
+        transform: translateY(-50%);
+        pointer-events: none; 
+      }
     </style>
 @endpush
 

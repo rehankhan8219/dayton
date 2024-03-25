@@ -338,9 +338,10 @@
     line-height: 21px;
   }
   .your-request-submitted-wrapper {
-    padding-left: var(--padding-xl);
-    padding-right: var(--padding-xl);
+    /*padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);*/
     box-sizing: border-box;
+    padding-left:75px;
   }
   .frame-parent {
     gap: 76px 306px;

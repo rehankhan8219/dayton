@@ -7,48 +7,43 @@
     <link href="{{ asset('assets/frontend/css/help_center.css') }}" rel="stylesheet" type="text/css" />  
     <style type="text/css">
       .add_account_selectbox {
-        height: 45px;
-        width: 100%;
+          height: 45px;
+          width: 100%;
+          position: absolute;
+          margin: 0 !important;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          border-radius: var(--br-3xs);
+          padding-left: 50px;
+          color: var(--bw-dark-gray);
+          font-size: var(--medium-medium-14-size);
+          font-weight: 500;
+          font-family: var(--medium-medium-14);
+          border-radius: 10px;
+          border-color: gray;
+      }
+
+      .custom-caret {
         position: absolute;
-        margin: 0 !important;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        border-radius: var(--br-3xs);
-/*        background-color: var(--color-gray-200);*/
-        padding-left: 50px;
-        color: var(--bw-dark-gray);
-        font-size: var(--medium-medium-14-size);
-        font-weight: 500;
-        font-family: var(--medium-medium-14);
-        border-radius: 10px;
-        border-color: gray;
+        top: 38px;
+        right: 37px;
+        transform: translateY(-50%);
+        pointer-events: none; 
     }
 
-    .custom-caret {
+    .custom-before-icon{
       position: absolute;
-      top: 38px;
-      right: 37px;
-      transform: translateY(-50%);
-      pointer-events: none; 
-  }
-
-  .custom-before-icon{
-    position: absolute;
       top: 20px;
-/*      left: 0px;*/
       transform: translateY(-50%);
       pointer-events: none; 
       z-index: 99999;
-  }
+    }
 
-  .help_center_selectbox{
-    height: 45px !important;
-  }
-
-
-
+    .help_center_selectbox{
+      height: 45px !important;
+    }
     </style>
 @endpush
 
@@ -112,7 +107,7 @@
                           <img class="arrow-down-icon" alt=""
                               src="{{ asset('assets/frontend/img/vector-1.svg') }}">
                     </div>   
-                    {{ html()->select('risk_level', [
+                    {{ html()->select('commision', [
                             'Indonesia' => 'Indonesia',
                             'Malesiya' => 'Malesiya',
                             'Singapore' => 'Singapore',

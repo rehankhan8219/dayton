@@ -65,7 +65,7 @@
                   <label>Message :</label>
                 </div>
                 <div class="col-md-9">
-                  <textarea placeholder="Message" style="width:100%" rows="20"></textarea>
+                  <textarea style="width:100%" rows="20"></textarea>
                 </div>
               </div>
               <!-- <div class="subject-field">

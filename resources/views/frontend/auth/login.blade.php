@@ -8,7 +8,7 @@
 @endpush
 
 @section('content')
-    <section class="long-c-t-a-wrapper">
+    <section class="long-c-t-a-wrapper min_height_for_footer">
         <x-forms.post :action="route($redirectBase.'.auth.login')" class="long-c-t-a">
             <div class="welcome-back-parent">
                 <b class="welcome-back">Welcome Back!</b>

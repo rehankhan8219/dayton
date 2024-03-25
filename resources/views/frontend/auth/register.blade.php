@@ -114,7 +114,7 @@
                             ->attribute('autocomplate', 'new-password') }}
                         <div class="vuesaxlineareye-wrapper">
                             <button class="btn btn-transparent p-0" type="button" style="display: contents;"><i
-                                    class="mdi mdi-eye-outline password_visible_toggler" data-id="password"
+                                    class="mdi mdi-eye-outline password_visible_toggler" data-id="password_alt"
                                     id="register_field_password_visible_toggler"></i></button>
                         </div>
                     </div>
@@ -132,7 +132,7 @@
                             ->attribute('autocomplate', 'new-password') }}
                         <div class="vuesaxlineareye-wrapper">
                             <button class="btn btn-transparent p-0" type="button" style="display: contents;"><i
-                                    class="mdi mdi-eye-outline password_visible_toggler" data-id="password-confirm"
+                                    class="mdi mdi-eye-outline password_visible_toggler" data-id="password_alt_confirmation"
                                     id="register_field_confirm_password_visible_toggler"></i></button>
                         </div>
                     </div>
@@ -151,7 +151,7 @@
 
                         <div class="vuesaxlineareye-wrapper">
                             <button class="btn btn-transparent p-0" type="button" style="display: contents;"><i
-                                    class="mdi mdi-eye-outline password_visible_toggler" data-id="upline_code"
+                                    class="mdi mdi-eye-outline password_visible_toggler" data-id="upline"
                                     id="register_field_upline_visible_toggler"></i></button>
                         </div>
                     </div>

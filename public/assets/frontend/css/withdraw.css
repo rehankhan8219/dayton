@@ -1,0 +1,479 @@
+:root {
+  /* fonts */
+  --font-outfit: Outfit;
+  --font-plus-jakarta-sans: "Plus Jakarta Sans";
+
+  /* font sizes */
+  --font-size-sm: 14px;
+  --font-size-xl: 20px;
+  --font-size-base: 16px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-darkslategray: #303334;
+  --color-silver-100: #c2bebe;
+  --color-silver-200: rgba(194, 194, 194, 0.1);
+  --color-gray-100: #868686;
+  --color-gray-200: #1e1e1e;
+
+  /* Gaps */
+  --gap-xl: 20px;
+  --gap-xs: 12px;
+
+  /* Paddings */
+  --padding-xl: 20px;
+  --padding-5xs: 8px;
+  --padding-mini: 15px;
+  --padding-5xl-5: 24.5px;
+
+  /* Border radiuses */
+  --br-3xs: 10px;
+}
+
+
+.frame-child {
+  height: 80px;
+  width: 1440px;
+  position: relative;
+  background-color: var(--color-white);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  display: none;
+  mix-blend-mode: normal;
+  max-width: 100%;
+}
+.frame-item,
+.group-icon {
+  height: 30.2px;
+  width: 27.9px;
+  position: relative;
+  z-index: 1;
+}
+.group-icon {
+  height: 26.2px;
+  width: 84.4px;
+}
+.frame-parent {
+  height: 30.3px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 9.69999999999709px;
+}
+.log-out {
+  position: relative;
+  display: inline-block;
+  min-width: 72px;
+  white-space: nowrap;
+  cursor: pointer;
+  z-index: 1;
+}
+.log-out-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 5.300000000000011px 0 0;
+}
+.rectangle-parent {
+  align-self: stretch;
+  background-color: var(--color-white);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 32.69999999999999px var(--padding-xl) 17px;
+  box-sizing: border-box;
+  gap: 688px;
+  top: 0;
+  z-index: 99;
+  position: sticky;
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--font-size-xl);
+  color: #000;
+  font-family: var(--font-outfit);
+}
+.arrow-left-icon {
+  height: 24px;
+  width: 24px;
+  position: relative;
+}
+.arrow-left-wrapper {
+  height: 40px;
+  width: 40px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-5xs) 7px;
+  cursor: pointer;
+}
+.withdraw {
+  align-self: stretch;
+  position: relative;
+  font-size: var(--font-size-base);
+  line-height: 21px;
+  font-weight: 500;
+  font-family: var(--font-plus-jakarta-sans);
+  color: var(--color-gray-200);
+  text-align: center;
+  display: inline-block;
+  min-width: 75px;
+}
+.frame-container,
+.withdraw-wrapper {
+  display: flex;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+.withdraw-wrapper {
+  width: 75px;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 9px 0 0;
+}
+.frame-container {
+  width: 280px;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 0 var(--padding-5xs);
+  gap: var(--gap-xl);
+}
+.bank-name {
+  position: relative;
+  font-size: var(--font-size-base);
+  line-height: 21px;
+  font-weight: 600;
+  color: var(--color-gray-200);
+  text-align: left;
+  display: inline-block;
+  min-width: 88px;
+}
+.bank-account-number,
+.bank-name,
+.frame-inner {
+  font-family: var(--font-plus-jakarta-sans);
+}
+.frame-inner {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background-color: var(--color-silver-200);
+  align-self: stretch;
+  height: 52px;
+  border-radius: var(--br-3xs);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-mini) 16px;
+  box-sizing: border-box;
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-100);
+  min-width: 250px;
+}
+.bank-account-number {
+  position: relative;
+  font-size: var(--font-size-base);
+  line-height: 21px;
+  font-weight: 600;
+  color: var(--color-gray-200);
+  text-align: left;
+}
+.bank-name-parent,
+.group-input {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.group-input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background-color: var(--color-silver-200);
+  height: 52px;
+  border-radius: var(--br-3xs);
+  flex-direction: row;
+  padding: var(--padding-mini) var(--padding-5xl-5);
+  box-sizing: border-box;
+  font-family: var(--font-plus-jakarta-sans);
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-100);
+  min-width: 250px;
+}
+.bank-name-parent {
+  flex-direction: column;
+  gap: var(--gap-xs);
+}
+.bank-account-name {
+  position: relative;
+  font-size: var(--font-size-base);
+  line-height: 21px;
+  font-weight: 600;
+  color: var(--color-gray-200);
+  text-align: left;
+}
+.amount,
+.bank-account-name,
+.frame-child1 {
+  font-family: var(--font-plus-jakarta-sans);
+}
+.frame-child1 {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background-color: var(--color-silver-200);
+  align-self: stretch;
+  height: 52px;
+  border-radius: var(--br-3xs);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-mini) var(--padding-5xl-5);
+  box-sizing: border-box;
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-100);
+  min-width: 250px;
+}
+.amount {
+  position: relative;
+  font-size: var(--font-size-base);
+  line-height: 21px;
+  font-weight: 600;
+  color: var(--color-gray-200);
+  text-align: left;
+  display: inline-block;
+  min-width: 62px;
+}
+.bank-account-name-parent,
+.frame-child2 {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.frame-child2 {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background-color: var(--color-silver-200);
+  height: 52px;
+  border-radius: var(--br-3xs);
+  flex-direction: row;
+  padding: var(--padding-mini) var(--padding-5xl-5);
+  box-sizing: border-box;
+  font-family: var(--font-plus-jakarta-sans);
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-100);
+  min-width: 250px;
+}
+.bank-account-name-parent {
+  flex-direction: column;
+  padding: 0 0 var(--padding-5xs);
+  gap: var(--gap-xs);
+}
+.save {
+  width: 57px;
+  position: relative;
+  font-size: var(--font-size-base);
+  line-height: 21px;
+  display: inline-block;
+  font-family: var(--font-plus-jakarta-sans);
+  color: var(--color-white);
+  text-align: center;
+  min-width: 57px;
+}
+.save-button-label {
+  flex: 1;
+  border-radius: 32px;
+  background-color: #2691b5;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 16.5px var(--padding-xl);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.long-cta {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  width: 327px;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.dashboard-withdraw-now-inner,
+.frame-group,
+.long-cta {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.frame-group {
+  margin: 0;
+  width: 500px;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 16px;
+}
+.dashboard-withdraw-now-inner {
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 var(--padding-xl) 399px;
+  box-sizing: border-box;
+}
+.rectangle-div {
+  height: 164px;
+  width: 1440px;
+  position: relative;
+  background-color: var(--color-darkslategray);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  display: none;
+  max-width: 100%;
+}
+.help {
+  position: relative;
+  font-weight: 600;
+  display: inline-block;
+  min-width: 42px;
+  z-index: 1;
+}
+.faq,
+.help-center {
+  margin-block-start: 0;
+  margin-block-end: 5px;
+}
+.maintenance-fee {
+  margin: 0;
+}
+.faq-help-center-container {
+  position: relative;
+  font-size: var(--font-size-sm);
+  color: var(--color-silver-100);
+  z-index: 1;
+}
+.help-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+}
+.disclaimer {
+  color: #e9e6e6;
+}
+.consider-your-investment,
+.dayton-does-not,
+.disclaimer,
+.trading-forex-carries {
+  margin-block-start: 0;
+  margin-block-end: 5px;
+}
+.all-decisions-with {
+  margin: 0;
+}
+.disclaimer-trading-forex-container {
+  align-self: stretch;
+  position: relative;
+  z-index: 1;
+}
+.disclaimer-trading-forex-carri-wrapper,
+.rectangle-group {
+  display: flex;
+  align-items: flex-start;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.disclaimer-trading-forex-carri-wrapper {
+  width: 432px;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1px 0 0;
+  text-align: right;
+  font-size: 10px;
+  color: var(--color-silver-100);
+}
+.rectangle-group {
+  align-self: stretch;
+  background-color: var(--color-darkslategray);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 24px 185px 43px 284px;
+  gap: var(--gap-xl);
+  text-align: left;
+  font-size: var(--font-size-xl);
+  color: #fffbfb;
+  font-family: var(--font-outfit);
+}
+.dashboard-withdraw-now {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-white);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 135px;
+  letter-spacing: normal;
+}
+@media screen and (max-width: 1025px) {
+  .rectangle-group {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 975px) {
+  .rectangle-parent {
+    gap: 688px 344px;
+  }
+  .dashboard-withdraw-now-inner {
+    padding-bottom: 259px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 725px) {
+  .rectangle-group {
+    padding-left: 142px;
+    padding-right: 92px;
+    box-sizing: border-box;
+  }
+  .dashboard-withdraw-now {
+    gap: 67px 135px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .rectangle-parent {
+    gap: 688px 172px;
+  }
+  .dashboard-withdraw-now-inner {
+    padding-bottom: 168px;
+    box-sizing: border-box;
+  }
+  .help {
+    font-size: var(--font-size-base);
+  }
+  .rectangle-group {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .dashboard-withdraw-now {
+    gap: 34px 135px;
+  }
+}

@@ -5,6 +5,26 @@
 
 @push('after-styles')
     <link href="{{ asset('assets/frontend/css/profile.css') }}" rel="stylesheet" type="text/css" />  
+
+   <!--  <style type="text/css">
+      .frame-child-selectbox {
+          -webkit-appearance: none; /* Remove default arrow on Chrome/Safari */
+          -moz-appearance: none; /* Remove default arrow on Firefox */
+          appearance: none; /* Remove default arrow on other browsers */
+      }
+
+      .frame-child-selectbox::-ms-expand {
+          display: none; /* Remove default arrow on IE/Edge */
+      }
+
+      .custom-caret {
+          position: absolute;
+          top: 75%;
+          right: 37px;
+          transform: translateY(-50%);
+          pointer-events: none; /* This ensures that the caret doesn't interfere with the select box */
+      }
+    </style> -->
 @endpush
 
 @section('content')
@@ -13,19 +33,21 @@
           <div class="profile-picture-inner">
             <div class="long-c-t-a-label-parent">
               <div class="long-c-t-a-label" id="longCTALabel">
+                <a href="{{ url()->previous() }}">
                 <img
                   class="arrow-left-icon"
                   loading="lazy"
                   alt=""
                   src="{{ asset('assets/frontend/img/arrowleft.svg') }}"
                 />
+                </a>
               </div>
               <div class="profile-wrapper">
                 <div class="profile1">Profile</div>
               </div>
             </div>
           </div>
-          <h2 class="michael-jordan">Michael Jordan</h2>
+          <h2 class="michael-jordan">{{ $user_detail->name }}</h2>
           <form class="field-field-field-field-field-parent">
             <div class="field-field-field-field-field">
               <div class="field">
@@ -34,8 +56,9 @@
                   <div class="frame-inner"></div>
                   <input
                     class="michaeljordandaytonfintechco"
-                    placeholder="michaeljordan@daytonfintech.com"
+                    placeholder="Email"
                     type="text"
+                    value="{{ $user_detail->email }}"
                   />
 
                   <div class="edit-wrapper">
@@ -51,6 +74,7 @@
                     class="rnistudio99"
                     placeholder="Michael Jordan"
                     type="text"
+                    value="{{ $user_detail->name }}"
                   />
 
                   <div class="edit-container">
@@ -66,6 +90,7 @@
                     class="rnistudio991"
                     placeholder="0822314512312"
                     type="text"
+                    value="{{ $user_detail->phone }}"
                   />
 
                   <div class="edit-frame">
@@ -87,6 +112,29 @@
                   </div>
                 </div>
               </div>
+
+              <div class="field signup-selectbox-field">
+                    <div class="country">Country</div>
+                    <div class="rectangle-parent1">
+                      <div class="frame-child2"></div>
+                        {{ html()->select('country', [
+                            'Indonesia' => 'Indonesia',
+                            'Malesiya' => 'Malesiya',
+                            'Singapore' => 'Singapore',
+                            'Vietnam' => 'Vietnam',
+                            'Phillipine' => 'Phillipine',
+                            'Thailand' => 'Thailand',
+                        ])
+                            ->class('form-control frame-child-selectbox')
+                            ->placeholder(__('Choose country'))
+                            ->required() }}
+                        <div class="custom-caret">
+                            <img class="arrow-down-icon" alt=""
+                                src="{{ asset('assets/frontend/img/arrowdown.svg') }}">
+                        </div>
+                    </div>
+                </div>
+
               <div class="field4">
                 <div class="unit4">Change Password</div>
                 <div class="rectangle-parent2">
@@ -122,7 +170,9 @@
             <div class="support-parent">
               <b class="support">Support</b>
               <div class="contact-us-label-parent">
+                <a href="{{ route('frontend.member.help-center') }}">
                 <div class="contact-us-label">
+                  
                   <img
                     class="support-help-questionheadph"
                     loading="lazy"
@@ -131,7 +181,11 @@
                   />
 
                   <div class="help-center">Help Center</div>
+                
                 </div>
+                </a>
+
+                <a href="{{ route('frontend.member.contact-us.index') }}">
                 <div class="contact-us-label1">
                   <img
                     class="phonesphone-call-icon"
@@ -142,6 +196,7 @@
 
                   <div class="contact-us">Contact Us</div>
                 </div>
+                </a>
               </div>
             </div>
           </form>

@@ -233,7 +233,7 @@
   margin-top: -36px;
 }
 .withdraw-button {
-  height: 45px;
+  height: 25px;
   width: 24px;
   display: flex;
   flex-direction: column;
@@ -500,7 +500,8 @@
   font-size: var(--font-size-xl);
 }
 .previous-help-center {
-  width: 509px;
+/*  width: 509px;*/
+  width: 850px;
   gap: var(--gap-43xl);
 }
 .previous-help-center-wrapper {
@@ -509,7 +510,7 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
-  padding: 0 var(--padding-xl) 448px;
+/*  padding: 0 var(--padding-xl) 448px;*/
   box-sizing: border-box;
   max-width: 100%;
   text-align: center;

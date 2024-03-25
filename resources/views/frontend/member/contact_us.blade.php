@@ -26,12 +26,14 @@
               <div class="frame-parent1">
                 <div class="frame-parent2">
                   <div class="arrow-left-wrapper" id="frameContainer">
+                    <a href="{{ url()->previous() }}">
                     <img
                       class="arrow-left-icon"
                       loading="lazy"
                       alt=""
                       src="{{ asset('assets/frontend/img/arrowleft.svg') }}"
                     />
+                  </a>
                   </div>
                   <div class="contact-us-wrapper">
                     <div class="contact-us1">Contact Us</div>
@@ -51,39 +53,42 @@
             </div>
             <div class="subject-field-parent">
 
-              <div class="row">
-                <div class="col-md-2">
-                  <label>Subject :</label>
-                </div>
-                <div class="col-md-6">
-                   <input type="text" name="" style="width: 100%;">
-                </div>
-              </div>
-
-              <div class="row mt-2">
-                <div class="col-md-2">
-                  <label>Message :</label>
-                </div>
-                <div class="col-md-9">
-                  <textarea style="width:100%" rows="20"></textarea>
-                </div>
-              </div>
-              <!-- <div class="subject-field">
-                <div class="message-field">
-                  <div class="">Subject :</div>
-                  <input type="text" name="">
-                </div>
-                <div class="message">Message :</div>
-              </div> -->
-              <!-- <div class="long-c-t-a"></div> -->
-              <div class="submit-button-main">
-                <div class="submit-button-child1"></div>
-                <button class="long-cta" id="longCTA">
-                  <div class="submit-wrapper">
-                    <b class="submit">Submit</b>
+              <x-forms.post :action="route('frontend.member.contact-us.store')">
+                  <div class="row">
+                  <div class="col-md-2">
+                    <label>Subject :</label>
                   </div>
-                </button>
-              </div>
+                  <div class="col-md-6">
+                      {{ html()->text('subject')
+                            ->class('w-100')
+                            ->maxlength(191)
+                            ->required()
+                            ->autofocus() }}
+                  </div>
+                </div>
+
+                <div class="row mt-2">
+                  <div class="col-md-2">
+                    <label>Message :</label>
+                  </div>
+                  <div class="col-md-9">
+                    {{ html()->textarea('message')
+                            ->class('w-100')
+                            ->required()
+                            ->autofocus()
+                             ->attribute('rows', '20') }}
+                  </div>
+                </div>
+                
+                <div class="submit-button-main">
+                  <div class="submit-button-child1"></div>
+                  <button class="long-cta" id="longCTA">
+                    <div class="submit-wrapper">
+                      <b class="submit">Submit</b>
+                    </div>
+                  </button>
+                </div>
+              </x-forms.post>
             </div>
             <div class="live-chat-telegram-wrapper">
               <div class="live-chat-telegram">
@@ -99,7 +104,7 @@
                 </div>
                 <div class="telegram-daytonfintech-wrapper">
                   <div class="telegram-daytonfintech">
-                    Telegram @daytonfintech
+                    {{ setting('script') }}
                   </div>
                 </div>
               </div>

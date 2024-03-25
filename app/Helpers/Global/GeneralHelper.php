@@ -1,6 +1,7 @@
 <?php
 
 use Carbon\Carbon;
+use App\Models\HelpCenter;
 
 if (! function_exists('appName')) {
     /**
@@ -52,5 +53,14 @@ if (! function_exists('homeRoute')) {
         }
         
         return 'frontend.page.home';
+    }
+}
+
+if (! function_exists('getHelpCenterDetailsFromCategory')) {
+    function getHelpCenterDetailsFromCategory($category_id)
+    {
+       $help_centers = HelpCenter::where('help_category_id', $category_id)->get();
+
+       return $help_centers;
     }
 }

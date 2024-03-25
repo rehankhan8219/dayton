@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\HelpCenter;
+use App\Models\HelpCategory;
+
 
 class MemberController extends Controller
 {
@@ -42,9 +45,11 @@ class MemberController extends Controller
         return view('frontend.member.commision_report');
     }
 
-    public function Profile()
-    {
-        return view('frontend.member.profile');
+    public function helpCenter()
+    {   
+        $help_categories = HelpCategory::get();
+        $help_centers = HelpCenter::get();
+        return view('frontend.member.help_center', compact('help_categories', 'help_centers'));
     }
 
     public function contactUs()
@@ -52,9 +57,31 @@ class MemberController extends Controller
         return view('frontend.member.contact_us');
     }
 
-    public function helpCenter()
+    public function storeContactUs(Request $request)
     {
-        return view('frontend.member.help_center');
+        activity('helpcenter')
+            ->withProperties([
+                'helpcenter' => [
+                    'subject' => $request->subject,
+                    'message' => $request->message
+                ],
+            ])
+            ->log('user sended a message');
+
+        return redirect()->back()->withFlashSuccess(__('Form submited successfully!'));;
+    }
+
+    public function Profile()
+    {
+        $user_detail = auth()->user();
+        return view('frontend.member.profile', compact('user_detail'));
+    }
+
+    public function updateProfile(Request $request)
+    {
+        dd($request);
+
+        return redirect()->back()->withFlashSuccess(__('Profile updated successfully!'));;
     }
 
 }

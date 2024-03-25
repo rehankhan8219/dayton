@@ -7,7 +7,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\DashboardController;
 
 // All route names are prefixed with 'admin.'.
-Route::redirect('/', '/admin/dashboard', 301);
+// Route::redirect('/', route('admin.dashboard'), 301);
+// For sub directory hosting
+Route::get('/', function(){
+    return redirect()->route('admin.dashboard', [], 301);
+});
 
 Route::get('dashboard', [DashboardController::class, 'index'])
     ->name('dashboard')

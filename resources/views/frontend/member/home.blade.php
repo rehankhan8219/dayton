@@ -38,9 +38,9 @@
                                 <div class="all-broker-account-wrapper">
                                     <div class="all-broker-account">All Broker Account</div>
                                 </div>
-                                <div class="broker-account-list1" id="brokerAccountList">
+                                <a class="broker-account-list1" id="brokerAccountList" href="{{route('frontend.broker.index')}}">
                                     Broker Account List
-                                </div>
+                                </a>
                             </div>
                             <div class="frame-wrapper">
                                 <div class="frame-div">

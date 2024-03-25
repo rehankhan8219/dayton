@@ -1,0 +1,779 @@
+:root {
+  /* fonts */
+  --font-outfit: Outfit;
+  --font-plus-jakarta-sans: "Plus Jakarta Sans";
+  --font-inter: Inter;
+
+  /* font sizes */
+  --font-size-xl: 20px;
+  --font-size-base: 16px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-darkslategray: #303334;
+  --color-silver: #c2bebe;
+  --color-gainsboro-100: rgba(217, 217, 217, 0);
+  --color-gray-100: #1e1e1e;
+  --color-gray-200: #0c0b0b;
+  --color-black: #000;
+
+  /* Gaps */
+  --gap-43xl: 62px;
+  --gap-mini: 15px;
+  --gap-12xl: 31px;
+  --gap-xl: 20px;
+  --gap-2xs: 11px;
+
+  /* Paddings */
+  --padding-xl: 20px;
+  --padding-11xs-5: 1.5px;
+  --padding-6xs: 7px;
+  --padding-2xs: 11px;
+  --padding-lg: 18px;
+  --padding-4xs: 9px;
+  --padding-smi: 13px;
+  --padding-10xs: 3px;
+
+  /* Border radiuses */
+  --br-xs: 12px;
+}
+
+.frame-child {
+  height: 80px;
+  width: 1440px;
+  position: relative;
+  background-color: var(--color-white);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  display: none;
+  mix-blend-mode: normal;
+  max-width: 100%;
+}
+.frame-item,
+.group-icon {
+  height: 30.2px;
+  width: 27.9px;
+  position: relative;
+  z-index: 1;
+}
+.group-icon {
+  height: 26.2px;
+  width: 84.4px;
+}
+.frame-parent {
+  height: 30.3px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 9.69999999999709px;
+}
+.log-out {
+  position: relative;
+  display: inline-block;
+  min-width: 72px;
+  white-space: nowrap;
+  cursor: pointer;
+  z-index: 1;
+}
+.log-out-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 5.300000000000011px 0 0;
+}
+.rectangle-parent {
+  align-self: stretch;
+  background-color: var(--color-white);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 32.69999999999999px var(--padding-xl) 17px;
+  box-sizing: border-box;
+  gap: 688px;
+  top: 0;
+  z-index: 99;
+  position: sticky;
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--font-size-xl);
+  color: var(--color-black);
+  font-family: var(--font-outfit);
+}
+.arrow-left-icon {
+  height: 24px;
+  width: 24px;
+  position: relative;
+}
+.arrow-left-wrapper {
+  height: 40px;
+  width: 40px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 8px var(--padding-6xs);
+  cursor: pointer;
+}
+.help-center1 {
+  align-self: stretch;
+  position: relative;
+  line-height: 21px;
+  font-weight: 500;
+  display: inline-block;
+  min-width: 92px;
+}
+.frequently-asked-questions {
+  width: 92px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 9.5px 0 0;
+  box-sizing: border-box;
+}
+.frame-group {
+  width: 254px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.phonesphone-call-icon {
+  height: 41px;
+  width: 41px;
+  position: relative;
+  min-height: 41px;
+  z-index: 1;
+}
+.help-center2 {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  line-height: 130%;
+  font-weight: 700;
+  font-family: inherit;
+  z-index: 1;
+}
+.phone-symbol {
+  height: 51px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 0 10px;
+  box-sizing: border-box;
+  gap: var(--gap-mini);
+  font-size: 30px;
+}
+.leverage-icon {
+  width: 18.5px;
+  height: 5.3px;
+  position: relative;
+}
+.leverage-wrapper {
+  height: 18.3px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-smi) 0 0;
+  box-sizing: border-box;
+}
+.leverage {
+  position: relative;
+  line-height: 130%;
+  display: inline-block;
+  min-width: 91px;
+}
+.frame-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-2xs);
+}
+.leverage-withdraw-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 0 var(--padding-10xs);
+}
+.leverage-withdraw-child {
+  height: 44px;
+  width: 502px;
+  position: relative;
+  border-radius: var(--br-xs);
+  background-color: var(--color-gainsboro-100);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  display: none;
+  max-width: 100%;
+}
+.div,
+.div1 {
+  width: 45px;
+  position: relative;
+  display: inline-block;
+  transform: rotate(90deg);
+  flex-shrink: 0;
+  debug_commit: f6aba90;
+  z-index: 5;
+}
+.div1 {
+  z-index: 6;
+  margin-top: -36px;
+}
+.withdraw-button {
+  height: 45px;
+  width: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+  color: var(--color-gray-200);
+  font-family: var(--font-inter);
+}
+.leverage-withdraw {
+  align-self: stretch;
+  height: 44px;
+  border-radius: var(--br-xs);
+  background-color: var(--color-gainsboro-100);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: var(--padding-2xs) var(--padding-2xs) 4px var(--padding-lg);
+  max-width: 100%;
+  gap: var(--gap-xl);
+  z-index: 3;
+}
+.frame-inner {
+  width: 18.5px;
+  height: 5.3px;
+  position: relative;
+}
+.vector-wrapper {
+  height: 18.3px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-smi) 0 0;
+  box-sizing: border-box;
+}
+.commission {
+  position: relative;
+  line-height: 130%;
+  display: inline-block;
+  min-width: 121px;
+}
+.frame-div,
+.frame-parent1 {
+  display: flex;
+  align-items: flex-start;
+}
+.frame-parent1 {
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: var(--gap-2xs);
+}
+.frame-div {
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 0 6px;
+}
+.leverage-withdraw-item {
+  height: 44px;
+  width: 502px;
+  position: relative;
+  border-radius: var(--br-xs);
+  background-color: var(--color-gainsboro-100);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  display: none;
+  max-width: 100%;
+}
+.div2,
+.div3 {
+  width: 45px;
+  position: relative;
+  display: inline-block;
+  transform: rotate(90deg);
+  flex-shrink: 0;
+  debug_commit: f6aba90;
+  z-index: 5;
+}
+.div3 {
+  z-index: 4;
+  margin-top: -36px;
+}
+.leverage-withdraw1,
+.parent {
+  box-sizing: border-box;
+  display: flex;
+}
+.parent {
+  height: 45px;
+  width: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0;
+  text-align: center;
+  color: var(--color-gray-200);
+  font-family: var(--font-inter);
+}
+.leverage-withdraw1 {
+  align-self: stretch;
+  height: 44px;
+  border-radius: var(--br-xs);
+  background-color: var(--color-gainsboro-100);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--color-black);
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: var(--padding-4xs) var(--padding-2xs) var(--padding-10xs)
+    var(--padding-lg);
+  max-width: 100%;
+  gap: var(--gap-xl);
+  z-index: 2;
+}
+.vector-icon {
+  width: 18.5px;
+  height: 5.3px;
+  position: relative;
+}
+.vector-container {
+  height: 18.3px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-smi) 0 0;
+  box-sizing: border-box;
+}
+.withdraw {
+  position: relative;
+  line-height: 130%;
+  display: inline-block;
+  min-width: 96px;
+}
+.frame-parent2 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-2xs);
+}
+.leverage-withdraw-inner1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 0 var(--padding-4xs);
+}
+.rectangle-div {
+  height: 44px;
+  width: 502px;
+  position: relative;
+  border-radius: var(--br-xs);
+  background-color: var(--color-gainsboro-100);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  display: none;
+  max-width: 100%;
+}
+.div4,
+.div5 {
+  width: 45px;
+  position: relative;
+  display: inline-block;
+  transform: rotate(90deg);
+  flex-shrink: 0;
+  debug_commit: f6aba90;
+  z-index: 3;
+}
+.div5 {
+  z-index: 4;
+  margin-top: -36px;
+}
+.group,
+.leverage-withdraw2 {
+  box-sizing: border-box;
+  display: flex;
+}
+.group {
+  height: 45px;
+  width: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0;
+  text-align: center;
+  color: var(--color-gray-200);
+  font-family: var(--font-inter);
+}
+.leverage-withdraw2 {
+  align-self: stretch;
+  height: 44px;
+  border-radius: var(--br-xs);
+  background-color: var(--color-gainsboro-100);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--color-black);
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: var(--padding-6xs) var(--padding-2xs) 2px var(--padding-lg);
+  max-width: 100%;
+  gap: var(--gap-xl);
+  z-index: 1;
+}
+.leverage-commission,
+.leverage-commission-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.leverage-commission {
+  flex: 1;
+  flex-direction: column;
+}
+.leverage-commission-wrapper {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 0 0 var(--padding-6xs);
+  box-sizing: border-box;
+}
+.question-about-withdraw {
+  margin-bottom: 10px;
+}
+.question-about-withdraw-how-t {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  padding-left: 27px;
+}
+.question-about-withdraw-container {
+  position: relative;
+  line-height: 130%;
+}
+.question-about-withdraw-how-t-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 56px;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.leverage-commission-withdraw,
+.previous-help-center {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.leverage-commission-withdraw {
+  align-self: stretch;
+  gap: 16px;
+  text-align: left;
+  font-size: var(--font-size-xl);
+}
+.previous-help-center {
+  width: 509px;
+  gap: var(--gap-43xl);
+}
+.previous-help-center-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 var(--padding-xl) 448px;
+  box-sizing: border-box;
+  max-width: 100%;
+  text-align: center;
+  font-size: var(--font-size-base);
+  color: var(--color-gray-100);
+  font-family: var(--font-plus-jakarta-sans);
+}
+.help-center-child {
+  width: 217px;
+  height: 39px;
+  display: none;
+  z-index: 2;
+}
+.group-icon1 {
+  width: 43px;
+  height: 43px;
+  position: absolute;
+  margin: 0 !important;
+  top: 244px;
+  left: 533px;
+  z-index: 2;
+}
+.support-help-questionheadph {
+  height: 24px;
+  width: 24px;
+  position: relative;
+  min-height: 24px;
+}
+.live-chat {
+  position: relative;
+  line-height: 21px;
+  font-weight: 500;
+  display: inline-block;
+  min-width: 79px;
+}
+.live-chat-telegram-instance {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-11xs-5) 0 0;
+}
+.telegram-daytonfintech {
+  position: relative;
+  line-height: 21px;
+  font-weight: 500;
+}
+.live-chat-telegram-instance1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-11xs-5) 0 0;
+}
+.help-center-inner,
+.support-help-questionheadph-parent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.support-help-questionheadph-parent {
+  justify-content: flex-start;
+  gap: 9.5px;
+}
+.help-center-inner {
+  height: 178px;
+  justify-content: center;
+  padding: 0 51px 154px var(--padding-xl);
+  box-sizing: border-box;
+  text-align: left;
+  font-size: var(--font-size-base);
+  color: var(--color-gray-100);
+  font-family: var(--font-plus-jakarta-sans);
+}
+.disclaimer-trading-forex-child {
+  height: 164px;
+  width: 1440px;
+  position: relative;
+  background-color: var(--color-darkslategray);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  display: none;
+  max-width: 100%;
+}
+.help {
+  position: relative;
+  font-weight: 600;
+  display: inline-block;
+  min-width: 42px;
+  z-index: 1;
+}
+.faq,
+.help-center3 {
+  margin-block-start: 0;
+  margin-block-end: 5px;
+}
+.maintenance-fee {
+  margin: 0;
+}
+.faq-help-center-container {
+  position: relative;
+  font-size: 14px;
+  color: var(--color-silver);
+  z-index: 1;
+}
+.help-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+}
+.disclaimer {
+  color: #e9e6e6;
+}
+.consider-your-investment,
+.dayton-does-not,
+.disclaimer,
+.trading-forex-carries {
+  margin-block-start: 0;
+  margin-block-end: 5px;
+}
+.all-decisions-with {
+  margin: 0;
+}
+.disclaimer-trading-forex-container {
+  align-self: stretch;
+  position: relative;
+  z-index: 1;
+}
+.disclaimer-trading-forex,
+.trading-carries-risk {
+  display: flex;
+  align-items: flex-start;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.trading-carries-risk {
+  width: 432px;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1px 0 0;
+  text-align: right;
+  font-size: 10px;
+  color: var(--color-silver);
+}
+.disclaimer-trading-forex {
+  align-self: stretch;
+  background-color: var(--color-darkslategray);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 24px 185px 43px 284px;
+  gap: var(--gap-xl);
+  text-align: left;
+  font-size: var(--font-size-xl);
+  color: #fffbfb;
+  font-family: var(--font-outfit);
+}
+.help-center {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-white);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: var(--gap-43xl);
+  letter-spacing: normal;
+}
+@media screen and (max-width: 1025px) {
+  .disclaimer-trading-forex {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 975px) {
+  .rectangle-parent {
+    gap: 688px 344px;
+  }
+  .help-center2 {
+    font-size: 24px;
+    line-height: 31px;
+  }
+  .previous-help-center-wrapper {
+    padding-bottom: 291px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 725px) {
+  .previous-help-center {
+    gap: 31px 62px;
+  }
+  .disclaimer-trading-forex {
+    padding-left: 142px;
+    padding-right: 92px;
+    box-sizing: border-box;
+  }
+  .help-center {
+    gap: 31px 62px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .rectangle-parent {
+    gap: 688px 172px;
+  }
+  .help-center2 {
+    font-size: 18px;
+    line-height: 23px;
+  }
+  .leverage {
+    line-height: 21px;
+  }
+  .div,
+  .div1,
+  .leverage {
+    font-size: var(--font-size-base);
+  }
+  .commission {
+    line-height: 21px;
+  }
+  .commission,
+  .div2,
+  .div3 {
+    font-size: var(--font-size-base);
+  }
+  .withdraw {
+    line-height: 21px;
+  }
+  .div4,
+  .div5,
+  .withdraw {
+    font-size: var(--font-size-base);
+  }
+  .question-about-withdraw-container {
+    font-size: var(--font-size-base);
+    line-height: 21px;
+  }
+  .question-about-withdraw-how-t-wrapper {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .previous-help-center {
+    gap: 15px 62px;
+  }
+  .previous-help-center-wrapper {
+    padding-bottom: 189px;
+    box-sizing: border-box;
+  }
+  .help-center-inner {
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .help {
+    font-size: var(--font-size-base);
+  }
+  .disclaimer-trading-forex {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .help-center {
+    gap: 15px 62px;
+  }
+}

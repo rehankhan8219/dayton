@@ -31,6 +31,40 @@ class MemberPagesController extends Controller
     {
         return view('frontend.member.grow_team_page');
     }
-    
+
+    public function withDraw()
+    {
+        return view('frontend.member.withdraw');
+    }
+
+    public function withdrawRequestSubmit()
+    {
+        return view('frontend.member.withdraw_request_submit');
+    }
+
+    public function withdrawToHistory()
+    {
+        return view('frontend.member.withdraw_to_history');
+    }
+
+    public function commisionReport()
+    {
+        return view('frontend.member.commision_report');
+    }
+
+    public function Profile()
+    {
+        return view('frontend.member.profile');
+    }
+
+    public function contactUs()
+    {
+        return view('frontend.member.contact_us');
+    }
+
+    public function helpCenter()
+    {
+        return view('frontend.member.help_center');
+    }
 
 }

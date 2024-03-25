@@ -5,6 +5,22 @@
 
 @push('after-styles')
     <link href="{{ asset('assets/frontend/css/member_home.css') }}" rel="stylesheet" type="text/css" />
+    <style>
+
+       .home-selectbox {
+             appearance: none; /* Remove default arrow */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url('assets/frontend/img/arrowdown.svg'); 
+            background-repeat: no-repeat;
+            background-position: right center; 
+            padding-right: 30px; 
+            border-radius: 50px;
+            border-color: grey;
+            background-size: 16px;
+            background-position: calc(100% - 10px) center;
+        }
+    </style>    
 @endpush
 
 @section('content')
@@ -86,21 +102,44 @@
                     <div class="risk-calculator-wrapper">
                         <div class="risk-calculator">Risk Calculator</div>
                     </div>
-                    <div class="currency-u-s-d-label">
-                        <div class="pairs-parent">
-                            <div class="pairs">Pairs</div>
+                    <div class="currency-u-s-d-label rectangle-container">
+                        <!-- <div class="pairs-parent">
+                             <div class="pairs">Pairs</div>
                             <img class="arrow-down-icon" alt=""
-                                src="{{ asset('assets/frontend/img/arrowdown.svg') }}" />
+                                src="{{ asset('assets/frontend/img/arrowdown.svg') }}" /> 
+                                <select class="frame-child-selectbox">
+                                    <option>Pairs</option>
+                                </select>
+
+                                <div class="custom-caret">
+                                        <img class="arrow-down-icon" alt=""
+                                            src="{{ asset('assets/frontend/img/arrowdown.svg') }}">
+                                    </div>
+
+                        </div> -->
+                        <div class="pairs-parent1">
+                            <select class="form-control home-selectbox">
+                                <option>Pairs</option>
+                                <option>Pairs2</option>
+                                <option>Pairs3</option>
+                            </select>
                         </div>
-                        <div class="risk-level-parent">
-                            <div class="risk-level1">Risk Level</div>
+
+                        <div class="risk-level-parent1">
+                            <!-- <div class="risk-level1">Risk Level</div>
                             <img class="arrow-down-icon1" alt=""
-                                src="{{ asset('assets/frontend/img/arrowdown.svg') }}" />
+                                src="{{ asset('assets/frontend/img/arrowdown.svg') }}" /> -->
+                                <select class="form-control home-selectbox">
+                                    <option>Risk Level</option>
+                                </select>
                         </div>
-                        <div class="lot-parent">
-                            <div class="lot">Lot</div>
+                        <div class="lot-parent1">
+                            <!-- <div class="lot">Lot</div>
                             <img class="arrow-down-icon2" alt=""
-                                src="{{ asset('assets/frontend/img/arrowdown.svg') }}" />
+                                src="{{ asset('assets/frontend/img/arrowdown.svg') }}" /> -->
+                            <select class="form-control home-selectbox">
+                                <option>Lot</option>
+                            </select>
                         </div>
                     </div>
                     <div class="profile-trendup-status-inner">

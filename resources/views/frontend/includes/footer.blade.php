@@ -20,9 +20,23 @@
       <div class="footer-nav-section">
         <div class="help-footer-text">Help</div>
         <div class="footer-faq-help-center-container">
-          <p class="faq-footer-text">FAQ</p>
-          <p class="help-center-footer-text">Help Center</p>
-          <p class="maintenance-fee-footer-text">Maintenance Fee</p>
+          
+          <p class="faq-footer-text">
+            <a class="footer_link" href="{{ route('frontend.member.help-center') }}">
+            FAQ
+            </a>
+          </p>
+           
+          <p class="help-center-footer-text">
+            <a class="footer_link" href="{{ route('frontend.member.help-center') }}">
+              Help Center
+            </a>
+          </p>
+
+          <p class="maintenance-fee-footer-text">
+            <a class="footer_link" href="{{ route('frontend.member.contact-us.index') }}">
+              Contact Us
+            </p>
         </div>
       </div>
     </div>

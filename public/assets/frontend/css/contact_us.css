@@ -340,7 +340,8 @@
   width: 664px;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 61px;
+/*  gap: 61px;*/
+  gap: 20px;
 }
 .frame-wrapper {
   width: 100%;

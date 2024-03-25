@@ -64,8 +64,8 @@
                   </div>
                </div>
               
-               <div id="collapse_{{ $help_category->id }}" class="collapse" aria-labelledby="heading_{{ $help_category->id }}" data-parent="#accordion">
-                  <div class="card-body">
+               <div id="collapse_{{ $help_category->id }}" class="collapse" aria-labelledby="heading_{{ $help_category->id }}" data-parent="#accordion" style="margin-top: -30px;">
+                  <div class="card-body p-0">
                      <div id="accordion_sub_{{ $help_category->id }}">
                         <div class="question-about-withdraw-how-t-wrapper mt-5">
                            <div class="question-about-withdraw-container">

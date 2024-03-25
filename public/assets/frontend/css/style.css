@@ -260,3 +260,7 @@
   }
 }
 
+.footer_link{
+      color: var(--color-silver) !important;
+}
+

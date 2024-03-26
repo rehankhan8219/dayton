@@ -198,7 +198,7 @@
   justify-content: flex-start;
   gap: var(--gap-9xs);
 }
-.jan-2023- {
+.commision-date-format {
   position: relative;
   font-size: var(--medium-medium-10-size);
   line-height: 160%;
@@ -209,7 +209,7 @@
   display: inline-block;
   min-width: 121px;
 }
-.jan-2023-22-jan-2023-wrapper {
+.commison-date-wrapper {
   cursor: pointer;
   border: 0;
   padding: var(--padding-9xs) var(--padding-xs);
@@ -223,7 +223,7 @@
 }
 .jan-2023-22-jan-2023-container:hover,
 .jan-2023-22-jan-2023-frame:hover,
-.jan-2023-22-jan-2023-wrapper:hover {
+.commison-date-wrapper:hover {
   background-color: var(--color-skyblue);
 }
 .icon-circle-instance {

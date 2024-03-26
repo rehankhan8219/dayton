@@ -25,6 +25,7 @@
                 </div>
             </div>
             <div class="frame-div">
+                @foreach($broker_list as $broker)
                 <div class="aita-wrapper">
                     <div class="aita">
                         <div class="semicolon">
@@ -32,8 +33,8 @@
                                 <div class="aita-parent">
                                     <h3 class="aita1">Aita</h3>
                                     <div class="div">
-                                        <span class="span">#</span>
-                                        <span>50236461</span>
+                                        <span class="span">#{{ $broker->broker_id }}</span>
+                                        <span></span>
                                     </div>
                                 </div>
                                 <div class="active">Active</div>
@@ -42,13 +43,13 @@
                                 <div class="lot">
                                     <h2 class="lot1">Lot</h2>
                                     <div class="semicolon1">
-                                        <div class="div1">0.1</div>
+                                        <div class="div1">{{ $broker->lot }}</div>
                                     </div>
                                 </div>
                                 <div class="pairs-parent">
                                     <h2 class="pairs">Pairs</h2>
                                     <button class="a-u-d-c-a-d">
-                                        <div class="audcad">AUDCAD</div>
+                                        <div class="audcad">{{ $broker->pairs }}</div>
                                     </button>
                                 </div>
                                 <div class="period-parent">
@@ -77,16 +78,17 @@
                             </div>
                         </div>
                         <div class="risk-expert-advisors">
-                            <button class="receipt-edit-parent" id="frameButton1">
+                            <a class="receipt-edit-parent" id="frameButton1" href="{{route('frontend.broker.edit',$broker)}}">
                                 <img class="receipt-edit-icon" alt=""
                                     src="{{ asset('assets/frontend/img/receiptedit.svg') }}" />
 
                                 <div class="edit">Edit</div>
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="frame-wrapper1">
+                @endforeach
+                <!-- <div class="frame-wrapper1">
                     <div class="frame-parent1">
                         <div class="frame-parent2">
                             <div class="frame-wrapper2">
@@ -189,7 +191,7 @@
                             </button>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="understand-risks">
                 <h3 class="understand-the-risk-container">

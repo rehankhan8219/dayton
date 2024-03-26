@@ -5,6 +5,54 @@
 
 @push('after-styles')
     <link href="{{ asset('assets/frontend/css/member_add_account.css') }}" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+   .frame-child-selectbox {
+       height: 50px;
+       width: 100%;
+       position: absolute;
+       margin: 0 !important;
+       top: 0;
+       right: 0;
+       bottom: 0;
+       left: 0;
+       border-radius: var(--br-3xs);
+       background-color: var(--color-gray-300);
+       padding-left: 20px;
+       color: var(--bw-dark-gray);
+       font-size: var(--medium-medium-14-size);
+       font-weight: 500;
+       font-family: var(--medium-medium-14);
+   }
+   .frame-child-selectbox {
+       -webkit-appearance: none; /* Remove default arrow on Chrome/Safari */
+       -moz-appearance: none; /* Remove default arrow on Firefox */
+       appearance: none; /* Remove default arrow on other browsers */
+   }
+   .frame-child-selectbox::-ms-expand {
+    display: none; /* Remove default arrow on IE/Edge */
+   }
+   .custom-caret {
+       position: absolute;
+       top: 75%;
+       right: 37px;
+       transform: translateY(-50%);
+       pointer-events: none; 
+   }
+
+.field {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: var(--gap-xs);
+    width: 500px;
+}
+
+.field, .rectangle-group {
+    align-self: stretch;
+    display: flex;
+    align-items: flex-start;
+}
+
+</style>
 @endpush
 
 @section('content')
@@ -21,60 +69,69 @@
                     </div>
                 </div>
             </div>
+            <x-forms.patch :action="route('frontend.member.profile.update')">
             <div class="frame-div">
+               
                 <div class="unit-parent">
                     <div class="unit">Broker ID</div>
                     <div class="rectangle-group">
                         <div class="frame-inner"></div>
-                        <input class="enter-broker-id" placeholder="Enter broker ID" type="text" />
+                        <input name="broker_id" required class="enter-broker-id" placeholder="Enter broker ID" type="text" />
                     </div>
                 </div>
                 <div class="unit-group">
                     <div class="unit1">Broker Server</div>
-                    <input class="group-input" placeholder="Enter broker server" type="text" />
+                    <input name="broker_server" required class="group-input" placeholder="Enter broker server" type="text" />
                 </div>
                 <div class="unit-container">
                     <div class="unit2">Broker ID Password to activate EA</div>
                     <div class="rectangle-container">
                         <div class="rectangle-div"></div>
-                        <input class="enter-broker-id1" placeholder="Enter broker ID" type="text" />
+                        <input name="broker_password" id="broker_password" required class="enter-broker-id1" placeholder="Enter broker ID" type="password" />
 
-                        <div class="eye-icons">
-                            <img class="vuesaxlineareye-icon" alt=""
-                                src="{{ asset('assets/frontend/img/vuesaxlineareye.svg') }}" />
+                        <div class="eye-icons password_visible_toggler" data-id="broker_password">
+                            <!-- <img class="vuesaxlineareye-icon" alt=""
+                                src="{{ asset('assets/frontend/img/vuesaxlineareye.svg') }}" /> -->
+                                 <button class="btn btn-transparent p-0" type="button" style="display: contents;"><i
+                                    class="mdi mdi-eye-outline"
+                                    id="register_field_password_visible_toggler"></i></button>
                         </div>
+
                     </div>
                 </div>
                 <div class="pairs-parent">
                     <div class="pairs">Pairs</div>
-                    <input class="frame-child1" placeholder="Enter pairs" type="text" />
-                </div>
-                <div class="risk-level-parent">
-                    <div class="risk-level">Risk Level</div>
-                    <div class="group-div">
-                        <div class="frame-child2"></div>
-                        <div class="select-risk-level">Select risk level</div>
-                        <div class="vuesaxlineararrow-down-wrapper">
-                            <img class="vuesaxlineararrow-down-icon" alt=""
-                                src="{{ asset('assets/frontend/img/arrowdown.svg') }}" />
-                        </div>
-                    </div>
+                    <input name="pairs" required class="frame-child1" placeholder="Enter pairs" type="text" />
                 </div>
 
-
-                <div class="lot-parent">
-                    <div class="lot">Lot</div>
-                    <div class="rectangle-parent1">
-                        <div class="frame-child3"></div>
-                        <div class="enter-lot-amount">Enter lot amount</div>
-                        <div class="vuesaxlineararrow-down-container">
-                            <img class="vuesaxlineararrow-down-icon1" alt=""
-                                src="{{ asset('assets/frontend/img/arrowdown.svg') }}" />
-                        </div>
-                    </div>
+                <div class="field signup-selectbox-field">
+                   <div class="pairs">Risk Level</div>
+                   <div class="rectangle-parent1">
+                      {{ html()->select('risk_calculator_id', [
+                          'Indonesia' => 'Indonesia',
+                          'Malesiya' => 'Malesiya',
+                          'Singapore' => 'Singapore',
+                          'Vietnam' => 'Vietnam',
+                          'Phillipine' => 'Phillipine',
+                          'Thailand' => 'Thailand',
+                      ])
+                      ->class('form-control frame-child-selectbox')
+                      ->placeholder(__('Select risk level'))
+                      ->required() }}
+                      <div class="custom-caret">
+                         <img class="arrow-down-icon" alt=""
+                            src="{{ asset('assets/frontend/img/arrowdown.svg') }}">
+                      </div>
+                   </div>
                 </div>
+
+                <div class="unit-group mt-3">
+                    <div class="unit1">Lot</div>
+                    <input name="lot" required class="group-input" placeholder="Enter lot amount" type="text" />
+                </div>
+
                 <div class="frame-parent1">
-                    <input class="frame-input" type="checkbox" />
+                    <input class="frame-input" required type="checkbox" />
 
                     <div class="i-understand-that">
                         I understand that the risk of trading might occur, recommended
@@ -83,7 +140,7 @@
                     </div>
                 </div>
                 <div class="frame-parent2">
-                    <input class="frame-input1" type="checkbox" />
+                    <input class="frame-input1" required type="checkbox" />
 
                     <div class="do-not-change">
                         Do not change your password without any confirmation to Expert
@@ -92,14 +149,36 @@
                     </div>
                 </div>
                 <div class="long-cta" id="longCTAContainer">
-                    <button class="save-wrapper">
+                    <button type="submit" class="save-wrapper">
                         <b class="save">Activate EA</b>
                     </button>
                 </div>
                 <div class="frame-child4"></div>
+                
             </div>
+            </x-forms.patch>
         </div>
     </section>
 @endsection
 @push('after-scripts')
+
+<script type="text/javascript">
+    $(".password_visible_toggler").click(function() {
+        var id = $(this).data('id');
+
+        var password = $("#" + id);
+        if (password.attr("type") === "password") {
+            password.attr("type", "text");
+
+            $(this).removeClass('mdi-eye-outline');
+            $(this).addClass('mdi-eye-off-outline');
+
+        } else {
+            password.attr("type", "password");
+            $(this).addClass('mdi-eye-outline');
+            $(this).removeClass('mdi-eye-off-outline');
+        }
+    });
+
+</script>
 @endpush

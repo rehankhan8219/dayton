@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\HelpCenter;
 use App\Models\HelpCategory;
+use Illuminate\Support\Facades\Validator;
+use App\Models\User;
+use App\Models\Commission;
+
 
 
 class MemberController extends Controller
@@ -42,7 +46,9 @@ class MemberController extends Controller
 
     public function commisionReport()
     {
-        return view('frontend.member.commision_report');
+        $commision_reports = Commission::where('user_id', auth()->user()->id)->get();
+
+        return view('frontend.member.commision_report', compact('commision_reports'));
     }
 
     public function helpCenter()
@@ -79,9 +85,32 @@ class MemberController extends Controller
 
     public function updateProfile(Request $request)
     {
-        dd($request);
+        $validator = Validator::make($request->all(), [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            // 'phone' => ['required', 'numeric', 'digits_between:10,20'],
+            'password' => ['nullable', 'string', 'min:8'],
+            'password_confirmation' => ['nullable', 'string', 'min:8', 'same:password'],
+            'country' => ['required', 'string', 'max:191'],
+        ]);
 
-        return redirect()->back()->withFlashSuccess(__('Profile updated successfully!'));;
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $user = User::find(auth()->user()->id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->country = $request->country;
+        $user->phone = $request->phone;
+
+        if(!empty($request->password) && !empty($request->password_confirmation)){
+            $user->password = bcrypt($request->password);
+        }
+
+        $user->save();
+
+        return redirect()->back()->withFlashSuccess(__('Profile updated successfully!'));
     }
 
 }

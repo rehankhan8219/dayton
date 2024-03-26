@@ -34,6 +34,6 @@ Route::group(['as' => 'member.', 'middleware' => ['auth', 'is_user']], function 
             'as' => 'profile.',
         ], function(){
             Route::get('/', [MemberController::class, 'profile'])->name('index');
-            Route::post('/update', [MemberController::class, 'updateProfile'])->name('update');
+            Route::patch('/update', [MemberController::class, 'updateProfile'])->name('update');
         });
 });

@@ -207,10 +207,5 @@
         }
     });
 
-     $(document).on("focus", "input, select", function() {
-        $(".frame-item").removeClass("active");
-        $(this).parent().find(".frame-item").addClass("active");
-    });
-
 </script>
 @endpush

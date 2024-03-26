@@ -74,25 +74,44 @@
                     </div>
                 </div>
             </div>
-            <x-forms.post :action="route('frontend.broker.store')">
+            <x-forms.patch :action="route('frontend.broker.update', [$broker])">
+            @php(html()->model($broker))
             <div class="frame-div">
                
                 <div class="unit-parent">
                     <div class="unit">Broker ID</div>
                     <div class="rectangle-group">
                         <div class="frame-inner"></div>
-                        <input name="broker_id" required class="enter-broker-id" placeholder="Enter broker ID" type="text" />
+                         {{ html()->text('broker_id')
+                                ->class('enter-broker-id')
+                                ->placeholder(__('Enter broker ID'))
+                                ->maxlength(100)
+                                ->required()
+                                ->autofocus() }}
                     </div>
                 </div>
                 <div class="unit-group">
                     <div class="unit1">Broker Server</div>
-                    <input name="broker_server" required class="group-input" placeholder="Enter broker server" type="text" />
+                    <!-- <div class="frame-inner"></div> -->
+                    {{ html()->text('broker_server')
+                                ->class('group-input')
+                                ->placeholder(__('Enter broker server'))
+                                ->maxlength(100)
+                                ->required()
+                                ->autofocus() }}
                 </div>
                 <div class="unit-container">
                     <div class="unit2">Broker ID Password to activate EA</div>
                     <div class="rectangle-container">
                         <div class="rectangle-div"></div>
-                        <input name="broker_password" id="broker_password" required class="enter-broker-id1" placeholder="Enter broker ID" type="password" />
+                        {{ html()->text('broker_password')
+                                ->class('enter-broker-id1')
+                                ->placeholder(__('Enter broker ID'))
+                                ->maxlength(100)
+                                ->required()
+                                ->autofocus() 
+                                ->attribute('type', 'password')
+                        }}
 
                         <div class="eye-icons">
                                  <button class="btn btn-transparent p-0 "  type="button" style="display: contents;"><i
@@ -104,7 +123,13 @@
                 </div>
                 <div class="pairs-parent">
                     <div class="pairs">Pairs</div>
-                    <input name="pairs" required class="frame-child1" placeholder="Enter pairs" type="text" />
+                    {{ html()->text('pairs')
+                                ->class('frame-child1')
+                                ->placeholder(__('Enter pairs'))
+                                ->maxlength(100)
+                                ->required()
+                                ->autofocus() 
+                        }}
                 </div>
 
                 <div class="field signup-selectbox-field">
@@ -123,7 +148,13 @@
 
                 <div class="unit-group mt-3">
                     <div class="unit1">Lot</div>
-                    <input name="lot" required class="group-input" placeholder="Enter lot amount" type="text" />
+                    {{ html()->text('lot')
+                                ->class('group-input')
+                                ->placeholder(__('Enter lot amount'))
+                                ->maxlength(100)
+                                ->required()
+                                ->autofocus() 
+                        }}
                 </div>
 
                 <div class="frame-parent1">
@@ -152,7 +183,7 @@
                 <div class="frame-child4"></div>
                 
             </div>
-            </x-forms.post>
+            </x-forms.patch>
         </div>
     </section>
 @endsection
@@ -174,6 +205,11 @@
             $(this).addClass('mdi-eye-outline');
             $(this).removeClass('mdi-eye-off-outline');
         }
+    });
+
+     $(document).on("focus", "input, select", function() {
+        $(".frame-item").removeClass("active");
+        $(this).parent().find(".frame-item").addClass("active");
     });
 
 </script>

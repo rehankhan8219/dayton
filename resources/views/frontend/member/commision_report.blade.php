@@ -10,12 +10,14 @@
       <div class="frame-wrapper">
          <div class="frame-container">
             <div class="arrow-left-wrapper" id="frameContainer">
+               <a href="{{ url()->previous() }}">
                <img
                   class="arrow-left-icon"
                   loading="lazy"
                   alt=""
                   src="{{ asset('assets/frontend/img/arrowleft.svg') }}"
                   />
+               </a>
             </div>
             <div class="commission-report-label">
                <div class="comission-report">Comission Report</div>

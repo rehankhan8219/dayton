@@ -26,6 +26,12 @@
             </div>
             <div class="frame-div">
                 @foreach($broker_list as $broker)
+
+                @php
+                    $broker_bill_detail = getBrokerBillDetails($broker->id);
+                @endphp
+
+
                 <div class="aita-wrapper">
                     <div class="aita">
                         <div class="semicolon">
@@ -37,7 +43,14 @@
                                         <span></span>
                                     </div>
                                 </div>
-                                <div class="active">Active</div>
+
+                                @if($broker->active == 1)
+                                    <div class="active">Active</div>
+                                @elseif($broker->active == 2)
+                                    <div class="processing">Error</div>
+                                @elseif($broker->active == 0)
+                                    <div class="inactive">Nonactive</div>
+                                @endif
                             </div>
                             <div class="jan">
                                 <div class="lot">
@@ -52,10 +65,16 @@
                                         <div class="audcad">{{ $broker->pairs }}</div>
                                     </button>
                                 </div>
+                                @if(!empty($broker_bill_detail))
+                                
                                 <div class="period-parent">
                                     <h2 class="period">Period</h2>
                                     <button class="jan-2023-21-jan-23-wrapper">
-                                        <div class="jan-2023-">1 Jan 2023 - 21 Jan 23</div>
+                                        <div class="jan-2023-">
+                                            {{ \Carbon\Carbon::createFromFormat('Y-m-d', $broker_bill_detail['start_date'])->format('d M Y') }}
+                                                - 
+                                            {{ \Carbon\Carbon::createFromFormat('Y-m-d', $broker_bill_detail['end_date'])->format('d M Y') }}
+                                        </div>
                                     </button>
                                 </div>
                                 <div class="disclaimer">
@@ -65,15 +84,22 @@
                                             src="{{ asset('assets/frontend/img/infocircle.svg') }}" />
                                     </div>
                                     <div class="jan1">
-                                        <div class="jan-2023">22 Jan 2023</div>
+                                        <div class="jan-2023">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $broker_bill_detail['due_date'])->format('d M Y') }}</div>
                                     </div>
                                 </div>
+                                @endif
                             </div>
                             <div class="i-d-r">
                                 <h3 class="bill">Bill</h3>
                                 <div class="idr-4000000">
                                     <span class="idr">IDR</span>
-                                    <b class="b"> 4.000.000</b>
+                                    <b class="b"> 
+                                        @if(!empty($broker_bill_detail))
+                                            {{ $broker_bill_detail['amount'] }}
+                                        @else
+                                            0.00
+                                        @endif
+                                    </b>
                                 </div>
                             </div>
                         </div>

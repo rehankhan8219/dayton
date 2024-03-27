@@ -39,6 +39,11 @@
    .edit-input{
    cursor: pointer;
    }
+
+   .frame-item.active {
+       border: 1px solid #2691b5;
+       background-color: rgba(255, 255, 255, 0.1);
+   }
 </style>
 @endpush
 @section('content')
@@ -67,7 +72,7 @@
             <div class="field">
                <div class="unit">Email</div>
                <div class="rectangle-group">
-                  <div class="frame-inner"></div>
+                  <div class="frame-inner frame-item"></div>
                   <input
                      name = "email"
                      class="michaeljordandaytonfintechco"
@@ -85,7 +90,7 @@
             <div class="field1">
                <div class="unit1">Name</div>
                <div class="rectangle-container">
-                  <div class="rectangle-div"></div>
+                  <div class="rectangle-div frame-item"></div>
                   <input
                      name = "name"
                      class="rnistudio99"
@@ -103,7 +108,7 @@
             <div class="field2">
                <div class="unit2">Phone Number</div>
                <div class="group-div">
-                  <div class="frame-child1"></div>
+                  <div class="frame-child1 frame-item"></div>
                   <input
                      name = "phone"
                      class="rnistudio991"
@@ -141,7 +146,7 @@
             <div class="field4 mt-3">
                <div class="unit4">Change Password</div>
                <div class="rectangle-parent2">
-                  <div class="frame-child3"></div>
+                  <div class="frame-child3 frame-item"></div>
                   <input
                      name = "password"
                      class="rnistudio992"
@@ -157,7 +162,7 @@
             <div class="field5">
                <div class="unit5">Retype Password</div>
                <div class="rectangle-parent3">
-                  <div class="frame-child4"></div>
+                  <div class="frame-child4 frame-item"></div>
                   <input name = "password_confirmation" class="input" placeholder="********" type="password" readonly  />
                   <div class="edit-wrapper1 edit-input">
                      <img class="edit-icon" alt="" src="{{ asset('assets/frontend/img/edit-4.svg') }}" />
@@ -212,5 +217,10 @@
          inputField.prop('readonly', true);
      }
    })
+
+   $(document).on("focus", "input, select", function() {
+       $(".frame-item").removeClass("active");
+       $(this).parent().find(".frame-item").addClass("active");
+   });
 </script>
 @endpush

@@ -78,15 +78,21 @@
                                 ->required() }}
                         </div>
                     </div>
+
                     <div class="row mb-3">
                         <div class="col-sm-12 col-md-6">
-                            {{ html()->label(__('EA Status').'<span class="text-danger">*</span>')->for('active') }}
-                            <div class="form-check">
-                                {{ html()->input('checkbox', 'active', 1)
-                                    ->class('form-check-input') }}
-                            </div><!--form-check-->
+                            {{ html()->label(__('EA Status').'<span class="text-danger">*</span>')->for('risk') }}
+                            {{ html()->select('active', [
+                                    1 => 'Active',
+                                    0 => 'Non Active',
+                                    2 => 'Error'
+                                ])
+                                ->class('form-control')
+                                ->placeholder(__('Select EA Status'))
+                                ->required() }}
                         </div>
                     </div>
+
                 </x-slot>
     
                 <x-slot name="footer">

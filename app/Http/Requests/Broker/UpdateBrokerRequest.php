@@ -38,7 +38,7 @@ class UpdateBrokerRequest extends FormRequest
             'pairs' => ['required', 'string', 'max:199'],
             'risk_calculator_id' => ['required', 'integer', 'exists:risk_calculators,id'],
             'lot' => ['required', 'decimal:0,2'],
-            'active' => ['sometimes', 'in:0,1'],
+            'active' => ['sometimes', 'in:0,1,2'],
         ];
     }
 

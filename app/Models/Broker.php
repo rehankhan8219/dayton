@@ -40,6 +40,6 @@ class Broker extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        'active' => 'boolean'
+        // 'active' => 'boolean'
     ];
 }

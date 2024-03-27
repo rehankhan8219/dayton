@@ -57,8 +57,13 @@ class BrokersTable extends DataTableComponent
             Column::make("Lot", "lot")
                 ->sortable()
                 ->searchable(),
-            BooleanColumn::make("EA Status", "active")
-                ->sortable(),
+            // BooleanColumn::make("EA Status", "active")
+            //     ->sortable(),
+            Column::make('EA Status')
+                ->label(fn($row) => view('backend.broker.includes.status', ['broker' => $row]))
+                ->html()
+                ->sortable()
+                ->collapseOnMobile(),    
             Column::make('Actions')
                 ->label(fn($row) => view('backend.broker.includes.actions', ['broker' => $row]))
                 ->html()

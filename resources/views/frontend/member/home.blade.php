@@ -58,20 +58,22 @@
                                 <div class="bill">Bill</div>
                                 <div class="idr-140000000">
                                     <span class="idr">IDR</span>
-                                    <b class="b"> 140.000.000</b>
+                                    <b class="b">{{$amount}}</b>
                                 </div>
                             </div>
                         </div>
                         <div class="moneysend-instance-inner">
                             <div class="frame-parent1">
-                                <button class="money-send-parent">
-                                    <img class="money-send-icon" alt=""
-                                        src="{{ asset('assets/frontend/img/moneysend.svg') }}" />
+                                @if ($amount !== 0)
+                                    <button class="money-send-parent">
+                                        <img class="money-send-icon" alt=""
+                                            src="{{ asset('assets/frontend/img/moneysend.svg') }}" />
 
-                                    <div class="risk-level">
-                                        <div class="pay-now" id="payNowText">Pay Now</div>
-                                    </div>
-                                </button>
+                                        <div class="risk-level">
+                                            <div class="pay-now" id="payNowText">Pay Now</div>
+                                        </div>
+                                    </button>
+                                @endif
                                 <div class="frame-wrapper1">
                                     <button class="ellipse-parent">
                                         <div class="frame-inner"></div>

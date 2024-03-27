@@ -23,7 +23,15 @@
         <link href="{{asset('assets/backend/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
 
         @stack('page-styles')
-
+        <style>
+            button.btn-default {
+                border: 0px;
+                border-radius: 10px;
+                padding: 8px 21px;
+                color: white;
+                background: #2691b5;
+            }
+        </style>
         @stack('after-styles')
     </head>
     <body>

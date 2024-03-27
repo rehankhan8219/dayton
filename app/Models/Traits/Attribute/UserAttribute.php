@@ -88,4 +88,12 @@ trait UserAttribute
     {
         return base64_decode($value);
     }
+    
+    /**
+     * @return mixed
+     */
+    public function getUniqueCodeAttribute()
+    {
+        return str_replace('DT', '', $this->attributes['dt_code']);
+    }
 }

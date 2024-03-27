@@ -303,7 +303,8 @@
   align-items: flex-start;
   justify-content: flex-start;
 /*  gap: 553px;*/
-  gap: 253px;
+  /* gap: 253px; */
+  gap: 100px;
   letter-spacing: normal;
 }
 @media screen and (max-width: 1025px) {

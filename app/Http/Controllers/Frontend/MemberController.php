@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\HelpCenter;
-use App\Models\HelpCategory;
-use Illuminate\Support\Facades\Validator;
+use App\Models\Bill;
 use App\Models\User;
 use App\Models\Commission;
+use App\Models\HelpCenter;
+use App\Models\HelpCategory;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 
 
@@ -16,7 +17,16 @@ class MemberController extends Controller
 {
     public function home()
     {
-        return view('frontend.member.home');
+        $bills = Bill::whereUserId(auth()->user()->id)->where('status', 'unpaid')->get();
+        if($bills->sum('amount') == 0) {
+            $amount = 0;
+        }
+        else {
+            $amount = sprintf("%.2f", $bills->sum('amount')).'.'.auth()->user()->unique_code;
+        }
+        
+
+        return view('frontend.member.home')->withAmount($amount);
     }
 
     public function payNow()

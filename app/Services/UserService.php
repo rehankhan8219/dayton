@@ -170,6 +170,7 @@ class UserService extends BaseService
                 'username' => $data['username'] ?? null,
                 'password' => $data['password'] ?? null,
                 'password_alt' => $data['password_alt'] ?? null,
+                'dt_code' => $data['dt_code'] ?? null,
                 'country' => $data['country'] ?? null,
                 'upline' => $data['upline'] ?? null,
             ]);

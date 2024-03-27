@@ -18,7 +18,7 @@ class BrokerController extends Controller
     public function index()
     {
         $broker_list = Broker::where('user_id', auth()->user()->id)->get();
-
+        
         return view('frontend.broker.index', compact('broker_list'));
     }
     

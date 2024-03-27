@@ -30,6 +30,8 @@
                 @php
                     $broker_bill_detail = getBrokerBillDetails($broker->id);
                 @endphp
+
+
                 <div class="aita-wrapper">
                     <div class="aita">
                         <div class="semicolon">
@@ -64,13 +66,14 @@
                                     </button>
                                 </div>
                                 @if(!empty($broker_bill_detail))
+                                
                                 <div class="period-parent">
                                     <h2 class="period">Period</h2>
                                     <button class="jan-2023-21-jan-23-wrapper">
                                         <div class="jan-2023-">
-                                            {{ \Carbon\Carbon::createFromFormat('Y-m-d', $broker_bill_detail->start_date)->format('d M Y') }}
+                                            {{ \Carbon\Carbon::createFromFormat('Y-m-d', $broker_bill_detail['start_date'])->format('d M Y') }}
                                                 - 
-                                            {{ \Carbon\Carbon::createFromFormat('Y-m-d', $broker_bill_detail->end_date)->format('d M Y') }}
+                                            {{ \Carbon\Carbon::createFromFormat('Y-m-d', $broker_bill_detail['end_date'])->format('d M Y') }}
                                         </div>
                                     </button>
                                 </div>
@@ -81,7 +84,7 @@
                                             src="{{ asset('assets/frontend/img/infocircle.svg') }}" />
                                     </div>
                                     <div class="jan1">
-                                        <div class="jan-2023">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $broker_bill_detail->due_date)->format('d M Y') }}</div>
+                                        <div class="jan-2023">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $broker_bill_detail['due_date'])->format('d M Y') }}</div>
                                     </div>
                                 </div>
                                 @endif
@@ -92,7 +95,7 @@
                                     <span class="idr">IDR</span>
                                     <b class="b"> 
                                         @if(!empty($broker_bill_detail))
-                                            {{ $broker_bill_detail->amount }}
+                                            {{ $broker_bill_detail['amount'] }}
                                         @else
                                             0.00
                                         @endif

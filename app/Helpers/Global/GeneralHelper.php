@@ -70,9 +70,31 @@ if (! function_exists('getHelpCenterDetailsFromCategory')) {
 if (! function_exists('getBrokerBillDetails')) {
     function getBrokerBillDetails($broker_id)
     {
-       $bill_details = Bill::where('broker_id', $broker_id)->latest('created_at')->first();
+       $broker_bill_details =  [];
 
-       return $bill_details;
+       $start_date_bill_details = Bill::where('broker_id', $broker_id)->oldest('start_date')->first();
+       $end_date_bill_details = Bill::where('broker_id', $broker_id)->latest('end_date')->first();
+       $due_date_bill_details = Bill::where('broker_id', $broker_id)->latest('due_date')->first();
+
+       $bill_amount = Bill::where('broker_id', $broker_id)->sum('amount');
+
+       if(!empty($start_date_bill_details)){
+            $broker_bill_details['start_date'] = $start_date_bill_details->start_date;
+       }
+
+       if(!empty($end_date_bill_details)){
+            $broker_bill_details['end_date'] = $end_date_bill_details->end_date;
+       }
+
+       if(!empty($due_date_bill_details)){
+            $broker_bill_details['due_date'] = $due_date_bill_details->due_date;
+       }
+
+       if(!empty($bill_amount)){
+            $broker_bill_details['amount'] = $bill_amount;
+       }
+
+       return $broker_bill_details;
     }
 }
 

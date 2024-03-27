@@ -57,6 +57,11 @@
         position: relative;
     }
 
+    .broker-frame-item.active {
+       border: 1px solid #2691b5;
+       background-color: rgba(255, 255, 255, 0.1);
+   }
+
 </style>
 @endpush
 
@@ -76,23 +81,28 @@
             </div>
             <x-forms.post :action="route('frontend.broker.store')">
             <div class="frame-div">
-               
-                <div class="unit-parent">
-                    <div class="unit">Broker ID</div>
-                    <div class="rectangle-group">
-                        <div class="frame-inner"></div>
-                        <input name="broker_id" required class="enter-broker-id" placeholder="Enter broker ID" type="text" />
+
+                <div class="unit-container">
+                    <div class="unit2">Broker ID</div>
+                    <div class="rectangle-container">
+                        <div class="rectangle-div broker-frame-item active"></div>
+                         <input name="broker_id" required class="broker-input" placeholder="Enter broker ID" type="text" />
                     </div>
                 </div>
-                <div class="unit-group">
-                    <div class="unit1">Broker Server</div>
-                    <input name="broker_server" required class="group-input" placeholder="Enter broker server" type="text" />
+
+                <div class="unit-container">
+                    <div class="unit2">Broker Server</div>
+                    <div class="rectangle-container">
+                        <div class="rectangle-div broker-frame-item"></div>
+                          <input name="broker_server" required class="broker-input" placeholder="Enter broker server" type="text" />
+                    </div>
                 </div>
+
                 <div class="unit-container">
                     <div class="unit2">Broker ID Password to activate EA</div>
                     <div class="rectangle-container">
-                        <div class="rectangle-div"></div>
-                        <input name="broker_password" id="broker_password" required class="enter-broker-id1" placeholder="Enter broker ID" type="password" />
+                        <div class="rectangle-div broker-frame-item"></div>
+                        <input name="broker_password" id="broker_password" required class="broker-input" placeholder="Enter broker ID" type="password" />
 
                         <div class="eye-icons">
                                  <button class="btn btn-transparent p-0 "  type="button" style="display: contents;"><i
@@ -102,9 +112,13 @@
 
                     </div>
                 </div>
-                <div class="pairs-parent">
-                    <div class="pairs">Pairs</div>
-                    <input name="pairs" required class="frame-child1" placeholder="Enter pairs" type="text" />
+
+                <div class="unit-container">
+                    <div class="unit2">Pairs</div>
+                    <div class="rectangle-container">
+                        <div class="rectangle-div broker-frame-item"></div>
+                          <input name="pairs" required class="broker-input" placeholder="Enter pairs" type="text" />
+                    </div>
                 </div>
 
                 <div class="field signup-selectbox-field">
@@ -121,9 +135,12 @@
                    </div>
                 </div>
 
-                <div class="unit-group mt-3">
-                    <div class="unit1">Lot</div>
-                    <input name="lot" required class="group-input" placeholder="Enter lot amount" type="text" />
+                <div class="unit-container mt-3">
+                    <div class="unit2">Lot</div>
+                    <div class="rectangle-container">
+                        <div class="rectangle-div broker-frame-item"></div>
+                        <input name="lot" required class="broker-input" placeholder="Enter lot amount" type="text" />
+                    </div>
                 </div>
 
                 <div class="frame-parent1">
@@ -174,6 +191,11 @@
             $(this).addClass('mdi-eye-outline');
             $(this).removeClass('mdi-eye-off-outline');
         }
+    });
+
+    $(document).on("focus", "input, select", function() {
+        $(".broker-frame-item").removeClass("active");
+        $(this).parent().find(".broker-frame-item").addClass("active");
     });
 
 </script>

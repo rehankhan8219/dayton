@@ -57,6 +57,11 @@
         position: relative;
     }
 
+    .broker-frame-item.active {
+       border: 1px solid #2691b5;
+       background-color: rgba(255, 255, 255, 0.1);
+   }
+
 </style>
 @endpush
 
@@ -77,35 +82,39 @@
             <x-forms.patch :action="route('frontend.broker.update', [$broker])">
             @php(html()->model($broker))
             <div class="frame-div">
-               
-                <div class="unit-parent">
-                    <div class="unit">Broker ID</div>
-                    <div class="rectangle-group">
-                        <div class="frame-inner"></div>
-                         {{ html()->text('broker_id')
-                                ->class('enter-broker-id')
+
+                <div class="unit-container">
+                    <div class="unit2">Broker ID</div>
+                    <div class="rectangle-container">
+                        <div class="rectangle-div broker-frame-item active"></div>
+                        {{ html()->text('broker_id')
+                                ->class('broker-input')
                                 ->placeholder(__('Enter broker ID'))
                                 ->maxlength(100)
                                 ->required()
                                 ->autofocus() }}
                     </div>
                 </div>
-                <div class="unit-group">
-                    <div class="unit1">Broker Server</div>
-                    <!-- <div class="frame-inner"></div> -->
-                    {{ html()->text('broker_server')
-                                ->class('group-input')
+
+                <div class="unit-container">
+                    <div class="unit2">Broker Server</div>
+                    <div class="rectangle-container">
+                        <div class="rectangle-div broker-frame-item"></div>
+                        {{ html()->text('broker_server')
+                                ->class('broker-input')
                                 ->placeholder(__('Enter broker server'))
                                 ->maxlength(100)
                                 ->required()
                                 ->autofocus() }}
+                    </div>
                 </div>
+
                 <div class="unit-container">
                     <div class="unit2">Broker ID Password to activate EA</div>
                     <div class="rectangle-container">
-                        <div class="rectangle-div"></div>
+                        <div class="rectangle-div broker-frame-item"></div>
                         {{ html()->text('broker_password')
-                                ->class('enter-broker-id1')
+                                ->class('broker-input')
                                 ->placeholder(__('Enter broker ID'))
                                 ->maxlength(100)
                                 ->required()
@@ -121,15 +130,19 @@
 
                     </div>
                 </div>
-                <div class="pairs-parent">
-                    <div class="pairs">Pairs</div>
-                    {{ html()->text('pairs')
-                                ->class('frame-child1')
+
+                <div class="unit-container">
+                    <div class="unit2">Pairs</div>
+                    <div class="rectangle-container">
+                        <div class="rectangle-div broker-frame-item"></div>
+                        {{ html()->text('pairs')
+                                ->class('broker-input')
                                 ->placeholder(__('Enter pairs'))
                                 ->maxlength(100)
                                 ->required()
                                 ->autofocus() 
                         }}
+                    </div>
                 </div>
 
                 <div class="field signup-selectbox-field">
@@ -146,15 +159,18 @@
                    </div>
                 </div>
 
-                <div class="unit-group mt-3">
-                    <div class="unit1">Lot</div>
-                    {{ html()->text('lot')
-                                ->class('group-input')
+                <div class="unit-container mt-3">
+                    <div class="unit2">Lot</div>
+                    <div class="rectangle-container">
+                        <div class="rectangle-div broker-frame-item"></div>
+                        {{ html()->text('lot')
+                                ->class('broker-input')
                                 ->placeholder(__('Enter lot amount'))
                                 ->maxlength(100)
                                 ->required()
                                 ->autofocus() 
                         }}
+                    </div>
                 </div>
 
                 <div class="frame-parent1">
@@ -205,6 +221,11 @@
             $(this).addClass('mdi-eye-outline');
             $(this).removeClass('mdi-eye-off-outline');
         }
+    });
+
+     $(document).on("focus", "input, select", function() {
+        $(".broker-frame-item").removeClass("active");
+        $(this).parent().find(".broker-frame-item").addClass("active");
     });
 
 </script>

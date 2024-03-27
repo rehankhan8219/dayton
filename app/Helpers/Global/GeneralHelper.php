@@ -2,6 +2,8 @@
 
 use Carbon\Carbon;
 use App\Models\HelpCenter;
+use App\Models\Bill;
+
 
 if (! function_exists('appName')) {
     /**
@@ -64,3 +66,13 @@ if (! function_exists('getHelpCenterDetailsFromCategory')) {
        return $help_centers;
     }
 }
+
+if (! function_exists('getBrokerBillDetails')) {
+    function getBrokerBillDetails($broker_id)
+    {
+       $bill_details = Bill::where('broker_id', $broker_id)->latest('created_at')->first();
+
+       return $bill_details;
+    }
+}
+

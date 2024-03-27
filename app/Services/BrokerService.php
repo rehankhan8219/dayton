@@ -46,7 +46,8 @@ class BrokerService extends BaseService
                 'pairs' => $data['pairs'],
                 'risk_calculator_id' => $data['risk_calculator_id'],
                 'lot' => $data['lot'],
-                'active' => isset($data['active']) && $data['active'] === '1',
+                // 'active' => isset($data['active']) && $data['active'] === '1',
+                'active' => $data['active'] ?? 0,
             ]);
         } catch (Exception $e) {
             DB::rollBack();
@@ -82,7 +83,8 @@ class BrokerService extends BaseService
                 'pairs' => $data['pairs'],
                 'risk_calculator_id' => $data['risk_calculator_id'],
                 'lot' => $data['lot'],
-                'active' => isset($data['active']) && $data['active'] === '1',
+                // 'active' => isset($data['active']) && $data['active'] === '1',
+                'active' => $data['active'] ?? 0,
             ]);
         } catch (Exception $e) {
             DB::rollBack();

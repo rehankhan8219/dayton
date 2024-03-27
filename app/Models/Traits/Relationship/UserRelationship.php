@@ -3,6 +3,7 @@
 namespace App\Models\Traits\Relationship;
 
 use App\Models\Broker;
+use App\Models\Withdrawal;
 
 /**
  * Class UserRelationship.
@@ -23,5 +24,13 @@ trait UserRelationship
     public function brokers()
     {
         return $this->hasMany(Broker::class);
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function withdrawals()
+    {
+        return $this->hasMany(Withdrawal::class);
     }
 }

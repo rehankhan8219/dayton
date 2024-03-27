@@ -31,39 +31,17 @@ Route::group([
     });
     
     Route::group([
-        'middleware' => 'permission:admin.access.riskcalculator.list|admin.access.riskcalculator.deactivate|admin.access.riskcalculator.reactivate|admin.access.riskcalculator.clear-session|admin.access.riskcalculator.impersonate|admin.access.riskcalculator.change-password',
+        'middleware' => 'permission:admin.access.riskcalculator',
     ], function(){
         Route::get('/', [RiskCalculatorController::class, 'index'])
             ->name('index')
-            ->middleware('permission:admin.access.riskcalculator.list|admin.access.riskcalculator.deactivate|admin.access.riskcalculator.clear-session|admin.access.riskcalculator.impersonate|admin.access.riskcalculator.change-password')
             ->breadcrumbs(fn (Trail $trail) => $trail->parent(homeRoute())->push(__('RiskCalculators'), route('admin.riskcalculator.index')));
 
         Route::group(['prefix' => '{riskcalculator}'], function(){
             Route::get('/', [RiskCalculatorController::class, 'show'])
                 ->name('show')
-                ->middleware('permission:admin.access.riskcalculator.list')
                 ->breadcrumbs(fn (Trail $trail, RiskCalculator $riskcalculator) => $trail->parent('admin.riskcalculator.index')->push(__('View RiskCalculator'), route('admin.riskcalculator.show', $riskcalculator)));
 
-            Route::post('clear-session', [RiskCalculatorController::class, 'clearSession'])
-                ->name('clear-session')
-                ->middleware('permission:admin.access.riskcalculator.clear-session');
-
-            Route::patch('mark/{status}', [RiskCalculatorController::class, 'updateActiveStatus'])
-                ->name('mark')
-                ->where(['status' => '[0,1]'])
-                ->middleware('permission:admin.access.riskcalculator.deactivate|admin.access.riskcalculator.reactivate');
-
-            Route::get('password/change', [RiskCalculatorController::class, 'showEditPasswordForm'])
-                ->name('change-password')
-                ->middleware('permission:admin.access.riskcalculator.change-password')
-                ->breadcrumbs(function (Trail $trail, RiskCalculator $riskcalculator) {
-                    $trail->parent('admin.riskcalculator.index')
-                        ->push(__('Change Password'), route('admin.riskcalculator.change-password', $riskcalculator));
-                });
-
-            Route::patch('password/change', [RiskCalculatorController::class, 'updatePassword'])
-                ->name('change-password.update')
-                ->middleware('permission:admin.access.riskcalculator.change-password');
         });
     });
 });

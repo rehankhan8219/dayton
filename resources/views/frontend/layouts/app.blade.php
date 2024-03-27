@@ -24,7 +24,7 @@
 
         @stack('page-styles')
         <style>
-            button.btn-default {
+            .btn-default {
                 border: 0px;
                 border-radius: 10px;
                 padding: 8px 21px;

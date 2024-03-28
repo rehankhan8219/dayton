@@ -71,7 +71,7 @@ if (! function_exists('getBrokerBillDetails')) {
     function getBrokerBillDetails($broker_id)
     {
        $broker_bill_details =  [];
-
+       
        $start_date_bill_details = Bill::where('broker_id', $broker_id)->oldest('start_date')->first();
        $end_date_bill_details = Bill::where('broker_id', $broker_id)->latest('end_date')->first();
        $due_date_bill_details = Bill::where('broker_id', $broker_id)->latest('due_date')->first();

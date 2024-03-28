@@ -61,7 +61,7 @@ class BrokerController extends Controller
             ]);
 
 
-        return redirect()->back()->withFlashSuccess(__('The broker was successfully created.'));
+        return redirect()->route('frontend.broker.index')->withFlashSuccess(__('The broker was successfully created.'));
     }
 
     public function edit(Broker $broker)
@@ -101,6 +101,6 @@ class BrokerController extends Controller
             ]);
 
 
-        return redirect()->back()->withFlashSuccess(__('The broker was successfully updated.'));
+        return redirect()->route('frontend.broker.index')->withFlashSuccess(__('The broker was successfully updated.'));
     }
 }

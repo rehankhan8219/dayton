@@ -31,13 +31,19 @@
                 color: white;
                 background: #2691b5;
             }
+
+            .header-message{
+                width: 60%;
+                text-align: center;
+                margin-left: 20%;
+            }
         </style>
         @stack('after-styles')
     </head>
     <body>
         <div class="@yield('page_name')">
             @include('frontend.includes.header')
-            @include('includes.partials.messages')
+                @include('includes.partials.messages')
             @yield('content')
 
             @include('frontend.includes.footer')

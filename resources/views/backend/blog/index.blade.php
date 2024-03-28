@@ -89,3 +89,16 @@
     </x-slot>
 </x-backend.card>
 @endsection
+@push('after-scripts')
+    <script src="https://cdn.tiny.cloud/1/9fpo3zh5yizupxbw8xs5ds167oy7vji72825q5psqgduzte8/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+    
+    <script>
+          tinymce.init({
+            selector: '.my-editor',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+            tinycomments_mode: 'embedded',
+            ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+          });
+        </script>
+@endpush

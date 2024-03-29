@@ -28,7 +28,19 @@ class StoreLevelRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string', 'max:191'],
+            'name' => ['required', 'string', 'max:191', 'unique:levels'],
+        ];
+    }
+
+    /**
+     * Get the validation messages that apply to the request.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'name.unique' => __('Level is already added with same name'),
         ];
     }
 

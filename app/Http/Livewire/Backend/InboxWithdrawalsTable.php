@@ -12,7 +12,22 @@ class InboxWithdrawalsTable extends DataTableComponent
     public function configure(): void
     {
         $this->setPrimaryKey('id')
-            ->setAdditionalSelects(['activity_log.id as id']);
+            ->setAdditionalSelects(['activity_log.id as id'])
+            ->setBulkActions([
+                'deleteSelected' => 'Delete',
+                'readSelected' => 'Read',
+            ])
+            ->setBulkActionsEnabled()
+            ->setHideBulkActionsWhenEmptyEnabled()
+            ->setTrAttributes(function($row, $index) {
+                if ($row->getExtraProperty('is_read') !== true) {
+                    return [
+                        'class' => 'fw-bolder',
+                    ];
+                }
+           
+                return [];
+            });;
     }
 
     /**
@@ -39,5 +54,17 @@ class InboxWithdrawalsTable extends DataTableComponent
                 ->sortable()
                 ->searchable(),
         ];
+    }
+
+    public function readSelected()
+    {
+        Activity::whereIn('id', $this->getSelected())->update(['properties' => ['is_read' => true]]);
+        $this->clearSelected();
+    }
+    
+    public function deleteSelected()
+    {
+        Activity::whereIn('id', $this->getSelected())->delete();
+        $this->clearSelected();
     }
 }

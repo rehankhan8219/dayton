@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\GrowTree;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Auth\Access\AuthorizationException;
 
@@ -28,9 +29,21 @@ class StoreGrowTreeRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => ['required', 'exists:users,id'],
+            'user_id' => ['required', 'exists:users,id', Rule::unique('grow_trees', 'user_id')],
             'level_id' => ['required', 'exists:levels,id'],
             'diagram' => ['required', 'image', 'max:2048'],
+        ];
+    }
+    
+    /**
+     * Get the validation messages that apply to the request.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'user_id.unique' => __('Selected DT Code is already added'),
         ];
     }
 

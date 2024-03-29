@@ -43,7 +43,7 @@
                         <b class="idr-100000000">
                           <span>
                             <span class="idr">IDR </span>
-                            <span class="span">100.000.000</span>
+                            <span class="span">{{getTotalCommission($logged_in_user->id)}}</span>
                           </span>
                         </b>
                       </div>
@@ -56,7 +56,7 @@
                         <b class="idr-60000000">
                           <span>
                             <span class="idr1">IDR </span>
-                            <span class="span1">60.000.000</span>
+                            <span class="span1">{{getAvailableCommission($logged_in_user->id)}}</span>
                           </span>
                         </b>
                       </div>

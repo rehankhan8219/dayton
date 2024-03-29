@@ -28,7 +28,19 @@ class StoreHelpCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string', 'max:191'],
+            'name' => ['required', 'string', 'max:191', 'unique:help_categories'],
+        ];
+    }
+
+    /**
+     * Get the validation messages that apply to the request.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'name.unique' => __('Category is already added with same name'),
         ];
     }
 

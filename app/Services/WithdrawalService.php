@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Events\Withdrawal\WithdrawalCreated;
 use Exception;
 use App\Models\Withdrawal;
 use App\Services\BaseService;
@@ -50,6 +51,8 @@ class WithdrawalService extends BaseService
         }
 
         DB::commit();
+
+        event(new WithdrawalCreated($withdrawal));
 
         return $withdrawal;
     }

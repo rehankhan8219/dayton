@@ -5,6 +5,63 @@
 
 @push('after-styles')
     <link href="{{ asset('assets/frontend/css/withdraw_to_history.css') }}" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+
+        .common-clock-wrapper {
+            height: 120px;
+            width: 120px;
+            border-radius: 10000px;
+            background-color: rgba(0, 163, 255, 0.05);
+            justify-content: flex-start;
+            padding: var(--padding-xl);
+            box-sizing: border-box;
+        }
+
+        .common-save-wrapper {
+            flex: 1;
+            border-radius: 32px;
+            background-color: #2691b5;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 16.5px var(--padding-xl);
+            box-sizing: border-box;
+            white-space: nowrap;
+            max-width: 100%;
+        }
+
+         .common-long-cta {
+            display: flex;
+            align-items: flex-start;
+            max-width: 100%;
+        }
+
+        .common-long-cta {
+            cursor: pointer;
+            border: 0;
+            padding: 0;
+            background-color: transparent;
+            align-self: stretch;
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+
+        .common-save {
+            width: 110px;
+            position: relative;
+            font-size: var(--font-size-base);
+            line-height: 21px;
+            display: inline-block;
+            font-family: var(--medium-medium-14);
+            color: var(--color-white);
+            text-align: center;
+            min-width: 110px;
+        }
+
+
+    </style>
 @endpush
 
 @section('content')
@@ -51,10 +108,44 @@
                         </div>
                     </div>
                 @empty
-                    <div style="display:flex;align-items: center;flex-direction:column;gap:10px;">
-                        <h1>No withdrawal request added yet!</h1>
-                        <x-utils.link class="btn-default" :text="__('Withdraw Now')" />
+                    <div style="display:flex;align-items: center;flex-direction:column;gap:20px;width: 100%;">
+
+                        <div class="row">
+                            <div class="col-md-12 col-offset-3">
+                                <div class="common-clock-wrapper">
+                                <img
+                                  class="clock-icon"
+                                  loading="lazy"
+                                  alt=""
+                                  src="{{ asset('assets/frontend/img/clock.svg') }}"
+                                />
+                              </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="your-request-submitted-wrapper">
+                                    <b class="your-request-submitted">No withdrawal request added yet!</b>
+                              </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a href="{{ route('frontend.withdrawal.create') }}" class="common-long-cta">
+                                  <div class="common-save-wrapper">
+                                    <b class="common-save">Withdraw Now</b>
+                                  </div>
+                                </a>
+                            </div>
+                        </div>
+
+                         <!-- <h1>No withdrawal request added yet!</h1>
+                        <x-utils.link class="btn-default" :text="__('Withdraw Now')" />  -->
                     </div>
+
+                    
                 @endforelse
 
 

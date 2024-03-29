@@ -3,6 +3,8 @@
 use Carbon\Carbon;
 use App\Models\HelpCenter;
 use App\Models\Bill;
+use App\Models\RiskCalculator;
+
 
 
 if (! function_exists('appName')) {
@@ -97,4 +99,29 @@ if (! function_exists('getBrokerBillDetails')) {
        return $broker_bill_details;
     }
 }
+
+if (! function_exists('getUniquePairs')) {
+    function getUniquePairs()
+    {
+       $pairs_list = RiskCalculator::pluck('pairs', 'id')->unique()->toArray();
+       return $pairs_list;
+    }
+}
+
+if (! function_exists('getUniqueRiskLevel')) {
+    function getUniqueRiskLevel()
+    {
+       $risk_level_list = RiskCalculator::pluck('risk_level', 'id')->unique()->toArray();
+       return $risk_level_list;
+    }
+}
+
+if (! function_exists('getUniqueLot')) {
+    function getUniqueLot()
+    {
+       $lot_list = RiskCalculator::pluck('lot', 'id')->unique()->toArray();
+       return $lot_list;
+    }
+}
+
 

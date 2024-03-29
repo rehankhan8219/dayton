@@ -65,7 +65,8 @@ class WithdrawalController
 
         $this->withdrawalService->store($data);
 
-        return redirect()->route('frontend.withdrawal.submitted')->withFlashSuccess(__('The withdrawal was successfully created.'));
+        // return redirect()->route('frontend.withdrawal.submitted')->withFlashSuccess(__('The withdrawal was successfully created.'));
+        return redirect()->route('frontend.withdrawal.submitted');
     }
 
     /**

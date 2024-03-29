@@ -3,6 +3,18 @@
 @section('page_name', 'dashboard-commission-report')
 @push('after-styles')
 <link href="{{ asset('assets/frontend/css/dashboard-commission-report.css') }}" rel="stylesheet" type="text/css" />
+<style type="text/css">
+  .common-clock-wrapper {
+      height: 120px;
+      width: 120px;
+      border-radius: 10000px;
+      background-color: rgba(0, 163, 255, 0.05);
+      justify-content: flex-start;
+      padding: var(--padding-xl);
+      box-sizing: border-box;
+  }
+
+</style>
 @endpush
 @section('content')
 <section class="dashboard-commission-report-inner">
@@ -24,7 +36,8 @@
             </div>
          </div>
       </div>
-      @foreach($commision_reports as $report)
+     
+      @forelse($commision_reports as $report)
       <div class="commission-layer">
          <div class="frame-div">
             <div class="frame-parent1">
@@ -64,7 +77,33 @@
             </div>
          </div>
       </div>
-      @endforeach
+      @empty
+       <div style="display:flex;align-items: center;flex-direction:column;gap:25px;width: 100%;">
+
+               <div class="row">
+                   <div class="col-md-12 col-offset-3">
+                       <div class="common-clock-wrapper">
+                       <img
+                         class="clock-icon"
+                         loading="lazy"
+                         alt=""
+                         src="{{ asset('assets/frontend/img/clock.svg') }}"
+                       />
+                     </div>
+                   </div>
+               </div>
+
+               <div class="row">
+                   <div class="col-md-12">
+                       <div class="your-request-submitted-wrapper">
+                           <b class="your-request-submitted">No Comission Report Found</b>
+                     </div>
+                   </div>
+               </div>
+           </div>
+
+           
+       @endforelse
    </div>
 </section>
 @endsection

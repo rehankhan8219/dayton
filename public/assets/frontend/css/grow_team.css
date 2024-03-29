@@ -559,7 +559,7 @@
   align-self: stretch;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 0 0 375px;
+/*  padding: 0 0 375px;*/
   gap: 48px;
 }
 .home-trend-up-icon {

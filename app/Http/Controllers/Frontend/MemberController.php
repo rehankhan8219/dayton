@@ -10,7 +10,8 @@ use App\Models\HelpCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
-
+use App\Models\RiskCalculator;
+use App\Models\GrowTree;
 
 
 class MemberController extends Controller
@@ -36,7 +37,8 @@ class MemberController extends Controller
 
     public function growTeamPage()
     {
-        return view('frontend.member.grow_team_page');
+        $grow_tree_details = GrowTree::where('user_id', auth()->user()->id)->latest('created_at')->first();
+        return view('frontend.member.grow_team_page', compact('grow_tree_details'));
     }
 
     public function withDraw()
@@ -121,6 +123,29 @@ class MemberController extends Controller
         $user->save();
 
         return redirect()->back()->withFlashSuccess(__('Profile updated successfully!'));
+    }
+
+    public function getRiskCalculationDetails(Request $request)
+    {
+
+        $pairs = $request->pairs;
+        $risk_level = $request->risk_level;
+        $lot = $request->lot;
+
+        $risk_calculator = RiskCalculator::where('pairs', $pairs)->where('risk_level', $risk_level)->where('lot', $lot)->latest('created_at')->first();
+
+        $data = [];
+
+        if(!empty($risk_calculator)){
+            $data['status'] =  true;
+            $data['balance'] = $risk_calculator->balance;
+            $data['explanation'] = $risk_calculator->explanation;
+        }else{
+            $data['status'] =  false;
+            $data['message'] =  'No calculation founds.';
+        }
+
+        return response()->json(['status' => true, 'data' => $data]);
     }
 
 }

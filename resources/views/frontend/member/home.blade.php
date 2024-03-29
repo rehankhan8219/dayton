@@ -105,72 +105,72 @@
                         <div class="risk-calculator">Risk Calculator</div>
                     </div>
                     <div class="currency-u-s-d-label rectangle-container">
-                        <!-- <div class="pairs-parent">
-                             <div class="pairs">Pairs</div>
-                            <img class="arrow-down-icon" alt=""
-                                src="{{ asset('assets/frontend/img/arrowdown.svg') }}" /> 
-                                <select class="frame-child-selectbox">
-                                    <option>Pairs</option>
-                                </select>
-
-                                <div class="custom-caret">
-                                        <img class="arrow-down-icon" alt=""
-                                            src="{{ asset('assets/frontend/img/arrowdown.svg') }}">
-                                    </div>
-
-                        </div> -->
                         <div class="pairs-parent1">
-                            <select class="form-control home-selectbox">
-                                <option>Pairs</option>
-                                <option>Pairs2</option>
-                                <option>Pairs3</option>
+                            <select id="pairs" class="form-control home-selectbox">
+                                <option value="">Pairs</option>
+                                @foreach(getUniquePairs() as $pair_id => $pair)
+                                <option value="{{ $pair }}">{{ $pair }}</option>
+                                @endforeach
                             </select>
                         </div>
 
                         <div class="risk-level-parent1">
-                            <!-- <div class="risk-level1">Risk Level</div>
-                            <img class="arrow-down-icon1" alt=""
-                                src="{{ asset('assets/frontend/img/arrowdown.svg') }}" /> -->
-                                <select class="form-control home-selectbox">
-                                    <option>Risk Level</option>
+                                <select id="risk_level" class="form-control home-selectbox">
+                                    <option value="">Risk Level</option>
+                                    @foreach(getUniqueRiskLevel() as $risk_level_id => $risk_level)
+                                    <option value="{{ $risk_level }}">{{ $risk_level }}</option>
+                                    @endforeach
                                 </select>
                         </div>
                         <div class="lot-parent1">
-                            <!-- <div class="lot">Lot</div>
-                            <img class="arrow-down-icon2" alt=""
-                                src="{{ asset('assets/frontend/img/arrowdown.svg') }}" /> -->
-                            <select class="form-control home-selectbox">
-                                <option>Lot</option>
+                            <select id="lot" class="form-control home-selectbox">
+                                <option value="">Lot</option>
+                                @foreach(getUniqueLot() as $lot_id => $lot)
+                                <option value="{{ $lot }}">{{ $lot }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
-                    <div class="profile-trendup-status-inner">
+                    <div class="profile-trendup-status-inner d-none info-section">
                         <div class="frame-parent2">
                             <div class="recommended-balance-parent">
                                 <div class="recommended-balance">Recommended Balance</div>
                                 <div class="usd-1000-parent">
                                     <div class="usd-1000">
                                         <span class="usd">USD</span>
-                                        <b class="b1"> 1.000</b>
+                                        <b class="b1 risk_calculate_balance"> 1.000</b>
                                     </div>
                                     <div class="idr1">IDR</div>
                                 </div>
                                 <div class="traders-must-standby-container">
-                                    <p class="traders-must-standby">
+                                    <p class="traders-must-standby risk_calculate_explanation">
                                         Traders must standby 1x Top up balance for Low Risk, 2x
                                         Top up balance for Medium Risk,
                                     </p>
-                                    <p class="and-not-recommend">
+                                    <!-- <p class="and-not-recommend">
                                         and not recommend to Top up for High Risk level.
+                                    </p> -->
+                                </div>
+                            </div>
+                            <!-- <div class="idr-parent">
+                                <div class="idr2">IDR</div>
+                                <b class="b2">140.800.000</b>
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <div class="profile-trendup-status-inner d-none no-info-section">
+                        <div class="frame-parent2">
+                            <div class="recommended-balance-parent">
+                                <div class="traders-must-standby-container">
+                                    <p class="traders-must-standby risk_calculate_explanation">
+                                        
                                     </p>
                                 </div>
                             </div>
-                            <div class="idr-parent">
-                                <div class="idr2">IDR</div>
-                                <b class="b2">140.800.000</b>
-                            </div>
                         </div>
                     </div>
+
                     <button class="generate-button">
                         <div class="generate">Generate</div>
                     </button>
@@ -200,16 +200,66 @@
     </div>
     <div class="hometrendup-status-profile">
         <div class="profile">
-            <img class="home-trend-up-icon" loading="lazy" alt=""
+            <a href="{{ route('frontend.withdrawal.index')  }}">
+                <img class="home-trend-up-icon" loading="lazy" alt=""
                 src="{{ asset('assets/frontend/img/hometrendup.svg') }}" />
+            </a>
 
-            <img class="status-up-icon" loading="lazy" alt=""
+            <a href="{{ route('frontend.member.grow-team-page')  }}">
+                <img class="status-up-icon" loading="lazy" alt=""
                 src="{{ asset('assets/frontend/img/statusup.svg') }}" id="statusUpIcon" />
+            </a>
 
-            <img class="profile-icon" loading="lazy" alt="" src="{{ asset('assets/frontend/img/profile.svg') }}"
+            <a href="{{ route('frontend.member.profile.index')  }}">
+                <img class="profile-icon" loading="lazy" alt="" src="{{ asset('assets/frontend/img/profile.svg') }}"
                 id="profileIcon" />
+            </a>
         </div>
     </div>
 @endsection
 @push('after-scripts')
+<script type="text/javascript">
+    $(document).on('click', '.generate-button', function(){
+        var csrfToken = $('meta[name="csrf-token"]').attr('content');
+
+        var pairs = $('#pairs').val();
+        var risk_level = $('#risk_level').val();
+        var lot = $('#lot').val();
+
+        if(pairs == '' || risk_level == '' || lot == ''){
+            $('.info-section').addClass('d-none');
+            $('.no-info-section').removeClass('d-none');
+            $('.no-info-section').find('.risk_calculate_explanation').html('Please select above all fields');
+        } else {
+
+            $.ajax({
+                url: '{{ route("frontend.member.get-risk-calculation-details") }}', 
+                method: 'POST', 
+                dataType: 'json', 
+                data: { 
+                    pairs: pairs, 
+                    risk_level: risk_level, 
+                    lot: lot 
+                },
+                headers: {
+                    'X-CSRF-TOKEN': csrfToken 
+                },
+                success: function(response) {
+
+                    if(response.data.status == false){
+                        $('.info-section').addClass('d-none');
+                        $('.no-info-section').removeClass('d-none');
+                        $('.no-info-section').find('.risk_calculate_explanation').html(response.data.message);
+                    }else{
+                        $('.no-info-section').addClass('d-none');
+                        $('.info-section').removeClass('d-none');
+                        $('.info-section').find('.risk_calculate_explanation').html(response.data.explanation);
+                        $('.info-section').find('.risk_calculate_balance').html(response.data.balance);
+                        
+                    }
+                }
+            });
+        }
+    })
+</script>
 @endpush

@@ -29,9 +29,21 @@ class UpdateGrowTreeRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => ['required', 'exists:users,id'],
+            'user_id' => ['required', 'exists:users,id', Rule::unique('grow_trees', 'user_id')->ignore($this->growtree->id)],
             'level_id' => ['required', 'exists:levels,id'],
             'diagram' => ['sometimes', 'nullable', 'image', 'max:2048'],
+        ];
+    }
+
+    /**
+     * Get the validation messages that apply to the request.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'user_id.unique' => __('Selected DT Code is already added'),
         ];
     }
 

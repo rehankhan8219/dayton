@@ -3,9 +3,9 @@
 use Carbon\Carbon;
 use App\Models\HelpCenter;
 use App\Models\Bill;
+use App\Models\Commission;
 use App\Models\RiskCalculator;
-
-
+use App\Models\Withdrawal;
 
 if (! function_exists('appName')) {
     /**
@@ -121,6 +121,16 @@ if (! function_exists('getUniqueLot')) {
     {
        $lot_list = RiskCalculator::pluck('lot', 'id')->unique()->toArray();
        return $lot_list;
+    }
+}
+
+if (! function_exists('getAvailableCommission')) {
+    function getAvailableCommission($userId)
+    {
+       $totalCommission = Commission::where('user_id', $userId)->get()->sum('amount');
+       $totalWithdrawal = Withdrawal::where('user_id', $userId)->whereNot('status', 'unpaid')->get()->sum('amount');
+
+       return sprintf("%.2f", $totalCommission - $totalWithdrawal);
     }
 }
 

@@ -60,6 +60,11 @@ class WithdrawalController
             'amount' => 'required|numeric',
         ]);
 
+        $availableCommission = getAvailableCommission(auth()->user()->id);
+        if($availableCommission < $request->amount) {
+            return redirect()->back()->withFlashDanger(__('You can not request the amount higher than available commission. Your available commission is IDR '.$availableCommission));
+        }
+
         $data['user_id'] = auth()->user()->id;
         $data['status'] = 'processing';
 

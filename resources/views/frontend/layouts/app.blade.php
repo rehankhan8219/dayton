@@ -49,7 +49,7 @@
         @stack('after-styles')
     </head>
     <body>
-        <div class="@yield('page_name')">
+        <div class="@yield('page_name') main-page-section">
             @include('frontend.includes.header')
                 @include('includes.partials.messages')
             @yield('content')

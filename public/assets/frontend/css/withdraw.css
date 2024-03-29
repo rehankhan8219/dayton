@@ -333,7 +333,7 @@
   width: 100%;
   flex-direction: row;
   justify-content: center;
-  padding: 0 var(--padding-xl) 399px;
+  padding: 0 var(--padding-xl) 20px;
   box-sizing: border-box;
 }
 .rectangle-div {
@@ -443,7 +443,7 @@
     gap: 688px 344px;
   }
   .dashboard-withdraw-now-inner {
-    padding-bottom: 259px;
+    padding-bottom: 0px;
     box-sizing: border-box;
   }
 }
@@ -462,7 +462,7 @@
     gap: 688px 172px;
   }
   .dashboard-withdraw-now-inner {
-    padding-bottom: 168px;
+    padding-bottom: 0px;
     box-sizing: border-box;
   }
   .help {

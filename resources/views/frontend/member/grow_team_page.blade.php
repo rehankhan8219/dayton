@@ -13,6 +13,7 @@
       .copy-message {
         font-weight: bold;
         display: none;
+        float: right;
       }
     </style>
 @endpush
@@ -66,7 +67,7 @@
             </div>
             <div class="frame-wrapper2">
               <div class="copy-instance-parent">
-                <div class="copy-instance">
+                <!-- <div class="copy-instance">
                   <a href="{{ route('frontend.member.commision-report') }}" class="card-send-parent" id="frameButton">
 
                     <img
@@ -79,7 +80,22 @@
                       <b class="commission-report">Commission Report</b>
                     </div>
                   </a>
+                </div> -->
+
+                <div class="copy-instance1 w-100">
+                  <a href="{{ route('frontend.member.commision-report') }}" class="card-send-group" id="frameButton1">
+                    <img
+                      class="status-up-icon"
+                      alt=""
+                      src="{{ asset('assets/frontend/img/statusup.svg') }}"
+                    />
+
+                    <div class="withdraw-now-wrapper">
+                      <b class="withdraw-now">Commission Report</b>
+                    </div>
+                  </a>
                 </div>
+
                 <div class="copy-instance1">
                   <a href="{{ route('frontend.withdrawal.create') }}" class="card-send-group" id="frameButton1">
                     <img
@@ -104,11 +120,12 @@
               <div class="rectangle-group">
                 <div class="rectangle-div"></div>
                 <div class="dt102">{{ auth()->user()->dt_code }}</div>
-                <span class="copy-message">Copied!</span>
+                
                 <div class="copy-wrapper">
                   <img class="copy-icon" alt="Copy" src="{{ asset('assets/frontend/img/copy.svg') }}" onclick="copyReferralCode()" />
                 </div>
               </div>
+              <span class="copy-message">copied!</span>
             </div>
             @if(!empty($grow_tree_details) && !empty($grow_tree_details->diagram))
             <div class="field">

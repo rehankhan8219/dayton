@@ -1171,7 +1171,7 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
-  padding: 0 var(--padding-xl) 50px;
+  padding: 0 var(--padding-xl) 0px;
   box-sizing: border-box;
   max-width: 100%;
   text-align: center;

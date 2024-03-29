@@ -127,10 +127,17 @@ if (! function_exists('getUniqueLot')) {
 if (! function_exists('getAvailableCommission')) {
     function getAvailableCommission($userId)
     {
-       $totalCommission = Commission::where('user_id', $userId)->get()->sum('amount');
+       $totalCommission = getTotalCommission($userId);
        $totalWithdrawal = Withdrawal::where('user_id', $userId)->whereNot('status', 'unpaid')->get()->sum('amount');
 
        return sprintf("%.2f", $totalCommission - $totalWithdrawal);
+    }
+}
+
+if (! function_exists('getTotalCommission')) {
+    function getTotalCommission($userId)
+    {
+       return sprintf("%.2f", Commission::where('user_id', $userId)->get()->sum('amount'));
     }
 }
 

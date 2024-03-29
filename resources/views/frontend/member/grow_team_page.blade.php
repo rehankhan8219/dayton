@@ -11,8 +11,9 @@
       }
 
       .copy-message {
+        font-weight: bold;
         display: none;
-    }
+      }
     </style>
 @endpush
 

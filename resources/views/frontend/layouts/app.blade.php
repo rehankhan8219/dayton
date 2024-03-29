@@ -33,9 +33,17 @@
             }
 
             .header-message{
-                width: 60%;
+                width: 40%;
                 text-align: center;
-                margin-left: 20%;
+                margin-left: 30%;
+            }
+
+             @media only screen and (max-width: 768px) {
+                .header-message {
+                    width: 80%;
+                    text-align: center;
+                    margin-left: 10%;
+                }
             }
         </style>
         @stack('after-styles')

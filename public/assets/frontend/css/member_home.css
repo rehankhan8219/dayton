@@ -749,7 +749,7 @@
   align-self: stretch;
   flex-direction: row;
   justify-content: center;
-  padding: 0 var(--padding-xl) 102px;
+/*  padding: 0 var(--padding-xl) 102px;*/
   box-sizing: border-box;
   text-align: left;
   font-size: var(--bold-bold-20-size);

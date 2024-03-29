@@ -31,13 +31,27 @@
                 color: white;
                 background: #2691b5;
             }
+
+            .header-message{
+                width: 40%;
+                text-align: center;
+                margin-left: 30%;
+            }
+
+             @media only screen and (max-width: 768px) {
+                .header-message {
+                    width: 80%;
+                    text-align: center;
+                    margin-left: 10%;
+                }
+            }
         </style>
         @stack('after-styles')
     </head>
     <body>
         <div class="@yield('page_name')">
             @include('frontend.includes.header')
-            @include('includes.partials.messages')
+                @include('includes.partials.messages')
             @yield('content')
 
             @include('frontend.includes.footer')

@@ -27,10 +27,10 @@
                 </p>
               </div>
             </div>
-            <button class="rectangle-group">
+            <a href="{{ route('frontend.member.home') }}" class="rectangle-group">
               <div class="rectangle-div"></div>
               <b class="member-area1">Member Area</b>
-            </button>
+            </a>
           </div>
         </div>
         <div class="col-sm-3">
@@ -64,10 +64,10 @@
                   {!! $home_secton_2->script !!}
                 </div>
               </div>
-              <button class="rectangle-container">
+              <a href="{{ route('frontend.member.help-center') }}" class="rectangle-container">
                 <div class="frame-child1"></div>
                 <div class="learn-more">Learn More</div>
-              </button>
+              </a>
             </div>
           </div>
         </div>

@@ -5,6 +5,16 @@
 
 @push('after-styles')
     <link href="{{ asset('assets/frontend/css/grow_team.css') }}" rel="stylesheet" type="text/css" />  
+    <style type="text/css">
+      .copy-icon{
+        cursor: pointer;
+      }
+
+      .copy-message {
+        font-weight: bold;
+        display: none;
+      }
+    </style>
 @endpush
 
 @section('content')
@@ -15,7 +25,12 @@
             <div class="frame-div">
               <div class="your-level-parent">
                 <div class="your-level">Your Level</div>
-                <h1 class="bronze">BRONZE</h1>
+                @if(!empty($grow_tree_details))
+                  <h1 class="bronze">{{ $grow_tree_details->level->name }}</h1>
+                @else
+                  <span class="">No Information Found</span>
+                @endif
+                
                 <div class="frame-inner"></div>
               </div>
               <div class="frame-wrapper1">
@@ -52,7 +67,7 @@
             <div class="frame-wrapper2">
               <div class="copy-instance-parent">
                 <div class="copy-instance">
-                  <button class="card-send-parent" id="frameButton">
+                  <a href="{{ route('frontend.member.commision-report') }}" class="card-send-parent" id="frameButton">
 
                     <img
                       class="status-up-icon"
@@ -63,10 +78,10 @@
                     <div class="commission-report-wrapper">
                       <b class="commission-report">Commission Report</b>
                     </div>
-                  </button>
+                  </a>
                 </div>
                 <div class="copy-instance1">
-                  <button class="card-send-group" id="frameButton1">
+                  <a href="{{ route('frontend.withdrawal.create') }}" class="card-send-group" id="frameButton1">
                     <img
                       class="card-send-icon1"
                       alt=""
@@ -76,39 +91,43 @@
                     <div class="withdraw-now-wrapper">
                       <b class="withdraw-now">Withdraw Now</b>
                     </div>
-                  </button>
+                  </a>
                 </div>
-                <button class="ellipse-parent" id="frameButton2">
+                <a href="{{ route('frontend.withdrawal.index') }}" class="ellipse-parent" id="frameButton2">
                   <div class="ellipse-div"></div>
                   <b class="withdraw-history">Withdraw History</b>
-                </button>
+                </a>
               </div>
             </div>
             <div class="unit-parent">
               <div class="unit">Referral Code</div>
               <div class="rectangle-group">
                 <div class="rectangle-div"></div>
-                <div class="dt102">DT102</div>
+                <div class="dt102">{{ auth()->user()->dt_code }}</div>
+                <span class="copy-message">Copied!</span>
                 <div class="copy-wrapper">
-                  <img class="copy-icon" alt="" src="{{ asset('assets/frontend/img/copy.svg') }}" />
+                  <img class="copy-icon" alt="Copy" src="{{ asset('assets/frontend/img/copy.svg') }}" onclick="copyReferralCode()" />
                 </div>
               </div>
             </div>
+            @if(!empty($grow_tree_details) && !empty($grow_tree_details->diagram))
             <div class="field">
               <div class="growth-tree">Growth Tree</div>
-              <button class="field-inner">
+              <a href="{{ Storage::url($grow_tree_details->diagram) }}" download="{{ $grow_tree_details->diagram }}" class="field-inner">
                 <div class="download-growth-tree-diagram-wrapper">
                   <b class="download-growth-tree"
                     >Download Growth Tree Diagram</b
                   >
                 </div>
-              </button>
+              </a>
             </div>
+            @endif
           </div>
         </section>
       </main>
       <div class="dashboard-grow-team-page-inner">
         <div class="home-trend-up-parent">
+          <a href="{{ route('frontend.withdrawal.index')  }}">
           <img
             class="home-trend-up-icon"
             loading="lazy"
@@ -116,14 +135,18 @@
             src="{{ asset('assets/frontend/img/hometrendup.svg') }}"
             id="homeTrendUpIcon"
           />
+          </a>
 
+          <a href="{{ route('frontend.member.grow-team-page')  }}">
           <img
             class="status-up-icon1"
             loading="lazy"
             alt=""
             src="{{ asset('assets/frontend/img/statusup-1.svg') }}"
           />
+          </a>
 
+          <a href="{{ route('frontend.member.profile.index')  }}">
           <img
             class="profile-icon"
             loading="lazy"
@@ -131,9 +154,32 @@
             src="{{ asset('assets/frontend/img/profile.svg') }}"
             id="profileIcon"
           />
+        </a>
         </div>
       </div>
 
 @endsection
 @push('after-scripts')
+<script>
+   function copyReferralCode() {
+        var referralCode = document.querySelector('.dt102');
+        var copyMessage = document.querySelector('.copy-message');
+
+        // Create a temporary textarea element
+        var textarea = document.createElement('textarea');
+        textarea.value = referralCode.textContent;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+
+        // Show the copy message
+        copyMessage.style.display = 'inline';
+
+        // Hide the copy message after 2 seconds
+        setTimeout(function() {
+            copyMessage.style.display = 'none';
+        }, 2000);
+    }
+</script>
 @endpush

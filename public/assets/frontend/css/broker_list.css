@@ -316,7 +316,7 @@
   min-width: 37px;
 }
 .audcad {
-  width: 43px;
+/*  width: 43px;*/
   font-size: var(--medium-medium-10-size);
   line-height: 160%;
   font-weight: 500;

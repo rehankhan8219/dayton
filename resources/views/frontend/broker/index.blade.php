@@ -5,6 +5,19 @@
 
 @push('after-styles')
     <link href="{{ asset('assets/frontend/css/broker_list.css') }}" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+        .common-clock-wrapper {
+            height: 120px;
+            width: 120px;
+            border-radius: 10000px;
+            background-color: rgba(0, 163, 255, 0.05);
+            justify-content: flex-start;
+            padding: var(--padding-xl);
+            box-sizing: border-box;
+        }
+
+    </style>
 @endpush
 
 @section('content')
@@ -25,13 +38,12 @@
                 </div>
             </div>
             <div class="frame-div">
-                @foreach($broker_list as $broker)
+               
+                @forelse($broker_list as $broker)
 
                 @php
                     $broker_bill_detail = getBrokerBillDetails($broker->id);
                 @endphp
-
-
                 <div class="aita-wrapper">
                     <div class="aita">
                         <div class="semicolon">
@@ -113,111 +125,35 @@
                         </div>
                     </div>
                 </div>
-                @endforeach
-                <!-- <div class="frame-wrapper1">
-                    <div class="frame-parent1">
-                        <div class="frame-parent2">
-                            <div class="frame-wrapper2">
-                                <div class="aita-group">
-                                    <h3 class="aita2">Aita</h3>
-                                    <div class="div2">#50044143</div>
-                                    <div class="processing">Processing</div>
-                                </div>
-                            </div>
-                            <div class="frame-parent3">
-                                <div class="lot-parent">
-                                    <h2 class="lot2">Lot</h2>
-                                    <div class="wrapper">
-                                        <div class="div3">0.1</div>
-                                    </div>
-                                </div>
-                                <div class="period-group">
-                                    <h2 class="period1">Period</h2>
-                                    <button class="jan-2023-21-jan-23-container">
-                                        <div class="jan-2023-1">1 Jan 2023 - 21 Jan 23</div>
-                                    </button>
-                                </div>
-                                <div class="frame-parent4">
-                                    <div class="due-date-group">
-                                        <h2 class="due-date1">Due Date</h2>
-                                        <img class="info-circle-icon1" alt=""
-                                            src="{{ asset('assets/frontend/img/infocircle-1.svg') }}" />
-                                    </div>
-                                    <div class="jan-2023-wrapper">
-                                        <div class="jan-20231">22 Jan 2023</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bill-parent">
-                                <h3 class="bill1">Bill</h3>
-                                <div class="idr-40000001">
-                                    <span class="idr1">IDR</span>
-                                    <b class="b1"> 4.000.000</b>
-                                </div>
+
+                @empty
+                <div style="display:flex;align-items: center;flex-direction:column;gap:25px;width: 100%;">
+
+                        <div class="row">
+                            <div class="col-md-12 col-offset-3">
+                                <div class="common-clock-wrapper">
+                                <img
+                                  class="clock-icon"
+                                  loading="lazy"
+                                  alt=""
+                                  src="{{ asset('assets/frontend/img/clock.svg') }}"
+                                />
+                              </div>
                             </div>
                         </div>
-                        <div class="frame-wrapper3">
-                            <button class="receipt-edit-group">
-                                <img class="receipt-edit-icon1" alt=""
-                                    src="{{ asset('assets/frontend/img/receiptedit-1.svg') }}" />
 
-                                <div class="edit1">Edit</div>
-                            </button>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="your-request-submitted-wrapper">
+                                    <b class="your-request-submitted">No Broker Account</b>
+                              </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="frame-wrapper4">
-                    <div class="frame-parent5">
-                        <div class="frame-parent6">
-                            <div class="frame-wrapper5">
-                                <div class="aita-container">
-                                    <h3 class="aita3">Aita</h3>
-                                    <div class="div4">#50044144</div>
-                                    <div class="inactive">Inactive</div>
-                                </div>
-                            </div>
-                            <div class="frame-parent7">
-                                <div class="lot-group">
-                                    <h2 class="lot3">Lot</h2>
-                                    <div class="container">
-                                        <div class="div5">0.1</div>
-                                    </div>
-                                </div>
-                                <div class="period-container">
-                                    <h2 class="period2">Period</h2>
-                                    <button class="jan-2023-21-jan-23-frame">
-                                        <div class="jan-2023-2">1 Jan 2023 - 21 Jan 23</div>
-                                    </button>
-                                </div>
-                                <div class="frame-parent8">
-                                    <div class="due-date-container">
-                                        <h2 class="due-date2">Due Date</h2>
-                                        <img class="info-circle-icon2" alt=""
-                                            src="{{ asset('assets/frontend/img/infocircle-2.svg') }}" />
-                                    </div>
-                                    <div class="jan-2023-container">
-                                        <div class="jan-20232">22 Jan 2023</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bill-group">
-                                <h3 class="bill2">Bill</h3>
-                                <div class="idr-40000002">
-                                    <span class="idr2">IDR</span>
-                                    <b class="b2"> 4.000.000</b>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="frame-wrapper6">
-                            <button class="receipt-edit-container">
-                                <img class="receipt-edit-icon2" alt=""
-                                    src="{{ asset('assets/frontend/img/receiptedit-2.svg') }}" />
 
-                                <div class="edit2">Edit</div>
-                            </button>
-                        </div>
-                    </div>
-                </div> -->
+                    
+                @endforelse
+               
             </div>
             <div class="understand-risks">
                 <h3 class="understand-the-risk-container">

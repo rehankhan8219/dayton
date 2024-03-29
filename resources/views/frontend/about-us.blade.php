@@ -34,10 +34,10 @@
                        </p>
                     </div>
                  </div>
-                 <button class="rectangle-group">
+                 <a href="{{ route('frontend.member.help-center') }}" class="rectangle-group">
                     <div class="rectangle-div"></div>
                     <div class="learn-more">Learn More</div>
-                 </button>
+                 </a>
               </div>
            </div>
         </div>
@@ -53,10 +53,10 @@
               </p>
            </div>
         </div>
-        <button class="rectangle-container">
+        <a href="{{ route('frontend.member.help-center') }}" class="rectangle-container">
            <div class="frame-child1"></div>
            <div class="learn-more1">Learn More</div>
-        </button>
+        </a>
      </div>
   </div>
 </section>

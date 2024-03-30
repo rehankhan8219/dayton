@@ -7,7 +7,8 @@ use App\Http\Controllers\Backend\CommissionController;
 Route::group([
     'prefix' => 'commission',
     'as' => 'commission.',
-    'middleware' => 'role:'.config('boilerplate.access.role.admin'),
+    // 'middleware' => 'role:'.config('boilerplate.access.role.admin'),
+    'middleware' => 'permission:admin.access.commission',
 ], function () {
     Route::get('/', [CommissionController::class, 'index'])
         ->name('index')

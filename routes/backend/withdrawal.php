@@ -7,7 +7,8 @@ use App\Http\Controllers\Backend\WithdrawalController;
 Route::group([
     'prefix' => 'withdrawal',
     'as' => 'withdrawal.',
-    'middleware' => 'role:'.config('boilerplate.access.role.admin'),
+    // 'middleware' => 'role:'.config('boilerplate.access.role.admin'),
+    'middleware' => 'permission:admin.access.withdrawal',
 ], function () {
     Route::get('/', [WithdrawalController::class, 'index'])
         ->name('index')

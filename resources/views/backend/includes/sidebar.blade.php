@@ -49,12 +49,13 @@
                 @if (
                     $logged_in_user->hasAllAccess() ||
                     (
-                        $logged_in_user->can('admin.access.user.list') ||
-                        $logged_in_user->can('admin.access.user.deactivate') ||
-                        $logged_in_user->can('admin.access.user.reactivate') ||
-                        $logged_in_user->can('admin.access.user.clear-session') ||
-                        $logged_in_user->can('admin.access.user.impersonate') ||
-                        $logged_in_user->can('admin.access.user.change-password')
+                        // $logged_in_user->can('admin.access.user.list') ||
+                        // $logged_in_user->can('admin.access.user.deactivate') ||
+                        // $logged_in_user->can('admin.access.user.reactivate') ||
+                        // $logged_in_user->can('admin.access.user.clear-session') ||
+                        // $logged_in_user->can('admin.access.user.impersonate') ||
+                        // $logged_in_user->can('admin.access.user.change-password')
+                        $logged_in_user->can('admin.access.user')
                     )
                 )
                     <li class="{{request()->routeIs('admin.member.*') ? 'mm-active' : ''}}">

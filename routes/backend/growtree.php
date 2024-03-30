@@ -7,7 +7,8 @@ use App\Http\Controllers\Backend\GrowTreeController;
 Route::group([
     'prefix' => 'growtree',
     'as' => 'growtree.',
-    'middleware' => 'role:'.config('boilerplate.access.role.admin'),
+    // 'middleware' => 'role:'.config('boilerplate.access.role.admin'),
+    'middleware' => 'permission:admin.access.grow_tree',
 ], function () {
     Route::get('/', [GrowTreeController::class, 'index'])
         ->name('index')

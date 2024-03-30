@@ -7,7 +7,8 @@ use App\Http\Controllers\Backend\HelpCenterController;
 Route::group([
     'prefix' => 'helpcenter',
     'as' => 'helpcenter.',
-    'middleware' => 'role:'.config('boilerplate.access.role.admin'),
+    // 'middleware' => 'role:'.config('boilerplate.access.role.admin'),
+    'middleware' => 'is_admin',
 ], function () {
     Route::get('/', [HelpCenterController::class, 'index'])
         ->name('index')

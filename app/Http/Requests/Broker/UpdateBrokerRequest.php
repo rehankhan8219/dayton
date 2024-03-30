@@ -20,7 +20,7 @@ class UpdateBrokerRequest extends FormRequest
      */
     public function authorize()
     {
-        return $this->user()->can('admin.access.user.list');
+        return $this->user()->can('admin.access.user');
     }
 
     /**

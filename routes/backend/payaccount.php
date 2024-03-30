@@ -7,7 +7,8 @@ use App\Http\Controllers\Backend\PayAccountController;
 Route::group([
     'prefix' => 'payaccount',
     'as' => 'payaccount.',
-    'middleware' => 'role:'.config('boilerplate.access.role.admin'),
+    // 'middleware' => 'role:'.config('boilerplate.access.role.admin'),
+    'middleware' => 'is_admin',
 ], function () {
     Route::get('/', [PayAccountController::class, 'index'])
         ->name('index')

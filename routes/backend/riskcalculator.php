@@ -11,7 +11,8 @@ Route::group([
     'as' => 'riskcalculator.'
 ], function(){
     Route::group([
-        'middleware' => 'role:'.config('boilerplate.access.role.admin'),
+        // 'middleware' => 'role:'.config('boilerplate.access.role.admin'),
+        'middleware' => 'permission:admin.access.risk_calculator',
     ], function(){
         Route::get('/create', [RiskCalculatorController::class, 'create'])
             ->name('create')
@@ -31,7 +32,7 @@ Route::group([
     });
     
     Route::group([
-        'middleware' => 'permission:admin.access.riskcalculator',
+        'middleware' => 'permission:admin.access.risk_calculator',
     ], function(){
         Route::get('/', [RiskCalculatorController::class, 'index'])
             ->name('index')

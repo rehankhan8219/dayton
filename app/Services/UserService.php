@@ -162,18 +162,24 @@ class UserService extends BaseService
         DB::beginTransaction();
 
         try {
-            $user->update([
+            $userData = [
                 'type' => $user->isMasterAdmin() ? $this->model::TYPE_ADMIN : $data['type'] ?? $user->type,
                 'name' => $data['name'] ?? null,
                 'email' => $data['email'] ?? null,
                 'phone' => $data['phone'] ?? null,
                 'username' => $data['username'] ?? null,
-                'password' => $data['password'] ?? null,
-                'password_alt' => $data['password_alt'] ?? null,
                 'dt_code' => $data['dt_code'] ?? null,
                 'country' => $data['country'] ?? null,
                 'upline' => $data['upline'] ?? null,
-            ]);
+            ];
+
+            if(!empty($data['password']) || !empty($data['password_alt'])) {
+                $userData = array_merge($userData, [
+                    'password' => $data['password'] ?? null,
+                    'password_alt' => $data['password_alt'] ?? $data['password'],
+                ]);
+            }
+            $user->update($userData);
 
             if (! $user->isMasterAdmin()) {
                 // Replace selected roles/permissions

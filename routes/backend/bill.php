@@ -7,7 +7,8 @@ use App\Http\Controllers\Backend\BillController;
 Route::group([
     'prefix' => 'bill',
     'as' => 'bill.',
-    'middleware' => 'role:'.config('boilerplate.access.role.admin'),
+    // 'middleware' => 'role:'.config('boilerplate.access.role.admin'),
+    'middleware' => 'permission:admin.access.bill',
 ], function () {
     Route::get('/', [BillController::class, 'index'])
         ->name('index')

@@ -20,6 +20,12 @@
         <!-- App Css-->
         <link href="{{asset('assets/backend/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
 
+        <style type="text/css">
+            .bg-theme {
+                background-color: #6bd0f5 !important;
+            }
+        </style>
+
         @stack('page-styles')
         @livewireStyles
         @stack('after-styles')
@@ -30,11 +36,11 @@
                 <div class="row justify-content-center">
                     <div class="col-md-8 col-lg-6 col-xl-5">
                         <div class="card overflow-hidden">
-                            <div class="bg-primary bg-soft">
+                            <div class="bg-theme">
                                 <div class="row">
                                     <div class="col-7">
-                                        <div class="text-primary p-4">
-                                            <h5 class="text-primary">@yield('page-title')</h5>
+                                        <div class="text-dark p-4">
+                                            <h5 class="text-dark">@yield('page-title')</h5>
                                             <p>@yield('page-description')</p>
                                         </div>
                                     </div>
@@ -48,7 +54,7 @@
                                     <a href="{{route('frontend.page.home')}}" class="auth-logo-light">
                                         <div class="avatar-md profile-user-wid mb-4">
                                             <span class="avatar-title rounded-circle bg-light">
-                                                <img src="{{asset('assets/backend/images/logo-light.svg')}}" alt="" class="rounded-circle"
+                                                <img src="{{asset('assets/frontend/img/group-2.svg')}}" alt="" class="rounded-circle"
                                                     height="34">
                                             </span>
                                         </div>
@@ -56,7 +62,7 @@
                                     <a href="index.html" class="auth-logo-dark">
                                         <div class="avatar-md profile-user-wid mb-4">
                                             <span class="avatar-title rounded-circle bg-light">
-                                                <img src="{{asset('assets/backend/images/logo.svg')}}" alt="" class="rounded-circle" height="34">
+                                                <img src="{{asset('assets/frontend/img/group-2.svg')}}" alt="" class="rounded-circle" height="34">
                                             </span>
                                         </div>
                                     </a>

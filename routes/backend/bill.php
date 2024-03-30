@@ -34,6 +34,9 @@ Route::group([
                     ->push(__('Editing :bill', ['bill' => $bill->name]), route('admin.bill.edit', $bill));
             });
 
+        Route::patch('mark/{status}', [BillController::class, 'updateStatus'])
+            ->name('mark')
+            ->whereIn('status', ['paid', 'unpaid']);
         Route::patch('/', [BillController::class, 'update'])->name('update');
         Route::delete('/', [BillController::class, 'destroy'])->name('destroy');
     });

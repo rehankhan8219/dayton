@@ -3,14 +3,15 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Bill;
+use App\Models\User;
 use App\Services\BillService;
+use App\Services\UserService;
 use App\Services\PermissionService;
 use App\Http\Requests\Bill\EditBillRequest;
 use App\Http\Requests\Bill\StoreBillRequest;
 use App\Http\Requests\Bill\DeleteBillRequest;
 use App\Http\Requests\Bill\UpdateBillRequest;
-use App\Models\User;
-use App\Services\UserService;
+use App\Http\Requests\Bill\UpdateBillStatusRequest;
 
 /**
  * Class BillController.
@@ -109,5 +110,20 @@ class BillController
         $this->billService->destroy($bill);
 
         return redirect()->route('admin.bill.index')->withFlashSuccess(__('The bill was successfully deleted.'));
+    }
+
+    /**
+     * @param  UpdateBillStatusRequest  $request
+     * @param  Bill  $bill
+     * @return mixed
+     *
+     * @throws \App\Exceptions\GeneralException
+     * @throws \Throwable
+     */
+    public function updateStatus(UpdateBillStatusRequest $request, Bill $bill, $status)
+    {
+        $this->billService->mark($bill, $status);
+
+        return redirect()->route('admin.bill.index')->withFlashSuccess(__('The bill was successfully updated.'));
     }
 }

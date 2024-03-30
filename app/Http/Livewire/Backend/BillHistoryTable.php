@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 
-class BillSummariesTable extends DataTableComponent
+class BillHistoryTable extends DataTableComponent
 {
     public function configure(): void
     {
@@ -20,7 +20,7 @@ class BillSummariesTable extends DataTableComponent
      */
     public function builder(): Builder
     {
-        $query = Bill::select('*')->with('user:id,dt_code,name')->with('broker:id,broker_id')->whereIn('status', ['processing', 'unpaid']);
+        $query = Bill::select('*')->with('user:id,dt_code,name')->with('broker:id,broker_id')->whereIn('status', ['paid']);
         return $query;
     }
 
@@ -62,10 +62,6 @@ class BillSummariesTable extends DataTableComponent
                 ->sortable()
                 ->searchable()
                 ->html(),
-            Column::make('Actions')
-                ->label(fn($row) => view('backend.bill.includes.summary_actions', ['bill' => $row]))
-                ->html()
-                ->collapseOnMobile(),
         ];
     }
 }

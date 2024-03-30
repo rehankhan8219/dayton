@@ -101,4 +101,22 @@ class BillService extends BaseService
 
         throw new GeneralException(__('There was a problem deleting the bill.'));
     }
+
+    /**
+     * @param  Bill $bill
+     * @param $status
+     * @return Bill 
+     *
+     * @throws GeneralException
+     */
+    public function mark(Bill $bill, $status): Bill
+    {
+        $bill->status = $status;
+        
+        if ($bill->save()) {
+            return $bill;
+        }
+
+        throw new GeneralException(__('There was a problem updating this bill. Please try again.'));
+    }
 }

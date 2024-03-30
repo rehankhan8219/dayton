@@ -5,7 +5,7 @@
             <div class="navbar-brand-box">
                 <a href="{{route(homeRoute())}}" class="logo logo-dark">
                     <span class="logo-sm">
-                        <img src="{{asset('assets/backend/images/logo.svg')}}" alt="" height="22">
+                        <img src="{{asset('assets/frontend/img/group-2.svg')}}" alt="" height="22">
                     </span>
                     <span class="logo-lg">
                         <h4 class="mt-4 text-black">{{appName()}}</h4>

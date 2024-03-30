@@ -628,6 +628,7 @@
   font-size: var(--font-size-base);
   color: var(--color-gray-100);
   font-family: var(--regular-regular-10);
+  overflow: auto;
 }
 .add-account-button {
   align-self: stretch;

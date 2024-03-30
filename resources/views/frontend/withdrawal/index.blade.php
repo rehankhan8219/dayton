@@ -71,7 +71,7 @@
                 <div class="frame-div">
                     <div class="frame-wrapper1">
                         <div class="frame-parent1">
-                            <a class="arrow-left-wrapper" id="frameContainer" href="{{ route(homeRoute()) }}">
+                            <a class="arrow-left-wrapper" id="frameContainer" href="{{ url()->previous() }}">
                                 <img class="arrow-left-icon" loading="lazy" alt=""
                                     src="{{ asset('assets/frontend/img/arrowleft.svg') }}" />
                             </a>

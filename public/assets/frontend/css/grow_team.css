@@ -357,7 +357,8 @@
 .card-send-group {
   cursor: pointer;
   border: 0;
-  padding: var(--padding-5xs) 102px;
+/*  padding: var(--padding-5xs) 102px;*/
+ padding: var(--padding-5xs) 10px;
   background-color: var(--color-steelblue);
   border-radius: var(--br-13xl);
   justify-content: center;
@@ -721,7 +722,7 @@
 @media screen and (max-width: 750px) {
   .frame-parent {
     gap: 24px 48px;
-    padding-bottom: 159px;
+    padding-bottom: 50px;
     box-sizing: border-box;
   }
   .rectangle-container {

@@ -11,7 +11,7 @@
     <section class="dashboard-withdraw-now-inner">
         <x-forms.post :action="route('frontend.withdrawal.store')" class="frame-group">
             <div class="frame-container">
-                <a class="arrow-left-wrapper" id="frameContainer" href="{{route(homeRoute())}}">
+                <a class="arrow-left-wrapper" id="frameContainer" href="{{ url()->previous() }}">
                     <img class="arrow-left-icon" loading="lazy" alt=""
                         src="{{ asset('assets/frontend/img/arrowleft.svg') }}" />
                 </a>

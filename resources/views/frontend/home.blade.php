@@ -11,7 +11,7 @@
 
 <section class="home-page-main-overlay"></section>
 
-<section class="home-child min_height_for_footer">
+<section class="home-child">
   <div class="frame-group">
     <div class="frame-wrapper">
       <div class="row">
@@ -27,7 +27,7 @@
                 </p>
               </div>
             </div>
-            <a href="{{ route('frontend.member.home') }}" class="rectangle-group">
+            <a href="{{ route('frontend.auth.login') }}" class="rectangle-group">
               <div class="rectangle-div"></div>
               <b class="member-area1">Member Area</b>
             </a>

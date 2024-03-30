@@ -26,6 +26,7 @@
 
 - (Optional) For localhost setup: Run `php artisan serve` and use url given by console in browser
 
+- (Optional) (If project is on subdirectory) Set LIVEWIRE_ASSET_URL='http://example.com/path/to/your/laravel/project' in .env file
   
 
 ### Developed By:

@@ -11,7 +11,7 @@
 
         @stack('before-styles')
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{asset('assets/backend/images/favicon.ico')}}">
+        <link rel="shortcut icon" href="{{asset('assets/frontend/img/group-2.svg')}}">
 
         <!-- Bootstrap Css -->
         <link href="{{asset('assets/backend/css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet" type="text/css" />

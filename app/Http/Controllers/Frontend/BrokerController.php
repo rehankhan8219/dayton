@@ -38,7 +38,7 @@ class BrokerController extends Controller
             'broker_server' => ['required', 'string', 'max:199'],
             'broker_password' => ['required', 'string', 'max:199'],
             'pairs' => ['required', 'string', 'max:199'],
-            'risk_calculator_id' => ['required', 'string'],
+            'risk_level' => ['required', 'string'],
             'lot' => ['required']
         ]);
 
@@ -74,7 +74,7 @@ class BrokerController extends Controller
             'broker_server' => ['required', 'string', 'max:199'],
             'broker_password' => ['required', 'string', 'max:199'],
             'pairs' => ['required', 'string', 'max:199'],
-            'risk_calculator_id' => ['required', 'string'],
+            'risk_level' => ['required', 'string'],
             'lot' => ['required'],
             // 'active' => ['sometimes', 'in:0,1'],
         ]);

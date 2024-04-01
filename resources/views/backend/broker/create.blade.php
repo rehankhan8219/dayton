@@ -52,17 +52,16 @@
                     <div class="row mb-3">
                         <div class="col-sm-12 col-md-6">
                             {{ html()->label(__('Broker Pairs').'<span class="text-danger">*</span>')->for('pairs') }}
-                            {{ html()->text('pairs')
+                            {{ html()->select('pairs', getUniquePairs(true))
                                 ->class('form-control')
                                 ->placeholder(__('Broker Pairs'))
-                                ->maxlength(100)
                                 ->required() }}
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-sm-12 col-md-6">
                             {{ html()->label(__('Risk').'<span class="text-danger">*</span>')->for('risk') }}
-                            {{ html()->select('risk_calculator_id', $risks->pluck('risk_level', 'id'))
+                            {{ html()->select('risk_level', getUniqueRiskLevel(true))
                                 ->class('form-control')
                                 ->placeholder(__('Select Risk Level'))
                                 ->required() }}
@@ -71,10 +70,9 @@
                     <div class="row mb-3">
                         <div class="col-sm-12 col-md-6">
                             {{ html()->label(__('Lot').'<span class="text-danger">*</span>')->for('lot') }}
-                            {{ html()->text('lot')
+                            {{ html()->select('lot', getUniqueLot(true))
                                 ->class('form-control')
                                 ->placeholder(__('Lot'))
-                                ->maxlength(100)
                                 ->required() }}
                         </div>
                     </div>

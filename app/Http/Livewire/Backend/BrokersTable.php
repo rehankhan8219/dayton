@@ -51,7 +51,7 @@ class BrokersTable extends DataTableComponent
             Column::make("Pairs", "pairs")
                 ->sortable()
                 ->searchable(),
-            Column::make("Risk", "riskCalculator.risk_level")
+            Column::make("Risk", "risk_level")
                 ->sortable()
                 ->searchable(),
             Column::make("Lot", "lot")

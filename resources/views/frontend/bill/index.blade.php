@@ -12,7 +12,7 @@
         <div class="frame-group">
             <div class="frame-container">
                 <div class="frame-div">
-                    <a class="arrow-left-wrapper" href="{{route(homeRoute())}}">
+                    <a class="arrow-left-wrapper" href="{{ url()->previous() }}">
                         <img class="arrow-left-icon" loading="lazy" alt=""
                             src="{{ asset('assets/frontend/img/arrowleft.svg') }}" />
                     </a>

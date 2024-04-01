@@ -32,7 +32,7 @@
                         <div class="i-d-r-label">
                             <div class="idr-140000301">
                                 <span class="idr">IDR</span>
-                                <b class="b1">{{$amount}}</b>
+                                <b class="b1">{{formatAmount($amount)}}</b>
                             </div>
                             <div class="please-note-that-the-amount-yo-wrapper">
                                 <div class="please-note-that">

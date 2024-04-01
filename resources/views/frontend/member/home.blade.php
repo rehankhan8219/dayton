@@ -58,7 +58,7 @@
                                 <div class="bill">Bill</div>
                                 <div class="idr-140000000">
                                     <span class="idr">IDR</span>
-                                    <b class="b">{{$amount}}</b>
+                                    <b class="b">{{formatAmount($amount)}}</b>
                                 </div>
                             </div>
                         </div>

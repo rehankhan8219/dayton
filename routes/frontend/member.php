@@ -8,7 +8,6 @@ use App\Http\Controllers\Frontend\MemberController;
 Route::group(['as' => 'member.', 'middleware' => ['auth', 'is_user']], function () {
     Route::get('/home', [MemberController::class, 'home'])->name('home');
     
-    Route::get('/pay-now', [MemberController::class, 'payNow'])->name('pay-now');
     Route::get('/grow-team-page', [MemberController::class, 'growTeamPage'])->name('grow-team-page');
     Route::get('/withdraw', [MemberController::class, 'withDraw'])->name('withdraw');
     Route::get('/withdraw-request-submit', [MemberController::class, 'withdrawRequestSubmit'])->name('withdraw-request-submit');

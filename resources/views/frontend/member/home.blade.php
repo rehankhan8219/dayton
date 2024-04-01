@@ -125,23 +125,23 @@
                         <div class="moneysend-instance-inner">
                             <div class="frame-parent1">
                                 @if ($amount !== 0)
-                                    <button class="money-send-parent">
+                                    <a class="money-send-parent" href="{{route('frontend.bill.index')}}">
                                         <img class="money-send-icon" alt=""
                                             src="{{ asset('assets/frontend/img/moneysend.svg') }}" />
 
                                         <div class="risk-level">
                                             <div class="pay-now" id="payNowText">Pay Now</div>
                                         </div>
-                                    </button>
+                                    </a>
                                 @endif
-                                <div class="frame-wrapper1">
+                                <a class="frame-wrapper1" href="{{route('frontend.bill.history')}}">
                                     <button class="ellipse-parent">
                                         <div class="frame-inner"></div>
                                         <div class="payment-history" id="paymentHistoryText">
                                             Payment History
                                         </div>
                                     </button>
-                                </div>
+                                </a>
                                 @if ($bill && $amount !== 0)
                                     <div class="frame-wrapper1 dropdown">
                                         <button class="ellipse-parent dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">

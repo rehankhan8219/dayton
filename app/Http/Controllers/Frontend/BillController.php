@@ -30,7 +30,7 @@ class BillController extends Controller
             return redirect()->route(homeRoute())->withFlashDanger('You dont have any unpaid bills');
         }
         
-        $amount = sprintf("%.2f", $bill->amount).'.'.auth()->user()->unique_code;
+        $amount = $bill->amount;
         
         return view('frontend.bill.index')->withBank($bank)->withAmount($amount);
     }
@@ -41,11 +41,17 @@ class BillController extends Controller
      */
     public function store(Request $request)
     {
-        $bills = Bill::whereUserId(auth()->user()->id)->where('status', 'unpaid')->get();
+        $bill = Bill::whereUserId(auth()->user()->id)->where('status', 'unpaid')->latest()->first();
 
-        Bill::whereIn('id', $bills->pluck('id'))->update(['status'  => 'processing']);
+        if($bill) {
+            $bill->status = 'processing';
+            $bill->save();
 
-        return redirect()->route('frontend.bill.thanks');
+            return redirect()->route('frontend.bill.thanks');
+        }
+
+        return redirect()->back()->withFlashDanger('You dont have any unpaid bills');
+
     }
 
     public function showThanksPage()

@@ -25,6 +25,8 @@ class Bill extends Model
         'due_date',
         'broker_id',
         'amount',
+        'details',
+        'status',
     ];
 
     /**

@@ -42,6 +42,7 @@ class BillService extends BaseService
                 'end_date' => $data['end_date'],
                 'due_date' => $data['due_date'],
                 'amount' => $data['amount'],
+                'details' => $data['details'] ?? null,
             ]);
         } catch (Exception $e) {
             DB::rollBack();
@@ -74,6 +75,7 @@ class BillService extends BaseService
                 'end_date' => $data['end_date'],
                 'due_date' => $data['due_date'],
                 'amount' => $data['amount'],
+                'details' => $data['details'] ?? null,
             ]);
             
         } catch (Exception $e) {

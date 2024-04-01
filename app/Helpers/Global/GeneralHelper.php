@@ -144,6 +144,6 @@ if (! function_exists('getTotalCommission')) {
 if (! function_exists('formatAmount')) {
     function formatAmount($amount)
     {
-       return number_format($amount, 3, ',', '.');
+        return number_format($amount, 0, ',', '.');
     }
 }

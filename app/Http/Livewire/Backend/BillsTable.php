@@ -20,7 +20,7 @@ class BillsTable extends DataTableComponent
      */
     public function builder(): Builder
     {
-        $query = Bill::select('*')->with('user:id,dt_code,name')->with('broker:id,broker_id');
+        $query = Bill::select('*')->with('user:id,dt_code,name')->with('broker:id,broker_id')->whereNot('status', 'paid');
         return $query;
     }
 
@@ -49,6 +49,20 @@ class BillsTable extends DataTableComponent
                 ->format(fn($value) => 'IDR '. formatAmount($value))
                 ->sortable()
                 ->searchable(),
+            Column::make("Details", "details")
+                ->format(fn($value) => \Str::limit($value, 10))
+                ->sortable()
+                ->searchable()
+                ->html(),
+            // Column::make("Bill Charged")
+            //     ->label(fn($row) => 'IDR '. formatAmount($row->total_bill).'.'.optional($row->user)->unique_code)
+            //     ->sortable()
+            //     ->searchable(),
+            Column::make("Status")
+                ->label(fn($row) => '<span class="text-'.$row->status_color.'">'.ucfirst($row->status).'</span>')
+                ->sortable()
+                ->searchable()
+                ->html(),
             Column::make('Actions')
                 ->label(fn($row) => view('backend.bill.includes.actions', ['bill' => $row]))
                 ->html()

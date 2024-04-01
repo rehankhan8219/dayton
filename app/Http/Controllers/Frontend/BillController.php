@@ -24,13 +24,13 @@ class BillController extends Controller
             return redirect()->route(homeRoute())->withFlashDanger('Pay now account is not added for you.');
         }
         
-        $bills = Bill::whereUserId(auth()->user()->id)->where('status', 'unpaid')->get();
+        $bill = Bill::whereUserId(auth()->user()->id)->where('status', 'unpaid')->latest()->first();
         
-        if($bills->sum('amount') == 0) {
+        if(! $bill) {
             return redirect()->route(homeRoute())->withFlashDanger('You dont have any unpaid bills');
         }
         
-        $amount = sprintf("%.2f", $bills->sum('amount')).'.'.auth()->user()->unique_code;
+        $amount = sprintf("%.2f", $bill->amount).'.'.auth()->user()->unique_code;
         
         return view('frontend.bill.index')->withBank($bank)->withAmount($amount);
     }

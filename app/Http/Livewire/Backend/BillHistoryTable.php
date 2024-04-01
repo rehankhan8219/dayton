@@ -50,13 +50,14 @@ class BillHistoryTable extends DataTableComponent
                 ->sortable()
                 ->searchable(),
             Column::make("Bill")
-                ->label(fn($row) => 'IDR '. $row->total_bill)
+                ->label(fn($row) => 'IDR '. formatAmount($row->amount))
                 ->sortable()
                 ->searchable(),
-            Column::make("Bill Charged")
-                ->label(fn($row) => 'IDR '. $row->total_bill.'.'.optional($row->user)->unique_code)
+            Column::make("Details", "details")
+                ->format(fn($value) => \Str::limit($value, 10))
                 ->sortable()
-                ->searchable(),
+                ->searchable()
+                ->html(),
             Column::make("Status")
                 ->label(fn($row) => '<span class="text-'.$row->status_color.'">'.ucfirst($row->status).'</span>')
                 ->sortable()

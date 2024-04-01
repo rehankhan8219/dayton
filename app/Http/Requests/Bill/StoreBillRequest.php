@@ -34,6 +34,7 @@ class StoreBillRequest extends FormRequest
             'user_id' => ['required', 'exists:users,id'],
             'broker_id' => ['required'],
             'amount' => ['required', 'numeric'],
+            'details' => ['sometimes', 'nullable', 'string'],
         ];
     }
 

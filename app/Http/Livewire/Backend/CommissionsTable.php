@@ -43,7 +43,7 @@ class CommissionsTable extends DataTableComponent
                 ->sortable()
                 ->searchable(),
             Column::make("Commission", "amount")
-                ->format(fn($value) => 'IDR '. $value)
+                ->format(fn($value) => 'IDR '. formatAmount($value))
                 ->sortable()
                 ->searchable(),
             Column::make('Actions')

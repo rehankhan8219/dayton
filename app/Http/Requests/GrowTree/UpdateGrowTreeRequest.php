@@ -29,7 +29,7 @@ class UpdateGrowTreeRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => ['required', 'exists:users,id', Rule::unique('grow_trees', 'user_id')->ignore($this->growtree->id)],
+            'user_id' => ['required', 'exists:users,id', Rule::unique('grow_trees', 'user_id')->ignore($this->growtree->id)->whereNull('deleted_at')],
             'level_id' => ['required', 'exists:levels,id'],
             'diagram' => ['sometimes', 'nullable', 'image', 'max:2048'],
         ];

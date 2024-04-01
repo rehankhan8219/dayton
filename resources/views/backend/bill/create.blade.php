@@ -82,6 +82,14 @@
                                 ->required() }}
                         </div>
                     </div><!--form-group-->
+                    <div class="form-group row mb-3">
+                        {{ html()->label(__('Details'))->class('col-md-1 col-form-label')->for('details') }}
+                        <div class="col-md-5 d-flex">
+                            {{ html()->textarea('details')
+                                ->class('form-control')
+                                ->placeholder(__('Details')) }}
+                        </div>
+                    </div><!--form-group-->
                 </div>
             </x-slot>
 

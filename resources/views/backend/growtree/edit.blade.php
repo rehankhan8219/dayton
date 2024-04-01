@@ -1,5 +1,3 @@
-@inject('model', '\App\Models\User')
-
 @extends('backend.layouts.app')
 
 @section('title', __('Update Grow Tree'))
@@ -10,7 +8,7 @@
             <div x-data="{ user_id : false }">
                 <div class="row mb-3">
                     <div class="col-6">
-                        <h4 class="card-title">@lang('Add a New Grow Tree')</h4>
+                        <h4 class="card-title">@lang('Edit Grow Tree')</h4>
                         <p class="card-description">Fields marked with <span class="text-danger">*</span> are mendatory.</p>
                     </div>
                     <div class="col-6 text-end">

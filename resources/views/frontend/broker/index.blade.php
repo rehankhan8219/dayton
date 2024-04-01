@@ -49,7 +49,7 @@
                         <div class="semicolon">
                             <div class="processing-inactive">
                                 <div class="aita-parent">
-                                    <h3 class="aita1">Aita</h3>
+                                    <h3 class="aita1">{{$broker->name}}</h3>
                                     <div class="div">
                                         <span class="span">#{{ $broker->broker_id }}</span>
                                         <span></span>
@@ -107,9 +107,9 @@
                                     <span class="idr">IDR</span>
                                     <b class="b"> 
                                         @if(!empty($broker_bill_detail))
-                                            {{ $broker_bill_detail['amount'] }}
+                                            {{ formatAmount($broker_bill_detail['amount']) }}
                                         @else
-                                            0.00
+                                            {{ formatAmount(0.00) }}
                                         @endif
                                     </b>
                                 </div>

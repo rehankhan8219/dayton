@@ -31,10 +31,10 @@ class UpdateMemberRequest extends FormRequest
     public function rules()
     {
         return [
-            'dt_code' => ['required', 'string', 'max:199', Rule::unique('users')->ignore($this->member->id)],
+            'dt_code' => ['required', 'string', 'max:199', Rule::unique('users')->ignore($this->member->id)->whereNull('deleted_at')],
             'name' => ['required', 'string', 'max:199'],
-            'email' => ['required', 'string', 'email', 'max:199', Rule::unique('users')->ignore($this->member->id)],
-            'phone' => ['required', 'string', 'max:20', Rule::unique('users')->ignore($this->member->id)],
+            'email' => ['required', 'string', 'email', 'max:199', Rule::unique('users')->ignore($this->member->id)->whereNull('deleted_at')],
+            'phone' => ['required', 'string', 'max:20', Rule::unique('users')->ignore($this->member->id)->whereNull('deleted_at')],
             'country' => ['required', 'string', 'max:199'],
             'password_alt' => ['required', 'string', 'min:8', 'max:50'],
             'upline' => ['nullable', 'string', 'max:199'],

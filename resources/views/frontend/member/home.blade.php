@@ -118,7 +118,7 @@
                                 <div class="bill">Bill</div>
                                 <div class="idr-140000000">
                                     <span class="idr">IDR</span>
-                                    <b class="b">{{$amount}}</b>
+                                    <b class="b">{{formatAmount($amount)}}</b>
                                 </div>
                             </div>
                         </div>
@@ -142,6 +142,21 @@
                                         </div>
                                     </button>
                                 </div>
+                                @if ($bill && $amount !== 0)
+                                    <div class="frame-wrapper1 dropdown">
+                                        <button class="ellipse-parent dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <div class="frame-inner"></div>
+                                            <div class="payment-history" id="paymentHistoryText">
+                                                Details
+                                            </div>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            @foreach (explode(PHP_EOL, $bill->details) as $item)
+                                                <li><a class="dropdown-item" href="javascript:void(0)">{{$item}}</a></li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>

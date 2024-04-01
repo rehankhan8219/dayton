@@ -25,6 +25,8 @@ class Bill extends Model
         'due_date',
         'broker_id',
         'amount',
+        'details',
+        'status',
     ];
 
     /**
@@ -39,7 +41,9 @@ class Bill extends Model
      *
      * @var array<string, string>
      */
-    protected $casts = [];
+    protected $casts = [
+        'amount' => 'integer'
+    ];
     
     /**
      * The attributes that should be appended to collection.

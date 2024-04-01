@@ -38,7 +38,9 @@ class Commission extends Model
      *
      * @var array<string, string>
      */
-    protected $casts = [];
+    protected $casts = [
+        'amount' => 'integer'
+    ];
     
     /**
      * The attributes that should be appended to collection.

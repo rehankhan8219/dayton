@@ -18,7 +18,7 @@ class UpdateProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'username' => ['required', 'string', 'max:191', Rule::unique('users', 'username')->ignore($this->user()->id)],
+            'username' => ['required', 'string', 'max:191', Rule::unique('users', 'username')->ignore($this->user()->id)->whereNull('deleted_at')],
             'password' => ['nullable', 'string', 'min:8', 'max:100'/*, 'confirmed'*/],
         ];
     }

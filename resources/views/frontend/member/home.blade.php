@@ -23,7 +23,8 @@
 
         .calculation_section {
             max-height: 280px;
-            overflow: scroll;
+            overflow-y: scroll;
+            overflow-x: auto;
         }
 
         /* Small mobile device */
@@ -38,7 +39,8 @@
         @media only screen and (min-width: 321px) and (max-width: 414px) {
             .calculation_section {
                 max-height: 280px;
-                overflow: scroll;
+                overflow-y: scroll;
+                overflow-x: auto;
             }
         }
 
@@ -46,7 +48,8 @@
         @media only screen and (min-width: 415px) and (max-width: 768px) {
             .calculation_section {
                 max-height: 280px;
-                overflow: scroll;
+                overflow-y: scroll;
+                overflow-x: auto;
             }
         }
 
@@ -54,7 +57,8 @@
         @media only screen and (min-width: 769px) and (max-width: 1024px) {
             .calculation_section {
                 max-height: 280px;
-                overflow: scroll;
+                overflow-y: scroll;
+                overflow-x: auto;
             }
         }
 
@@ -62,7 +66,8 @@
         @media only screen and (min-width: 1025px) and (max-width: 1440px) {
             .calculation_section {
                 max-height: 280px;
-                overflow: scroll;
+                overflow-y: scroll;
+                overflow-x: auto;
             }
         }
 
@@ -70,7 +75,8 @@
         @media only screen and (min-width: 1441px) {
             .calculation_section {
                 max-height: 280px;
-                overflow: scroll;
+                overflow-y: scroll;
+                overflow-x: auto;
             }
         }
 

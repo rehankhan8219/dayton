@@ -34,5 +34,7 @@ class RiskCalculator extends Model
      *
      * @var array<string, string>
      */
-    protected $casts = [];
+    protected $casts = [
+        'balance' => 'integer'
+    ];
 }

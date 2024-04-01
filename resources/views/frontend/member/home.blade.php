@@ -276,7 +276,7 @@
     </section>
     <div class="hometrendup-status-profile">
         <div class="profile">
-            <a href="{{ route('frontend.withdrawal.index')  }}">
+            <a href="{{ route(homeRoute())  }}">
                 <img class="home-trend-up-icon" loading="lazy" alt=""
                 src="{{ asset('assets/frontend/img/hometrendup.svg') }}" />
             </a>

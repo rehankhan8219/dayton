@@ -31,9 +31,11 @@ class PayAccountsTable extends DataTableComponent
                 ->sortable()
                 ->searchable(),
             Column::make("From", "fromUser.dt_code")
+                ->label(fn($row) => $row->fromUser->dt_code)
                 ->sortable()
                 ->searchable(),
             Column::make("To", "toUser.dt_code")
+                ->label(fn($row) => $row->toUser->dt_code)
                 ->sortable()
                 ->searchable(),
             Column::make("Bank", "bank")

@@ -2,7 +2,7 @@
     <x-utils.edit-button :href="route('admin.bill.edit', $bill)" />
     <x-utils.delete-button :href="route('admin.bill.destroy', $bill)" />
 
-    @if ($bill->status == 'processing')
+    @if ($bill->status != 'paid')
         <x-utils.form-button
             :action="route('admin.bill.mark', [$bill, 'paid'])"
             method="patch"

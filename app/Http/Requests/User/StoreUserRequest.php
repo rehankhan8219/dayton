@@ -32,9 +32,9 @@ class StoreUserRequest extends FormRequest
         return [
             'type' => ['required', Rule::in([User::TYPE_ADMIN, User::TYPE_USER])],
             'name' => ['sometimes', 'required', 'max:100'],
-            'email' => ['sometimes', 'required', 'max:191', 'email', Rule::unique('users')],
+            'email' => ['sometimes', 'required', 'max:191', 'email', Rule::unique('users')->whereNull('deleted_at')],
             'username' => ['required', 'max:191', Rule::unique('users')],
-            'phone' => ['sometimes', 'nullable', 'digits_between:10,15', Rule::unique('users')],
+            'phone' => ['sometimes', 'nullable', 'digits_between:10,15', Rule::unique('users')->whereNull('deleted_at')],
             'password' => ['required', 'string', 'min:8', 'max:100'/*, 'confirmed'*/],
             'active' => ['sometimes', 'in:1'],
             'email_verified' => ['sometimes', 'in:1'],

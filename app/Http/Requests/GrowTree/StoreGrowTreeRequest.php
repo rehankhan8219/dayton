@@ -29,7 +29,7 @@ class StoreGrowTreeRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => ['required', 'exists:users,id', Rule::unique('grow_trees', 'user_id')],
+            'user_id' => ['required', 'exists:users,id', Rule::unique('grow_trees', 'user_id')->whereNull('deleted_at')],
             'level_id' => ['required', 'exists:levels,id'],
             'diagram' => ['required', 'image', 'max:2048'],
         ];

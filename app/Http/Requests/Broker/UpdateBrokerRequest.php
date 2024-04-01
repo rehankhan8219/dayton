@@ -32,7 +32,7 @@ class UpdateBrokerRequest extends FormRequest
     {
         return [
             // 'user_id' => ['required', 'integer', Rule::exists('users', 'id')],
-            'broker_id' => ['required', 'string', 'max:199', Rule::unique('brokers')->ignore($this->broker->id)],
+            'broker_id' => ['required', 'string', 'max:199', Rule::unique('brokers')->ignore($this->broker->id)->whereNull('deleted_at')],
             'broker_server' => ['required', 'string', 'max:199'],
             'broker_password' => ['required', 'string', 'max:199'],
             'pairs' => ['required', 'string', 'max:199'],

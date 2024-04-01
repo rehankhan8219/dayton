@@ -33,10 +33,10 @@ class UpdateUserRequest extends FormRequest
             // 'name' => ['required', 'max:100'],
             // 'email' => ['required', 'max:191', 'email', Rule::unique('users')->ignore($this->user->id)],
             // 'phone' => ['nullable', 'digits_between:10,15', Rule::unique('users')->ignore($this->user->id)],
-            'username' => ['required', 'max:191', Rule::unique('users')->ignore($this->user->id)],
+            'username' => ['required', 'max:191', Rule::unique('users')->ignore($this->user->id)->whereNull('deleted_at')],
             'password' => ['nullable', 'string', 'min:8', 'max:100'/*, 'confirmed'*/],
             'roles' => ['sometimes', 'array'],
-            'roles.*' => [Rule::exists('roles', 'id')->where('type', $this->type)],
+            'roles.*' => [Rule::exists('roles', 'id')->where('type', $this->type)->whereNull('deleted_at')],
             'permissions' => ['sometimes', 'array'],
             'permissions.*' => [Rule::exists('permissions', 'id')->where('type', $this->type)],
         ];

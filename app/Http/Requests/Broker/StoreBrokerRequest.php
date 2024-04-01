@@ -30,7 +30,7 @@ class StoreBrokerRequest extends FormRequest
     {
         return [
             // 'user_id' => ['required', 'integer', Rule::exists('users', 'id')],
-            'broker_id' => ['required', 'string', 'max:199', Rule::unique('brokers')],
+            'broker_id' => ['required', 'string', 'max:199', Rule::unique('brokers')->whereNull('deleted_at')],
             'broker_server' => ['required', 'string', 'max:199'],
             'broker_password' => ['required', 'string', 'max:199'],
             'pairs' => ['required', 'string', 'max:199'],

@@ -146,7 +146,6 @@
                             ->class('enter-your-upline')
                             ->placeholder(__('Enter your upline code'))
                             ->maxlength(191)
-                            ->required()
                             ->attribute('autocomplate', 'upline') }}
 
                         <div class="vuesaxlineareye-wrapper">

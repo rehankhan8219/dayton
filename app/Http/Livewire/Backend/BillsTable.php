@@ -20,7 +20,7 @@ class BillsTable extends DataTableComponent
      */
     public function builder(): Builder
     {
-        $query = Bill::select('*')->with('user:id,dt_code,name')->with('broker:id,broker_id')->whereNot('status', 'paid');
+        $query = Bill::select('*')->with('user:id,dt_code,name')->whereNot('status', 'paid');
         return $query;
     }
 
@@ -40,9 +40,6 @@ class BillsTable extends DataTableComponent
                 ->sortable()
                 ->searchable(),
             Column::make("Name", "user.name")
-                ->sortable()
-                ->searchable(),
-            Column::make("Broker ID", "broker.broker_id")
                 ->sortable()
                 ->searchable(),
             Column::make("Bill", "amount")

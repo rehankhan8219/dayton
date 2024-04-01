@@ -137,7 +137,7 @@ class MemberController extends Controller
 
         if(!empty($risk_calculator)){
             $data['status'] =  true;
-            $data['balance'] = $risk_calculator->balance;
+            $data['balance'] = formatAmount($risk_calculator->balance);
             $data['explanation'] = $risk_calculator->explanation;
         }else{
             $data['status'] =  false;

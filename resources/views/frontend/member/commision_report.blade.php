@@ -68,7 +68,7 @@
                   <div class="amount">Amount</div>
                   <div class="idr-4000000">
                      <span class="idr">IDR</span>
-                     <b class="b"> {{ $report->amount }}</b>
+                     <b class="b"> {{ formatAmount($report->amount) }}</b>
                   </div>
                </div>
             </div>

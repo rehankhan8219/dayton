@@ -18,16 +18,16 @@ class MemberController extends Controller
 {
     public function home()
     {
-        $bills = Bill::whereUserId(auth()->user()->id)->where('status', 'unpaid')->get();
-        if($bills->sum('amount') == 0) {
+        $bill = Bill::whereUserId(auth()->user()->id)->where('status', 'unpaid')->latest()->first();
+        if(! $bill) {
             $amount = 0;
         }
         else {
-            $amount = sprintf("%.2f", $bills->sum('amount')).'.'.auth()->user()->unique_code;
+            $amount = formatAmount($bill->amount).'.'.auth()->user()->unique_code;
         }
         
 
-        return view('frontend.member.home')->withAmount($amount);
+        return view('frontend.member.home')->withAmount($amount)->withBill($bill);
     }
 
     public function payNow()

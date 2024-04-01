@@ -23,9 +23,8 @@ class MemberController extends Controller
             $amount = 0;
         }
         else {
-            $amount = formatAmount($bill->amount).'.'.auth()->user()->unique_code;
+            $amount = $bill->amount;
         }
-        
 
         return view('frontend.member.home')->withAmount($amount)->withBill($bill);
     }

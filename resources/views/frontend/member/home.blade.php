@@ -20,6 +20,60 @@
             background-size: 16px;
             background-position: calc(100% - 10px) center;
         }
+
+        .calculation_section {
+            max-height: 280px;
+            overflow: scroll;
+        }
+
+        /* Small mobile device */
+        @media only screen and (max-width: 320px) {
+            .calculation_section {
+                max-height: none;
+                overflow: visible;
+            }
+        }
+
+        /* Medium mobile device */
+        @media only screen and (min-width: 321px) and (max-width: 414px) {
+            .calculation_section {
+                max-height: 280px;
+                overflow: scroll;
+            }
+        }
+
+        /* Large mobile device */
+        @media only screen and (min-width: 415px) and (max-width: 768px) {
+            .calculation_section {
+                max-height: 280px;
+                overflow: scroll;
+            }
+        }
+
+        /* Tablet device */
+        @media only screen and (min-width: 769px) and (max-width: 1024px) {
+            .calculation_section {
+                max-height: 280px;
+                overflow: scroll;
+            }
+        }
+
+        /* Short PC device */
+        @media only screen and (min-width: 1025px) and (max-width: 1440px) {
+            .calculation_section {
+                max-height: 280px;
+                overflow: scroll;
+            }
+        }
+
+        /* Large PC device */
+        @media only screen and (min-width: 1441px) {
+            .calculation_section {
+                max-height: 280px;
+                overflow: scroll;
+            }
+        }
+
     </style>    
 @endpush
 
@@ -86,6 +140,10 @@
                         </div>
                     </div>
                 </div>
+                
+            </div>
+
+            <div class="calculation_section">
                 <div class="due-date-to-avoid-the-deactiva-wrapper">
                     <div class="due-date-to-container">
                         <p class="due-date">
@@ -98,106 +156,103 @@
                         </p>
                     </div>
                 </div>
-            </div>
-            <div class="profile-trendup-status-wrapper">
-                <div class="profile-trendup-status">
-                    <div class="risk-calculator-wrapper">
-                        <div class="risk-calculator">Risk Calculator</div>
-                    </div>
-                    <div class="currency-u-s-d-label rectangle-container">
-                        <div class="pairs-parent1">
-                            <select id="pairs" class="form-control home-selectbox">
-                                <option value="">Pairs</option>
-                                @foreach(getUniquePairs() as $pair_id => $pair)
-                                <option value="{{ $pair }}">{{ $pair }}</option>
-                                @endforeach
-                            </select>
+                
+                <div class="profile-trendup-status-wrapper mt-4">
+                    <div class="profile-trendup-status">
+                        <div class="risk-calculator-wrapper">
+                            <div class="risk-calculator">Risk Calculator</div>
                         </div>
-
-                        <div class="risk-level-parent1">
-                                <select id="risk_level" class="form-control home-selectbox">
-                                    <option value="">Risk Level</option>
-                                    @foreach(getUniqueRiskLevel() as $risk_level_id => $risk_level)
-                                    <option value="{{ $risk_level }}">{{ $risk_level }}</option>
+                        <div class="currency-u-s-d-label rectangle-container">
+                            <div class="pairs-parent1">
+                                <select id="pairs" class="form-control home-selectbox">
+                                    <option value="">Pairs</option>
+                                    @foreach(getUniquePairs() as $pair_id => $pair)
+                                    <option value="{{ $pair }}">{{ $pair }}</option>
                                     @endforeach
                                 </select>
+                            </div>
+
+                            <div class="risk-level-parent1">
+                                    <select id="risk_level" class="form-control home-selectbox">
+                                        <option value="">Risk Level</option>
+                                        @foreach(getUniqueRiskLevel() as $risk_level_id => $risk_level)
+                                        <option value="{{ $risk_level }}">{{ $risk_level }}</option>
+                                        @endforeach
+                                    </select>
+                            </div>
+                            <div class="lot-parent1">
+                                <select id="lot" class="form-control home-selectbox">
+                                    <option value="">Lot</option>
+                                    @foreach(getUniqueLot() as $lot_id => $lot)
+                                    <option value="{{ $lot }}">{{ $lot }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
-                        <div class="lot-parent1">
-                            <select id="lot" class="form-control home-selectbox">
-                                <option value="">Lot</option>
-                                @foreach(getUniqueLot() as $lot_id => $lot)
-                                <option value="{{ $lot }}">{{ $lot }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                    <div class="profile-trendup-status-inner d-none info-section">
-                        <div class="frame-parent2">
-                            <div class="recommended-balance-parent">
-                                <div class="recommended-balance">Recommended Balance</div>
-                                <div class="usd-1000-parent">
-                                    <div class="usd-1000">
-                                        <span class="usd">USD</span>
-                                        <b class="b1 risk_calculate_balance"> 1.000</b>
+                        <div class="profile-trendup-status-inner d-none info-section">
+                            <div class="frame-parent2">
+                                <div class="recommended-balance-parent">
+                                    <div class="recommended-balance">Recommended Balance</div>
+                                    <div class="usd-1000-parent">
+                                        <div class="usd-1000">
+                                            <span class="usd">USD</span>
+                                            <b class="b1 risk_calculate_balance"> 1.000</b>
+                                        </div>
+                                        <div class="idr1">IDR</div>
                                     </div>
-                                    <div class="idr1">IDR</div>
+                                    <div class="traders-must-standby-container">
+                                        <p class="traders-must-standby risk_calculate_explanation">
+                                            Traders must standby 1x Top up balance for Low Risk, 2x
+                                            Top up balance for Medium Risk,
+                                        </p>
+                                        <!-- <p class="and-not-recommend">
+                                            and not recommend to Top up for High Risk level.
+                                        </p> -->
+                                    </div>
                                 </div>
-                                <div class="traders-must-standby-container">
-                                    <p class="traders-must-standby risk_calculate_explanation">
-                                        Traders must standby 1x Top up balance for Low Risk, 2x
-                                        Top up balance for Medium Risk,
-                                    </p>
-                                    <!-- <p class="and-not-recommend">
-                                        and not recommend to Top up for High Risk level.
-                                    </p> -->
-                                </div>
-                            </div>
-                            <!-- <div class="idr-parent">
-                                <div class="idr2">IDR</div>
-                                <b class="b2">140.800.000</b>
-                            </div> -->
-                        </div>
-                    </div>
-
-                    <div class="profile-trendup-status-inner d-none no-info-section">
-                        <div class="frame-parent2">
-                            <div class="recommended-balance-parent">
-                                <div class="traders-must-standby-container">
-                                    <p class="traders-must-standby risk_calculate_explanation">
-                                        
-                                    </p>
-                                </div>
+                                <!-- <div class="idr-parent">
+                                    <div class="idr2">IDR</div>
+                                    <b class="b2">140.800.000</b>
+                                </div> -->
                             </div>
                         </div>
-                    </div>
 
-                    <button class="generate-button">
-                        <div class="generate">Generate</div>
-                    </button>
+                        <div class="profile-trendup-status-inner d-none no-info-section">
+                            <div class="frame-parent2">
+                                <div class="recommended-balance-parent">
+                                    <div class="traders-must-standby-container">
+                                        <p class="traders-must-standby risk_calculate_explanation">
+                                            
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="generate-button">
+                            <div class="generate">Generate</div>
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <div class="understand-the-risk-expert-adv-wrapper">
-                <div class="understand-the-risk-container">
-                    <p class="understand-the-risk">
-                        <b>Understand the risk</b>
-                    </p>
-                    <p class="expert-advisors-eas">
-                        Expert Advisors (EAs) in trading can be risky. EAs are automated
-                        trading systems that execute trades based on pre-defined rules
-                        and algorithms. EAs may perform well in certain market
-                        conditions but can be risky in others. EA may struggle to adapt
-                        to changing market dynamics, leading to losses. EAs can offer
-                        benefits such as automation and efficiency, traders should
-                        approach them with caution and understand the risks involved.
-                    </p>
+                <div class="understand-the-risk-expert-adv-wrapper mt-4">
+                    <div class="understand-the-risk-container">
+                        <p class="understand-the-risk">
+                            <b>Understand the risk</b>
+                        </p>
+                        <p class="expert-advisors-eas">
+                            Expert Advisors (EAs) in trading can be risky. EAs are automated
+                            trading systems that execute trades based on pre-defined rules
+                            and algorithms. EAs may perform well in certain market
+                            conditions but can be risky in others. EA may struggle to adapt
+                            to changing market dynamics, leading to losses. EAs can offer
+                            benefits such as automation and efficiency, traders should
+                            approach them with caution and understand the risks involved.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <div class="idr-group">
-        <div class="idr3">IDR</div>
-        <b class="b3">140.800.000</b>
-    </div>
     <div class="hometrendup-status-profile">
         <div class="profile">
             <a href="{{ route('frontend.withdrawal.index')  }}">

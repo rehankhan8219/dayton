@@ -22,7 +22,7 @@ class Broker extends Model
         'broker_server',
         'broker_password',
         'pairs',
-        'risk_calculator_id',
+        'risk_level',
         'lot',
         'active',
     ];

@@ -7,7 +7,7 @@ use App\Models\Commission;
 use App\Models\RiskCalculator;
 use App\Models\Withdrawal;
 
-if (! function_exists('appName')) {
+if (!function_exists('appName')) {
     /**
      * Helper to grab the application name.
      *
@@ -19,7 +19,7 @@ if (! function_exists('appName')) {
     }
 }
 
-if (! function_exists('carbon')) {
+if (!function_exists('carbon')) {
     /**
      * Create a new Carbon instance from a time.
      *
@@ -34,7 +34,7 @@ if (! function_exists('carbon')) {
     }
 }
 
-if (! function_exists('homeRoute')) {
+if (!function_exists('homeRoute')) {
     /**
      * Return the route to the "home" page depending on authentication/authorization status.
      *
@@ -52,65 +52,77 @@ if (! function_exists('homeRoute')) {
             }
         }
 
-        if(request()->routeIs('admin.*')) {
+        if (request()->routeIs('admin.*')) {
             return 'admin.auth.login';
         }
-        
+
         return 'frontend.page.home';
     }
 }
 
-if (! function_exists('getHelpCenterDetailsFromCategory')) {
+if (!function_exists('getHelpCenterDetailsFromCategory')) {
     function getHelpCenterDetailsFromCategory($category_id)
     {
-       $help_centers = HelpCenter::where('help_category_id', $category_id)->get();
+        $help_centers = HelpCenter::where('help_category_id', $category_id)->get();
 
-       return $help_centers;
+        return $help_centers;
     }
 }
 
-if (! function_exists('getUniquePairs')) {
-    function getUniquePairs()
+if (!function_exists('getUniquePairs')) {
+    function getUniquePairs($plain = false)
     {
-       $pairs_list = RiskCalculator::pluck('pairs', 'id')->unique()->toArray();
-       return $pairs_list;
+        if ($plain)
+            $pairs_list = RiskCalculator::pluck('pairs', 'pairs')->unique()->toArray();
+        else 
+            $pairs_list = RiskCalculator::pluck('pairs', 'id')->unique()->toArray();
+
+        return $pairs_list;
     }
 }
 
-if (! function_exists('getUniqueRiskLevel')) {
-    function getUniqueRiskLevel()
+if (!function_exists('getUniqueRiskLevel')) {
+    function getUniqueRiskLevel($plain = false)
     {
-       $risk_level_list = RiskCalculator::pluck('risk_level', 'id')->unique()->toArray();
-       return $risk_level_list;
+        if ($plain)
+            $risk_level_list = RiskCalculator::pluck('risk_level', 'risk_level')->unique()->toArray();
+        else 
+            $risk_level_list = RiskCalculator::pluck('risk_level', 'id')->unique()->toArray();
+        
+        return $risk_level_list;
     }
 }
 
-if (! function_exists('getUniqueLot')) {
-    function getUniqueLot()
+if (!function_exists('getUniqueLot')) {
+    function getUniqueLot($plain = false)
     {
-       $lot_list = RiskCalculator::pluck('lot', 'id')->unique()->toArray();
-       return $lot_list;
+        if ($plain)
+            $lot_list = RiskCalculator::pluck('lot', 'lot')->unique()->toArray();
+        else 
+            $lot_list = RiskCalculator::pluck('lot', 'id')->unique()->toArray();
+        
+        return $lot_list;
     }
 }
 
-if (! function_exists('getAvailableCommission')) {
+if (!function_exists('getAvailableCommission')) {
     function getAvailableCommission($userId)
     {
-       $totalCommission = getTotalCommission($userId);
-       $totalWithdrawal = Withdrawal::where('user_id', $userId)->whereNot('status', 'unpaid')->get()->sum('amount');
+        $totalCommission = getTotalCommission($userId);
+        $totalWithdrawal = Withdrawal::where('user_id', $userId)->whereNot('status', 'unpaid')->get()->sum('amount');
 
-       return sprintf("%.2f", $totalCommission - $totalWithdrawal);
+        return sprintf("%.2f", $totalCommission - $totalWithdrawal);
     }
 }
 
-if (! function_exists('getTotalCommission')) {
+if (!function_exists('getTotalCommission')) {
     function getTotalCommission($userId)
     {
-       return sprintf("%.2f", Commission::where('user_id', $userId)->get()->sum('amount'));
+        return sprintf("%.2f", Commission::where('user_id', $userId)->get()->sum('amount'));
     }
 }
 
-if (! function_exists('formatAmount')) {
+if (!function_exists('formatAmount')) {
     function formatAmount($amount)
     {
         return number_format($amount, 0, ',', '.');

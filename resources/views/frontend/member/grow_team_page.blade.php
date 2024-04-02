@@ -36,7 +36,7 @@
 
       @media screen and (max-width: 450px) {
         .home-trend-up-parent {
-            bottom: 20px !important;
+            bottom: 10px !important;
           }
       }
 

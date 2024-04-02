@@ -28,9 +28,15 @@
           z-index: 1000;
       }
 
+      @media only screen and (max-width: 1441px) {
+          .home-trend-up-parent {
+              /* bottom: 50px !important; */
+          }
+      }
+
       @media screen and (max-width: 450px) {
         .home-trend-up-parent {
-            bottom: 110px !important;
+            bottom: 65px !important;
           }
       }
 

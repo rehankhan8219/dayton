@@ -22,7 +22,7 @@
 
       .home-trend-up-parent {
           position: fixed;
-          bottom: 80px;
+          bottom: 180px;
           left: 50%;
           transform: translateX(-50%);
           z-index: 1000;

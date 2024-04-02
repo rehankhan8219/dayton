@@ -733,6 +733,7 @@
   .dashboard-grow-team-page {
     gap: 25px 50px;
   }
+
 }
 @media screen and (max-width: 450px) {
   .rectangle-parent {
@@ -757,4 +758,5 @@
     padding-right: var(--padding-xl);
     box-sizing: border-box;
   }
+
 }

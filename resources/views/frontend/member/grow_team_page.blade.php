@@ -22,25 +22,23 @@
 
       .home-trend-up-parent {
           position: fixed;
-          bottom: 180px;
+          bottom: 80px;
           left: 50%;
           transform: translateX(-50%);
           z-index: 1000;
       }
 
-      @media screen and (max-width: 750px) {
-        .home-trend-up-parent {
-          bottom: 80px !important;
-        }
+      @media only screen and (max-width: 1441px) {
+          .home-trend-up-parent {
+              bottom: 50px !important;
+          }
       }
 
       @media screen and (max-width: 450px) {
         .home-trend-up-parent {
-          bottom: 65px !important;
-        }
+            bottom: 65px !important;
+          }
       }
-
-      
 
 
     </style>

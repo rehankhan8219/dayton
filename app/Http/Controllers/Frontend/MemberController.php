@@ -76,7 +76,7 @@ class MemberController extends Controller
                     'message' => $request->message
                 ],
             ])
-            ->log('user sended a message');
+            ->log($request->message);
 
         return redirect()->back()->withFlashSuccess(__('Form submited successfully!'));;
     }

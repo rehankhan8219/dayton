@@ -27,7 +27,7 @@ class InboxHelpCenterTable extends DataTableComponent
                 }
            
                 return [];
-            });;
+            });
     }
 
     /**

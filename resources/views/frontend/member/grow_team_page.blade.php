@@ -28,6 +28,21 @@
           z-index: 1000;
       }
 
+      @media screen and (max-width: 750px) {
+        .home-trend-up-parent {
+          bottom: 80px !important;
+        }
+      }
+
+      @media screen and (max-width: 450px) {
+        .home-trend-up-parent {
+          bottom: 65px !important;
+        }
+      }
+
+      
+
+
     </style>
 @endpush
 

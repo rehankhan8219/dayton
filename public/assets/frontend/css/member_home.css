@@ -962,6 +962,10 @@
   .member-area-member-area-logi {
     gap: 25px 50px;
   }
+
+  .profile-trendup-status-inner {
+    width: 100%;
+  }
 }
 @media screen and (max-width: 450px) {
   .rectangle-parent {
@@ -999,4 +1003,9 @@
     padding-right: var(--padding-xl);
     box-sizing: border-box;
   }
+
+  .profile-trendup-status-inner {
+    width: 100%;
+  }
+
 }

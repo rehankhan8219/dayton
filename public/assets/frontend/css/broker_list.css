@@ -1303,7 +1303,8 @@
 }
 @media screen and (max-width: 725px) {
   .frame-container {
-    gap: 50px 25px;
+/*    gap: 50px 25px;*/
+    gap: 0px 0px;
   }
   .jan,
   .processing-inactive {
@@ -1355,7 +1356,7 @@
   }
   .frame-wrapper,
   .log-out1 {
-    flex: 1;
+/*    flex: 1;*/
   }
   .frame-container {
     flex-wrap: wrap;

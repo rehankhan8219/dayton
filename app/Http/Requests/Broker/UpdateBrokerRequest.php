@@ -36,8 +36,8 @@ class UpdateBrokerRequest extends FormRequest
             'broker_server' => ['required', 'string', 'max:199'],
             'broker_password' => ['required', 'string', 'max:199'],
             'pairs' => ['required', 'string', 'max:199'],
-            'risk_calculator_id' => ['required', 'integer', 'exists:risk_calculators,id'],
-            'lot' => ['required', 'decimal:0,2'],
+            'risk_level' => ['required', 'string'],
+            'lot' => ['required'],
             'active' => ['sometimes', 'in:0,1,2'],
         ];
     }

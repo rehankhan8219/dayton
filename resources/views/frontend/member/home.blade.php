@@ -21,63 +21,16 @@
             background-position: calc(100% - 10px) center;
         }
 
-        .calculation_section {
-            max-height: 280px;
-            overflow-y: scroll;
-            overflow-x: auto;
+        .hometrendup-status-profile-container {
+            position: relative;
         }
 
-        /* Small mobile device */
-        @media only screen and (max-width: 320px) {
-            .calculation_section {
-                max-height: none;
-                overflow: visible;
-            }
-        }
-
-        /* Medium mobile device */
-        @media only screen and (min-width: 321px) and (max-width: 414px) {
-            .calculation_section {
-                max-height: 280px;
-                overflow-y: scroll;
-                overflow-x: auto;
-            }
-        }
-
-        /* Large mobile device */
-        @media only screen and (min-width: 415px) and (max-width: 768px) {
-            .calculation_section {
-                max-height: 280px;
-                overflow-y: scroll;
-                overflow-x: auto;
-            }
-        }
-
-        /* Tablet device */
-        @media only screen and (min-width: 769px) and (max-width: 1024px) {
-            .calculation_section {
-                max-height: 280px;
-                overflow-y: scroll;
-                overflow-x: auto;
-            }
-        }
-
-        /* Short PC device */
-        @media only screen and (min-width: 1025px) and (max-width: 1440px) {
-            .calculation_section {
-                max-height: 280px;
-                overflow-y: scroll;
-                overflow-x: auto;
-            }
-        }
-
-        /* Large PC device */
-        @media only screen and (min-width: 1441px) {
-            .calculation_section {
-                max-height: 280px;
-                overflow-y: scroll;
-                overflow-x: auto;
-            }
+        .hometrendup-status-profile {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
         }
 
     </style>    
@@ -276,22 +229,24 @@
             </div>
         </div>
     </section>
-    <div class="hometrendup-status-profile">
-        <div class="profile">
-            <a href="{{ route(homeRoute())  }}">
-                <img class="home-trend-up-icon" loading="lazy" alt=""
-                src="{{ asset('assets/frontend/img/hometrendup.svg') }}" />
-            </a>
+    <div class="hometrendup-status-profile-container">
+        <div class="hometrendup-status-profile">
+            <div class="profile">
+                <a href="{{ route(homeRoute())  }}">
+                    <img class="home-trend-up-icon" loading="lazy" alt=""
+                    src="{{ asset('assets/frontend/img/hometrendup.svg') }}" />
+                </a>
 
-            <a href="{{ route('frontend.member.grow-team-page')  }}">
-                <img class="status-up-icon" loading="lazy" alt=""
-                src="{{ asset('assets/frontend/img/statusup.svg') }}" id="statusUpIcon" />
-            </a>
+                <a href="{{ route('frontend.member.grow-team-page')  }}">
+                    <img class="status-up-icon" loading="lazy" alt=""
+                    src="{{ asset('assets/frontend/img/statusup.svg') }}" id="statusUpIcon" />
+                </a>
 
-            <a href="{{ route('frontend.member.profile.index')  }}">
-                <img class="profile-icon" loading="lazy" alt="" src="{{ asset('assets/frontend/img/profile.svg') }}"
-                id="profileIcon" />
-            </a>
+                <a href="{{ route('frontend.member.profile.index')  }}">
+                    <img class="profile-icon" loading="lazy" alt="" src="{{ asset('assets/frontend/img/profile.svg') }}"
+                    id="profileIcon" />
+                </a>
+            </div>
         </div>
     </div>
 @endsection

@@ -127,7 +127,7 @@
                <div class="rectangle-parent1">
                   {{ html()->select('country', [
                   'Indonesia' => 'Indonesia',
-                  'Malesiya' => 'Malesiya',
+                  'Malaysia' => 'Malaysia',
                   'Singapore' => 'Singapore',
                   'Vietnam' => 'Vietnam',
                   'Phillipine' => 'Phillipine',

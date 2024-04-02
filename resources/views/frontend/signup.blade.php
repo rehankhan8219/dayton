@@ -117,7 +117,7 @@
             <select class="form-control frame-child-selectbox">
                 <option value="">Country</option>
                 <option value="Indonesia">Indonesia</option>
-                <option value="Malesiya">Malesiya</option>
+                <option value="Malaysia">Malaysia</option>
                 <option value="Singapore">Singapore</option>
                 <option value="Vietnam">Vietnam</option>
                 <option value="Phillipine">Phillipine</option>

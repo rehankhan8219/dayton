@@ -113,37 +113,49 @@
                     </div>
                 </div>
 
-                <div class="unit-container">
-                    <div class="unit2">Pairs</div>
-                    <div class="rectangle-container">
-                        <div class="rectangle-div broker-frame-item"></div>
-                          <input name="pairs" required class="broker-input" placeholder="Enter pairs" type="text" />
-                    </div>
-                </div>
-
                 <div class="field signup-selectbox-field">
-                   <div class="pairs">Risk Level</div>
-                   <div class="rectangle-parent1">
-                      {{ html()->select('risk_calculator_id', $risk_levels)
-                      ->class('form-control frame-child-selectbox')
-                      ->placeholder(__('Select risk level'))
-                      ->required() }}
-                      <div class="custom-caret">
-                         <img class="arrow-down-icon" alt=""
-                            src="{{ asset('assets/frontend/img/arrowdown.svg') }}">
-                      </div>
-                   </div>
-                </div>
-
-                <div class="unit-container mt-3">
-                    <div class="unit2">Lot</div>
-                    <div class="rectangle-container">
-                        <div class="rectangle-div broker-frame-item"></div>
-                        <input name="lot" required class="broker-input" placeholder="Enter lot amount" type="text" />
+                    <div class="pairs">Pairs</div>
+                    <div class="rectangle-parent1">
+                       {{ html()->select('pairs', getUniquePairs(true))
+                       ->class('form-control frame-child-selectbox')
+                       ->placeholder(__('Select Pair'))
+                       ->required() }}
+                       <div class="custom-caret">
+                          <img class="arrow-down-icon" alt=""
+                             src="{{ asset('assets/frontend/img/arrowdown.svg') }}">
+                       </div>
                     </div>
-                </div>
+                 </div>
 
-                <div class="frame-parent1">
+                <div class="field signup-selectbox-field mt-3">
+                    <div class="pairs">Risk Level</div>
+                    <div class="rectangle-parent1">
+                       {{ html()->select('risk_calculator_id', getUniqueRiskLevel(true))
+                       ->class('form-control frame-child-selectbox')
+                       ->placeholder(__('Select risk level'))
+                       ->required() }}
+                       <div class="custom-caret">
+                          <img class="arrow-down-icon" alt=""
+                             src="{{ asset('assets/frontend/img/arrowdown.svg') }}">
+                       </div>
+                    </div>
+                 </div>
+
+                 <div class="field signup-selectbox-field mt-3">
+                    <div class="pairs">Lot</div>
+                    <div class="rectangle-parent1">
+                       {{ html()->select('lot', getUniqueLot(true))
+                       ->class('form-control frame-child-selectbox')
+                       ->placeholder(__('Select Lot'))
+                       ->required() }}
+                       <div class="custom-caret">
+                          <img class="arrow-down-icon" alt=""
+                             src="{{ asset('assets/frontend/img/arrowdown.svg') }}">
+                       </div>
+                    </div>
+                 </div>
+
+                <div class="frame-parent1 mt-3">
                     <input class="frame-input" required type="checkbox" />
 
                     <div class="i-understand-that">

@@ -85,7 +85,7 @@
                     <div class="rectangle-container">
                         {{ html()->select('country', [
                             'Indonesia' => 'Indonesia',
-                            'Malesiya' => 'Malesiya',
+                            'Malaysia' => 'Malaysia',
                             'Singapore' => 'Singapore',
                             'Vietnam' => 'Vietnam',
                             'Phillipine' => 'Phillipine',
@@ -146,7 +146,6 @@
                             ->class('enter-your-upline')
                             ->placeholder(__('Enter your upline code'))
                             ->maxlength(191)
-                            ->required()
                             ->attribute('autocomplate', 'upline') }}
 
                         <div class="vuesaxlineareye-wrapper">

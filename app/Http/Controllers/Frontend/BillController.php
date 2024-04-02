@@ -61,7 +61,8 @@ class BillController extends Controller
 
     public function paymentHistory()
     {
-        $bills = Bill::where('user_id', auth()->user()->id)->get();
+        $bills = Bill::where('user_id', auth()->user()->id)->whereIn('status', ['paid', 'processing'])->latest()->get();
+
         return view('frontend.bill.payment-history', compact('bills'));
     }
 }

@@ -15,6 +15,19 @@
         display: none;
         float: right;
       }
+
+      .home-trend-up-parent-container {
+          position: relative;
+      }
+
+      .home-trend-up-parent {
+          position: fixed;
+          bottom: 180px;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 1000;
+      }
+
     </style>
 @endpush
 
@@ -142,9 +155,9 @@
           </div>
         </section>
       </main>
-      <div class="dashboard-grow-team-page-inner">
+      <div class="dashboard-grow-team-page-inner home-trend-up-parent-container">
         <div class="home-trend-up-parent">
-          <a href="{{ route('frontend.withdrawal.index')  }}">
+          <a href="{{ route('frontend.member.home')  }}">
           <img
             class="home-trend-up-icon"
             loading="lazy"

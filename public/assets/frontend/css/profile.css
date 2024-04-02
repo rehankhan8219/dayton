@@ -875,6 +875,7 @@ body {
 @media screen and (max-width: 725px) {
   .profile-picture-wrapper {
     padding-bottom: 57px;
+    padding: 0 var(--padding-xl) 5px;
     box-sizing: border-box;
   }
   .frame-footer {
@@ -887,6 +888,9 @@ body {
   }
 }
 @media screen and (max-width: 450px) {
+  .profile-picture-wrapper {
+    padding: 0 var(--padding-xl) 5px;
+  }
   .rectangle-parent {
     gap: 688px 172px;
   }

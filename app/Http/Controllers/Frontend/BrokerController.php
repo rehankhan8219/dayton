@@ -27,9 +27,7 @@ class BrokerController extends Controller
      */
     public function create()
     {
-        $risk_levels = RiskCalculator::pluck('risk_level', 'id')->toArray();
-
-        return view('frontend.broker.create', compact('risk_levels'));
+        return view('frontend.broker.create');
     }
 
     public function store(Request $request)
@@ -40,9 +38,8 @@ class BrokerController extends Controller
             'broker_server' => ['required', 'string', 'max:199'],
             'broker_password' => ['required', 'string', 'max:199'],
             'pairs' => ['required', 'string', 'max:199'],
-            'risk_calculator_id' => ['required', 'integer', 'exists:risk_calculators,id'],
-            'lot' => ['required', 'decimal:0,2'],
-            // 'active' => ['sometimes', 'in:0,1'],
+            'risk_calculator_id' => ['required', 'string'],
+            'lot' => ['required']
         ]);
 
         if ($validator->fails()) {
@@ -55,7 +52,7 @@ class BrokerController extends Controller
                 'broker_server' => $request->broker_server,
                 'broker_password' => $request->broker_password,
                 'pairs' => $request->pairs,
-                'risk_calculator_id' => $request->risk_calculator_id,
+                'risk_level' => $request->risk_calculator_id,
                 'lot' => $request->lot,
                 'active' => 0,
             ]);
@@ -66,10 +63,7 @@ class BrokerController extends Controller
 
     public function edit(Broker $broker)
     {
-
-        $risk_levels = RiskCalculator::pluck('risk_level', 'id')->toArray();
-
-        return view('frontend.broker.edit', compact('risk_levels', 'broker'));
+        return view('frontend.broker.edit', compact('broker'));
     }
 
     public function update(Request $request, Broker $broker)
@@ -80,8 +74,8 @@ class BrokerController extends Controller
             'broker_server' => ['required', 'string', 'max:199'],
             'broker_password' => ['required', 'string', 'max:199'],
             'pairs' => ['required', 'string', 'max:199'],
-            'risk_calculator_id' => ['required', 'integer', 'exists:risk_calculators,id'],
-            'lot' => ['required', 'decimal:0,2'],
+            'risk_calculator_id' => ['required', 'string'],
+            'lot' => ['required'],
             // 'active' => ['sometimes', 'in:0,1'],
         ]);
 
@@ -95,7 +89,7 @@ class BrokerController extends Controller
                 'broker_server' => $request->broker_server,
                 'broker_password' => $request->broker_password,
                 'pairs' => $request->pairs,
-                'risk_calculator_id' => $request->risk_calculator_id,
+                'risk_level' => $request->risk_calculator_id,
                 'lot' => $request->lot,
                 // 'active' => 0,
             ]);

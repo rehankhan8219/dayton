@@ -20,7 +20,7 @@ class BillHistoryTable extends DataTableComponent
      */
     public function builder(): Builder
     {
-        $query = Bill::select('*')->with('user:id,dt_code,name')->with('broker:id,broker_id')->whereIn('status', ['paid']);
+        $query = Bill::select('*')->with('user:id,dt_code,name')->whereIn('status', ['paid']);
         return $query;
     }
 
@@ -40,9 +40,6 @@ class BillHistoryTable extends DataTableComponent
                 ->sortable()
                 ->searchable(),
             Column::make("Name", "user.name")
-                ->sortable()
-                ->searchable(),
-            Column::make("Broker ID", "broker.broker_id")
                 ->sortable()
                 ->searchable(),
             Column::make("Unique Code", "user.id")

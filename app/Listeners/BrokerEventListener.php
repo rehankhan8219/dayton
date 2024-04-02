@@ -18,7 +18,7 @@ class BrokerEventListener
     {
         activity('broker')
             ->performedOn($event->broker)
-            ->log(':causer.name created broker :subject.name');
+            ->log('Broker created :subject.broker_id');
     }
 
     /**
@@ -28,7 +28,7 @@ class BrokerEventListener
     {
         activity('broker')
             ->performedOn($event->broker)
-            ->log(':causer.name updated broker');
+            ->log('Broker updated :subject.broker_id');
     }
 
     /**
@@ -38,7 +38,7 @@ class BrokerEventListener
     {
         activity('broker')
             ->performedOn($event->broker)
-            ->log(':causer.name deleted broker :subject.name');
+            ->log('Broker deleted :subject.broker_id');
     }
 
     /**

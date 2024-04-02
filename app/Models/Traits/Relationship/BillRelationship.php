@@ -17,12 +17,4 @@ trait BillRelationship
     {
         return $this->belongsTo(User::class)->withTrashed();
     }
-    
-    /**
-     * @return mixed
-     */
-    public function broker()
-    {
-        return $this->belongsTo(Broker::class)->withTrashed();
-    }
 }

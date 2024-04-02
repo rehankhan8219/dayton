@@ -65,16 +65,6 @@
                         </div>
                     </div><!--form-group-->
                     <div class="form-group row mb-3">
-                        {{ html()->label(__('Account'))->class('col-md-1 col-form-label')->for('broker_id') }}
-    
-                        <div class="col-md-5">
-                            {{ html()->select('broker_id')
-                                ->class('form-control')
-                                ->placeholder(__('Select Account'))
-                                ->required() }}
-                        </div>
-                    </div><!--form-group-->
-                    <div class="form-group row mb-3">
                         {{ html()->label(__('Bill'))->class('col-md-1 col-form-label')->for('amount') }}
                         <div class="col-md-5 d-flex">
                             <div class="col-md-1 col-form-label">IDR</div>
@@ -104,18 +94,14 @@
 @push('after-scripts')
     <script>
         $(document).ready(function(){
-            var brokerId = '{{old('broker_id') ?? $bill->broker_id}}';
             $('#user_id').change(function(){
-                $('#broker_id option:not(:first)').remove();
                 if($('#user_id').val()) {
                     $.ajax({
                         url: '{{route('admin.member.broker.fetch', '##MEMBER_ID##')}}'.replace('##MEMBER_ID##', $('#user_id').val()),
                         dataType: 'json',
                         success: function(response) {
                             if(response.success) {
-                                $('#broker_id').append(response.html);
                                 $('#name').html(response.name);
-                                $('#broker_id option[value="'+brokerId+'"]').prop('selected', true);
                             }
                         }
                     })

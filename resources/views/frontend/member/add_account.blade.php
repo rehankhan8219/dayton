@@ -114,7 +114,7 @@
 
                    {{ html()->select('risk_level', [
                             'Indonesia' => 'Indonesia',
-                            'Malesiya' => 'Malesiya',
+                            'Malaysia' => 'Malaysia',
                             'Singapore' => 'Singapore',
                             'Vietnam' => 'Vietnam',
                             'Phillipine' => 'Phillipine',
@@ -147,7 +147,7 @@
 
                   {{ html()->select('lot_amount', [
                             'Indonesia' => 'Indonesia',
-                            'Malesiya' => 'Malesiya',
+                            'Malaysia' => 'Malaysia',
                             'Singapore' => 'Singapore',
                             'Vietnam' => 'Vietnam',
                             'Phillipine' => 'Phillipine',

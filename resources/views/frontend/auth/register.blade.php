@@ -85,7 +85,7 @@
                     <div class="rectangle-container">
                         {{ html()->select('country', [
                             'Indonesia' => 'Indonesia',
-                            'Malesiya' => 'Malesiya',
+                            'Malaysia' => 'Malaysia',
                             'Singapore' => 'Singapore',
                             'Vietnam' => 'Vietnam',
                             'Phillipine' => 'Phillipine',

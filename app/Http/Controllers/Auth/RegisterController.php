@@ -88,7 +88,7 @@ class RegisterController extends Controller
             'phone' => ['required', 'numeric', 'digits_between:10,20', 'unique:users'],
             'password_alt' => ['required', 'string', 'min:8', 'confirmed'],
             'country' => ['required', 'string', 'max:191'],
-            'upline' => ['required', 'string', 'max:191'],
+            // 'upline' => ['required', 'string', 'max:191'],
         ]);
     }
 

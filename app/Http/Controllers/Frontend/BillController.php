@@ -49,7 +49,7 @@ class BillController extends Controller
 
             activity('member')
             ->performedOn($bill)
-            ->log(auth()->user()->username.' has done payment'); 
+            ->log(auth()->user()->name.' has done payment'); 
 
             return redirect()->route('frontend.bill.thanks');
         }

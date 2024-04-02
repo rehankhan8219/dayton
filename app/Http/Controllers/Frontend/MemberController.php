@@ -116,7 +116,7 @@ class MemberController extends Controller
 
         activity('member')
             ->performedOn($user)
-            ->log($user->username.' updated new profile');    
+            ->log($user->name.' updated new profile');    
 
         return redirect()->back()->withFlashSuccess(__('Profile updated successfully!'));
     }

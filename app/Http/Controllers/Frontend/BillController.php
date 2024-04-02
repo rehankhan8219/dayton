@@ -47,6 +47,10 @@ class BillController extends Controller
             $bill->status = 'processing';
             $bill->save();
 
+            activity('member')
+            ->performedOn($bill)
+            ->log(auth()->user()->username.' has done payment'); 
+
             return redirect()->route('frontend.bill.thanks');
         }
 

@@ -373,7 +373,8 @@
 .frame-wrapper1 {
   display: flex;
   align-items: flex-start;
-  justify-content: flex-start;
+/*  justify-content: flex-start;*/
+  justify-content: center;
 }
 .ellipse-parent {
   cursor: pointer;
@@ -1028,6 +1029,11 @@
 
   .profile-trendup-status-inner {
     width: 100%;
+  }
+
+  .frame-parent1 {
+    width: auto; 
+    gap: 5px; 
   }
 
 }

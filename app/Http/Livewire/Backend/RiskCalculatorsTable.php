@@ -39,6 +39,7 @@ class RiskCalculatorsTable extends DataTableComponent
                 ->sortable()
                 ->searchable(),
             Column::make("Balance", "balance")
+                ->format(fn($amount) => 'IDR '. formatAmount($amount))
                 ->sortable()
                 ->searchable(),
             Column::make("Explanation", "explanation")

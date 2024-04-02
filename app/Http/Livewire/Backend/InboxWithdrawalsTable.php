@@ -18,7 +18,7 @@ class InboxWithdrawalsTable extends DataTableComponent
                 'readSelected' => 'Read',
             ])
             ->setBulkActionsEnabled()
-            ->setHideBulkActionsWhenEmptyEnabled()
+            // ->setHideBulkActionsWhenEmptyEnabled()
             ->setTrAttributes(function($row, $index) {
                 if ($row->getExtraProperty('is_read') !== true) {
                     return [

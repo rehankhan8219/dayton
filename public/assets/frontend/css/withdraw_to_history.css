@@ -287,6 +287,17 @@
   align-items: center;
   justify-content: flex-start;
 }
+.unpaid {
+  width: 65px;
+  position: relative;
+  font-size: var(--medium-medium-12-size);
+  line-height: 160%;
+  font-weight: 500;
+  color: #ff1100;
+  text-align: right;
+  display: inline-block;
+  min-width: 65px;
+}
 .processing {
   width: 65px;
   position: relative;

@@ -23,7 +23,6 @@ class Bill extends Model
         'start_date',
         'end_date',
         'due_date',
-        'broker_id',
         'amount',
         'details',
         'status',

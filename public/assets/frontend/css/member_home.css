@@ -208,6 +208,28 @@
   justify-content: flex-start;
   gap: var(--gap-9xs);
 }
+.processing-wrapper {
+  cursor: pointer;
+  border: 0;
+  padding: 4px 12px;
+  background-color: orange;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.paid-wrapper {
+  cursor: pointer;
+  border: 0;
+  padding: 4px 12px;
+  background-color: green;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
 .unpaid {
   position: relative;
   font-size: var(--medium-medium-10-size);

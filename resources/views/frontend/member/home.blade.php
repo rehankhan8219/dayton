@@ -102,29 +102,31 @@
                                     Broker Account List
                                 </a>
                             </div>
-                            <div class="frame-wrapper">
-                                <div class="frame-div">
-                                    <div class="payment-status-parent">
-                                        <div class="payment-status">Payment Status</div>
-                                        <img class="info-circle-icon" loading="lazy" alt=""
-                                            src="{{ asset('assets/frontend/img/infocircle.svg') }}" />
+                            @if ($bill)
+                                <div class="frame-wrapper">
+                                    <div class="frame-div">
+                                        <div class="payment-status-parent">
+                                            <div class="payment-status">Payment Status</div>
+                                            <img class="info-circle-icon" loading="lazy" alt=""
+                                                src="{{ asset('assets/frontend/img/infocircle.svg') }}" />
+                                        </div>
+                                        <button class="{{$bill->status}}-wrapper">
+                                            <div class="unpaid">{{ucfirst($bill->status)}}</div>
+                                        </button>
                                     </div>
-                                    <button class="unpaid-wrapper">
-                                        <div class="unpaid">Unpaid</div>
-                                    </button>
                                 </div>
-                            </div>
+                            @endif
                             <div class="bill-parent">
                                 <div class="bill">Bill</div>
                                 <div class="idr-140000000">
                                     <span class="idr">IDR</span>
-                                    <b class="b">{{formatAmount($amount)}}</b>
+                                    <b class="b">{{formatAmount(optional($bill)->amount ?? 0)}}</b>
                                 </div>
                             </div>
                         </div>
                         <div class="moneysend-instance-inner">
                             <div class="frame-parent1">
-                                @if ($amount !== 0)
+                                @if ((optional($bill)->amount ?? 0) !== 0 && $bill->status == 'unpaid')
                                     <a class="money-send-parent" href="{{route('frontend.bill.index')}}">
                                         <img class="money-send-icon" alt=""
                                             src="{{ asset('assets/frontend/img/moneysend.svg') }}" />
@@ -142,7 +144,7 @@
                                         </div>
                                     </button>
                                 </a>
-                                @if ($bill && $amount !== 0)
+                                @if ($bill && ((optional($bill)->amount ?? 0) !== 0))
                                     <div class="frame-wrapper1 dropdown">
                                         <button class="ellipse-parent dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                             <div class="frame-inner"></div>

@@ -18,15 +18,8 @@ class MemberController extends Controller
 {
     public function home()
     {
-        $bill = Bill::whereUserId(auth()->user()->id)->where('status', 'unpaid')->latest()->first();
-        if(! $bill) {
-            $amount = 0;
-        }
-        else {
-            $amount = $bill->amount;
-        }
-
-        return view('frontend.member.home')->withAmount($amount)->withBill($bill);
+        $bill = Bill::whereUserId(auth()->user()->id)->whereNot('status', 'paid')->latest()->first();
+        return view('frontend.member.home')->withBill($bill);
     }
 
     public function payNow()

@@ -51,7 +51,7 @@ class BrokerService extends BaseService
             ]);
         } catch (Exception $e) {
             DB::rollBack();
-
+            dd($e);
             throw new GeneralException(__('There was a problem creating the broker.'));
         }
 

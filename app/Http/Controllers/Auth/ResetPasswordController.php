@@ -57,4 +57,18 @@ class ResetPasswordController extends Controller
     {
         return route(homeRoute());
     }
+
+    /**
+     * Get the password reset validation rules.
+     *
+     * @return array
+     */
+    protected function rules()
+    {
+        return [
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ];
+    }
 }

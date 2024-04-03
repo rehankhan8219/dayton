@@ -114,6 +114,9 @@ trait ApiResponse
             $response['name'] = $user->name;
             $response['email'] = $user->email;
             $response['phone'] = $user->phone;
+            $response['dt_code'] = $user->dt_code;
+            $response['country'] = $user->country;
+            $response['upline'] = $user->upline;
             $response['avatar'] = $user->avatar;
 
             if($generateToken) {

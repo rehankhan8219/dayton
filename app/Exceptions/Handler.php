@@ -63,19 +63,19 @@ class Handler extends ExceptionHandler
         if($request->wantsJson()){
             if($exception instanceof ModelNotFoundException) {
                 $model = explode('\\', $exception->getMessage());
-                return $this->respondWithError(str_replace(']', '', end($model)). ' not found!', 404, 404);
+                return $this->respondWithError(str_replace(']', '', end($model)). ' not found!', 200, 404);
             }
             
             if($exception instanceof AuthenticationException) {
-                return $this->respondWithError($exception->getMessage(), 401, 401);
+                return $this->respondWithError($exception->getMessage(), 200, 401);
             }
             
             if($exception instanceof NotFoundHttpException) {
-                return $this->respondWithError('Api endpoint not found!', 401, 401);
+                return $this->respondWithError('Api endpoint not found!', 200, 401);
             }
             
             if($exception instanceof ValidationException) {
-                return $this->respondWithError(collect($exception->errors())->first(), 422, 422);
+                return $this->respondWithError(collect($exception->errors())->first()[0], 200, 422);
             }
             
             $additional_data = [];

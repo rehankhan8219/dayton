@@ -43,22 +43,32 @@ class AuthController
     {
         try {
             $validator = $this->validateParams($this->request->all(), [
-                'name' => 'required|max:100|string',
-                'phone' => ['required', 'numeric', 'digits:12', Rule::unique('users')],
-                'password' => 'required|min:6',
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'phone' => ['required', 'numeric', 'digits_between:10,20', 'unique:users'],
+                'password_alt' => ['required', 'string', 'min:8'],
+                'country' => ['required', 'string', 'max:191'],
+                'upline' => ['nullable', 'string', 'max:191'],
                 'device_type' => ['sometimes', 'nullable', 'in:android,ios,web'],
                 'device_token' => ['sometimes', 'nullable', 'string'],
             ]);
             
             if($validator->fails()) {
-                throw new GeneralException($validator->errors()->first(), 400);
+                throw new GeneralException($validator->errors()->first(), 200);
             }
 
             // event(new Registered($user = $this->userService->registerUser($validator->valid())));
             $user = $this->userService->registerUser($validator->valid());
 
+            // $user->{'info->device_type'} = $this->request->device_type;
+            // $user->{'info->device_token'} = $this->request->device_token;
+            
+            // if(!$user->wasRecentlyCreated) {
+            //     $user->{'info->is_notification'} = 1;
+            // }
+
             $response = $this->generateLoginResponse($user);
-            return $this->respondWithSuccess('Your account has been created!', 201, $response);
+            return $this->respondWithSuccess('Your account has been created!', 200, $response);
 
         } catch (\Throwable $th) {
             return $this->respondWithError($th->getMessage(), (!empty($th->getCode())? $th->getCode() : 500));
@@ -72,8 +82,8 @@ class AuthController
     {
         try {
             $rules = [
-                'phone' => ['required', 'numeric', 'digits:12', Rule::exists('users')],
-                'password' => 'required',
+                'email' => ['required', 'email', 'max:191', Rule::exists('users')],
+                'password' => ['required'],
                 'device_type' => ['sometimes', 'nullable', 'in:android,ios,web'],
                 'device_token' => ['sometimes', 'nullable', 'string'],
             ];
@@ -83,17 +93,16 @@ class AuthController
             ]);
     
             if ($validator->fails()) {
-                return $this->respondWithError($validator->errors()->first(), 400);
+                return $this->respondWithError($validator->errors()->first(), 200);
             }
             
-            $user = User::where('phone', $this->request->phone)->first();
+            $user = User::where('email', $this->request->email)->first();
             if(!$user || ($user && !\Hash::check($this->request->password, $user->password))) {
-                throw new GeneralException('Invalid phone or password!', 400);
-                // throw new AuthenticationException('Invalid phone or password!');
+                throw new GeneralException('Invalid email or password!', 200);
             }
 
             if (! $user->isActive()) {    
-                throw new GeneralException('Your account has been deactivated. Please contact support for activation.');
+                throw new GeneralException('Your account has been deactivated. Please contact support for activation.', 200);
             }
     
             event(new UserLoggedIn($user));
@@ -175,7 +184,7 @@ class AuthController
     {
         try {
             if(!auth()->user()->tokens()->delete()) {
-                throw new GeneralException('Unable to delete token! Try again later!', 422);
+                throw new GeneralException('Unable to delete token! Try again later!', 200);
             }
             
             return $this->respondWithSuccess('You have been logged out successfully!', 200);

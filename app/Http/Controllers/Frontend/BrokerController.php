@@ -57,6 +57,10 @@ class BrokerController extends Controller
                 'active' => 0,
             ]);
 
+        activity('broker')
+            ->performedOn($broker)
+            ->log(auth()->user()->name.' added a new broker '.$request->broker_id);   
+
 
         return redirect()->route('frontend.broker.index')->withFlashSuccess(__('The broker was successfully created.'));
     }
@@ -93,6 +97,11 @@ class BrokerController extends Controller
                 'lot' => $request->lot,
                 // 'active' => 0,
             ]);
+
+
+        activity('broker')
+            // ->performedOn($broker)
+            ->log(auth()->user()->name.' edited broker '.$request->broker_id);     
 
 
         return redirect()->route('frontend.broker.index')->withFlashSuccess(__('The broker was successfully updated.'));

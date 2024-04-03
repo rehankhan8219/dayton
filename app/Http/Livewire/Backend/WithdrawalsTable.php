@@ -45,7 +45,7 @@ class WithdrawalsTable extends DataTableComponent
                 ->sortable()
                 ->searchable(),
             Column::make("amonut", "amount")
-                ->format(fn($value) => 'IDR '. $value)
+                ->format(fn($value) => 'IDR '. formatAmount($value))
                 ->sortable()
                 ->searchable(),
             Column::make("status", "status")

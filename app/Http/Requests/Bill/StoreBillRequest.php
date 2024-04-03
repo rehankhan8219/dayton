@@ -32,7 +32,6 @@ class StoreBillRequest extends FormRequest
             'end_date' => ['required', 'date_format:Y-m-d', 'after:start_date'],
             'due_date' => ['required', 'date_format:Y-m-d'],
             'user_id' => ['required', 'exists:users,id'],
-            'broker_id' => ['required'],
             'amount' => ['required', 'numeric'],
             'details' => ['sometimes', 'nullable', 'string'],
         ];

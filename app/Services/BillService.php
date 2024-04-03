@@ -37,7 +37,6 @@ class BillService extends BaseService
         try {
             $bill = $this->model::create([
                 'user_id' => $data['user_id'],
-                'broker_id' => $data['broker_id'],
                 'start_date' => $data['start_date'],
                 'end_date' => $data['end_date'],
                 'due_date' => $data['due_date'],
@@ -70,7 +69,6 @@ class BillService extends BaseService
         try {
             $bill->update([
                 'user_id' => $data['user_id'],
-                'broker_id' => $data['broker_id'],
                 'start_date' => $data['start_date'],
                 'end_date' => $data['end_date'],
                 'due_date' => $data['due_date'],

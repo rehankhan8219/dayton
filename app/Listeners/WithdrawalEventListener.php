@@ -17,7 +17,7 @@ class WithdrawalEventListener
     {
         activity('withdrawal')
             ->performedOn($event->withdrawal)
-            ->log('Request to withdraw IDR '.$event->withdrawal->amount);
+            ->log('Request to withdraw IDR '.formatAmount($event->withdrawal->amount));
     }
 
     /**

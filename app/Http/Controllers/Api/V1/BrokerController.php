@@ -75,7 +75,7 @@ class BrokerController
             $validator = $this->validateParams($this->request->all(), $rules);
     
             if ($validator->fails()) {
-                return $this->respondWithError($validator->errors()->first(), 400);
+                return $this->respondWithError($validator->errors()->first(), 200);
             }
 
             $data = $validator->valid();
@@ -109,7 +109,7 @@ class BrokerController
             $validator = $this->validateParams($this->request->all(), $rules);
     
             if ($validator->fails()) {
-                return $this->respondWithError($validator->errors()->first(), 400);
+                return $this->respondWithError($validator->errors()->first(), 200);
             }
 
             $data = $validator->valid();

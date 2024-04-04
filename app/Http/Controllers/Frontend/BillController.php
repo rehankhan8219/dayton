@@ -20,7 +20,7 @@ class BillController extends Controller
             $bank = PayAccount::select('*')->addSelect(\DB::raw('(SELECT SUBSTRING(`dt_code`, 3) from users where users.id = `from_user_id`) as `from_unique_code`, (SELECT SUBSTRING(`dt_code`, 3) from users where users.id = `to_user_id`) as `to_unique_code`'))->havingRaw($uniqueCode.' BETWEEN `from_unique_code` AND `to_unique_code`')->first();
         }
 
-        if(! $bank) {
+        if(empty($bank)) {
             return redirect()->route(homeRoute())->withFlashDanger('Pay now account is not added for you.');
         }
         

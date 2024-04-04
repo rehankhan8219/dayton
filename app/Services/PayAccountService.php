@@ -44,7 +44,7 @@ class PayAccountService extends BaseService
             ]);
         } catch (Exception $e) {
             DB::rollBack();
-dd($e);
+
             throw new GeneralException(__('There was a problem creating the payaccount.'));
         }
 
@@ -67,7 +67,7 @@ dd($e);
 
         try {
             $payaccount->update([
-                'from_user_id' => $data['user_id'],
+                'from_user_id' => $data['from_user_id'],
                 'to_user_id' => $data['to_user_id'],
                 'bank' => $data['bank'],
                 'bank_account' => $data['bank_account'],

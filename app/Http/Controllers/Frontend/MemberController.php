@@ -92,7 +92,7 @@ class MemberController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
-            // 'phone' => ['required', 'numeric', 'digits_between:10,20'],
+            'phone' => ['nullable', 'numeric', 'digits_between:10,20'],
             'password' => ['nullable', 'string', 'min:8'],
             'password_confirmation' => ['nullable', 'string', 'min:8', 'same:password'],
             'country' => ['required', 'string', 'max:191'],

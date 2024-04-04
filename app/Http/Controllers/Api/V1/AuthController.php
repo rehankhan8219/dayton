@@ -138,7 +138,7 @@ class AuthController
             $validator = $this->validateParams($this->request->all(), $rules);
     
             if ($validator->fails()) {
-                return $this->respondWithError($validator->errors()->first(), 400);
+                return $this->respondWithError($validator->errors()->first(), 200);
             }
             
             return $this->respondWithSuccess('Phone exists!', 200);
@@ -162,7 +162,7 @@ class AuthController
             $validator = $this->validateParams($this->request->all(), $rules);
     
             if ($validator->fails()) {
-                return $this->respondWithError($validator->errors()->first(), 400);
+                return $this->respondWithError($validator->errors()->first(), 200);
             }
             
             $user = User::where('phone', $this->request->phone)->first();

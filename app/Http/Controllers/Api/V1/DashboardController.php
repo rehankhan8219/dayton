@@ -33,11 +33,12 @@ class DashboardController
     {
         try {
             $bill = Bill::whereUserId(auth()->user()->id)->whereNot('status', 'paid')->latest()->first();
+            $riskCalculators = RiskCalculator::get();
             
             $response['bill'] = $bill;
-            $response['pairs'] = getUniquePairs();
-            $response['risk_levels'] = getUniqueRiskLevel();
-            $response['lots'] = getUniqueLot();
+            $response['pairs'] = $riskCalculators->unique('pairs')->map->only('id', 'pairs');
+            $response['risk_levels'] = $riskCalculators->unique('risk_level')->map->only('id', 'risk_level');
+            $response['lots'] = $riskCalculators->unique('lot')->map->only('id', 'lot');
 
             return $this->respondWithSuccess('Data returned successfully!', 200, $response);
 

@@ -9,9 +9,19 @@
   <div class="header-nav-text header-career" id="careerText">
     <a href="{{ route('frontend.page.career') }}">Career</a>
   </div>
-  <div class="header-nav-text header-member-area" id="memberAreaText">
-    <a href="{{ route('frontend.auth.login') }}">Member Area</a>
-  </div>
+  @guest
+      <div class="header-nav-text header-member-area" id="memberAreaText">
+          <a href="{{ route('frontend.auth.login') }}">Member Area</a>
+      </div>
+  @else
+      <div class="header-nav-text header-member-area" id="memberAreaText">
+          <a href="{{ route(homeRoute()) }}">Member Area</a>
+      </div>
+      <div class="header-nav-text header-member-area" id="memberAreaText">
+          <a href="{{ route('frontend.auth.logout') }}">Logout</a>
+      </div>
+  @endguest
+
 </nav>
 
 <footer class="footer">

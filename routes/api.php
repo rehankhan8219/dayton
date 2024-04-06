@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\Api\V1\BrokerController;
 use App\Http\Controllers\Api\V1\ContactController;
 use App\Http\Controllers\Api\V1\DashboardController;
+use App\Http\Controllers\Api\V1\CommissionController;
 use App\Http\Controllers\Api\V1\WithdrawalController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 
@@ -85,6 +86,12 @@ Route::group([
             'prefix' => 'user'
         ], function(){
             Route::patch('/update-profile', [UserController::class, 'updateProfile']);
+        });
+        
+        Route::group([
+            'prefix' => 'commission'
+        ], function(){
+            Route::get('/', [CommissionController::class, 'index']);
         });
     });
 });
